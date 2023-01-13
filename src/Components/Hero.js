@@ -8,7 +8,6 @@ function Hero() {
     <header className="hero-section">
         <div className="content" >
             <img src={logoDark} className="logo" alt=""/>
-            {/*  */}
             <p className="sub-heading">4Geeks House of Fashion</p>
         </div>
     </header>
