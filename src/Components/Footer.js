@@ -78,7 +78,7 @@ function Footer() {
     </div>
   </div>
   <div className="copyright text-center">
-    Copyright &copy; 2017 <span>Your Template Name</span>
+    Copyright &copy; 2023 <span>A&M</span>
   </div>
 </footer>
     </>
