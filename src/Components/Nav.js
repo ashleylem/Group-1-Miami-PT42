@@ -3,6 +3,8 @@ import './Nav.css'
 import logoLight from '../Images/logoLight.png'  
 import user from '../Images/user.png'
 import cart from '../Images/cart.png'
+import {Link} from 'react-router-dom';
+
 function Nav() {
   return (
     <>
@@ -18,12 +20,14 @@ function Nav() {
             </div>
         </div>
         <ul class="links-container">
-            <li class="link-item"><a href="#" class="link">home</a></li>
-            <li class="link-item"><a href="#" class="link">women</a></li>
-            <li class="link-item"><a href="#" class="link">men</a></li>
-            <li class="link-item"><a href="#" class="link">kids</a></li>
-            <li class="link-item"><a href="#" class="link">accessories</a></li>
+            <li class="link-item"><Link to="/landing" class="link">home</Link></li>
+            <li class="link-item"><Link to="/women" class="link">women</Link></li>
+            <li class="link-item"><Link to="/men" class="link">men</Link></li>
+            <li class="link-item"><Link to="/kids" class="link">kids</Link></li>
+            <li class="link-item"><Link to="/accessories" class="link">accessories</Link></li>
          </ul>
+
+         {/* added react router based links here */}
     </>
   )
 }
