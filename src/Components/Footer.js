@@ -41,7 +41,7 @@ function Footer() {
           </a>
           <div className="media-body">
             <h4 className="media-heading">Programming</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <p>4GeeksAcademy Best Programers</p>
           </div>
         </div>
         
@@ -51,7 +51,7 @@ function Footer() {
           </a>
           <div className="media-body">
             <h4 className="media-heading">Coding</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <p>Group Project</p>
           </div>
         </div>
         
@@ -60,8 +60,8 @@ function Footer() {
             <img src="http://placehold.it/64x64" alt="" className="media-object" />
           </a>
           <div className="media-body">
-            <h4 className="media-heading">Web Sesign</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <h4 className="media-heading">Web Design</h4>
+            <p>Front End & Back End with JavaScript, React, Python</p>
           </div>
         </div>
         

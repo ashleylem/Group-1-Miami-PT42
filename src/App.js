@@ -1,4 +1,5 @@
 import './App.css';
+import React, {useState} from 'react'
 import Hero from './Components/Hero';
 import Nav from './Components/Nav';
 import Footer from './Components/Footer';
@@ -10,20 +11,27 @@ import Template from './Components/Template';
 import { Women } from './Components/Women';
 import { get_product_list, get_women_bestsellers } from './asosApi';
 import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
+import { Login } from './Components/Login-Register/Login';
+import { Register } from './Components/Login-Register/Register';
+import { Mens} from './Components/Mens/Mens';
 
 function App() {
   // get_women_bestsellers()
+   const [currentForm, setCurrentForm] = useState('login');
+
   return (
     <>
     <Router>
         <Routes>
-          <Route path ="/" element = {<Template />}>
-            <Route path ="/landing" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/>
-            <Route path ="/women" element = {<Women />}/>
-            <Route path ="/kids" element = {<Shoes />}/>
-            <Route path ="/accessories" element = {<Bestsellers />}/>
-            <Route path ="*" element = {<h1>Error</h1>}/>
-          </Route>
+          <Route path ="/" element = {<><Template/><Footer/></>}/>
+          <Route path ="/login" element= {<><Nav/><Login/><Footer/></>}/> 
+          {/* <Route path ="/login" element= {<><Login/> <h1>test</h1></>}/>  */}
+          <Route path ="/landing" element = {<><Template/><Bestsellers /><Collections/><Shirts /><Shoes /><Footer/></>}/>
+          <Route path ="/men" element = {<><Template/><Bestsellers /><Collections/><Shirts /><Shoes /><Footer/></>}/> 
+          <Route path ="/women" element = {<><Template/><Women /><Footer/></>}/>
+          <Route path ="/kids" element = {<><Template/><Shoes /><Footer/></>}/>
+          <Route path ="/accessories" element = {<><Template/><Bestsellers /><Footer/></>}/>
+          <Route path ="*" element = {<h1>Error</h1>}/><Route/>
         </Routes>
       
 

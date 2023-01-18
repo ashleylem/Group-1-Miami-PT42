@@ -14,7 +14,6 @@ function Template() {
       <Nav />
       <Hero />
       <Outlet/>
-      <Footer />
 
   
     </>
