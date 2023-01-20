@@ -46,7 +46,7 @@ const slide = (shift) => {
               <button className="card-btn">add to wishlist</button>
             </div>
             <div className="product-info">
-              <h2 className="product-brand">brand</h2>
+              <h6 className="product-brand">Summer Green Dress</h6>
               <p className="product-short-des">
                 {" "}
                 this design uses sustainable bamboo cotton
@@ -65,7 +65,7 @@ const slide = (shift) => {
               <button className="card-btn">add to wishlist</button>
             </div>
             <div className="product-info">
-              <h2 className="product-brand">brand</h2>
+              <h6 className="product-brand">Basic Tee</h6>
               <p className="product-short-des">
                 {" "}
                 this design uses sustainable bamboo cotton
@@ -84,7 +84,7 @@ const slide = (shift) => {
               <button className="card-btn">add to wishlist</button>
             </div>
             <div className="product-info">
-              <h2 className="product-brand">test-brand</h2>
+              <h6 className="product-brand">Lounge track</h6>
               <p className="product-short-des">
                 {" "}
                 this design uses sustainable bamboo cotton
@@ -103,7 +103,7 @@ const slide = (shift) => {
               <button className="card-btn">add to wishlist</button>
             </div>
             <div className="product-info">
-              <h2 className="product-brand">brand</h2>
+              <h6 className="product-brand">Pink Cocktail dress</h6>
               <p className="product-short-des">
                 {" "}
                 this design uses sustainable bamboo cotton
@@ -122,7 +122,7 @@ const slide = (shift) => {
               <button className="card-btn">add to wishlist</button>
             </div>
             <div className="product-info">
-              <h2 className="product-brand">brand</h2>
+              <h6 className="product-brand">black casual shirt</h6>
               <p className="product-short-des">
                 {" "}
                 this design uses sustainable bamboo cotton
@@ -139,7 +139,7 @@ const slide = (shift) => {
               <button className="card-btn">add to wishlist</button>
             </div>
             <div className="product-info">
-              <h2 className="product-brand">brand</h2>
+              <h6 className="product-brand">black formal shirt</h6>
               <p className="product-short-des">
                 {" "}
                 this design uses sustainable bamboo cotton
@@ -156,7 +156,7 @@ const slide = (shift) => {
               <button className="card-btn">add to wishlist</button>
             </div>
             <div className="product-info">
-              <h2 className="product-brand">brand</h2>
+              <h6 className="product-brand">black suit shirt</h6>
               <p className="product-short-des">
                 {" "}
                 this design uses sustainable bamboo cotton
@@ -173,7 +173,7 @@ const slide = (shift) => {
               <button className="card-btn">add to wishlist</button>
             </div>
             <div className="product-info">
-              <h2 className="product-brand">brand</h2>
+              <h6 className="product-brand">blue formal shirt</h6>
               <p className="product-short-des">
                 {" "}
                 this design uses sustainable bamboo cotton
