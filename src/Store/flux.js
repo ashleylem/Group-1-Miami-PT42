@@ -1,9 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      api: "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io",
       isAuthenticated: false,
       wishlist: [],
+      
     },
     actions: {
       sign_up: async (name, email, password, username) => {
@@ -44,11 +44,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         // save your token in the localStorage
         //also you should set your user into the store using the setStore function
         localStorage.setItem("jwt-token", data.token);
+        localStorage.setItem("user-id", data.userId);
         setStore({isAuthenticated: true})
+        
         return data;
       },
       add_to_wishlist: async (a) => {
         const token = localStorage.getItem('jwt-token')
+       
         const store = getStore();
         const resp = await fetch(
           "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io/wishlist",
@@ -57,11 +60,16 @@ const getState = ({ getStore, getActions, setStore }) => {
             body: JSON.stringify(a),
             headers: {
               "Content-Type": "application/json",
-              "Authorization": 'Bearer'+ token
+              "Authorization": 'Bearer'+ ' ' + token
             },
           }
         );
         const data = await resp.json();
+        setStore(
+          {
+          wishlist: data,
+        })
+        console.log(store)
         return data;
       },
     },
