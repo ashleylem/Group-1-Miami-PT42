@@ -1,10 +1,10 @@
-@import './Nav.css';
-@import './Footer.css';
+@import '../Nav.css';
+@import '../Footer/Footer.css';
 
 .hero-section{
     width: 100%;
     height: calc(100vh - 120px);
-    background-image: url('../Images/header.png');
+    background-image: url('../../Images/header.png');
     background-size: cover;
     display: flex;
     justify-content: center;

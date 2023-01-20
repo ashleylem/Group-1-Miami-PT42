@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "../Hero.css";
+import "../Hero/Hero.css";
 import "./login.css";
 import { useRef } from "react";
 import { Register } from "./Register";

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Hero.css'
+import './Hero/Hero.css'
 import arrow from '../Images/arrow.png'
 import shirt1 from '../Images/shirt1.webp' 
 import shirt2 from '../Images/shirt2.jpg'

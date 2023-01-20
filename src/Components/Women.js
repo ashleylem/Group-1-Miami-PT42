@@ -5,7 +5,7 @@ import { get_wishlist } from "../customApi";
 import { Context } from "../Store/appContext";
 
 export const Women = () => {
-  const {actions}=useContext(Context)
+  const {store, actions}=useContext(Context)
   const [info, setInfo] = useState([]);
   const [wishlist, setWishlist]= useState([]);
  
@@ -50,6 +50,7 @@ export const Women = () => {
             // }
             // else
             let newItem= {
+              userId: localStorage.getItem('user-id'),
               id: item.id,
               name: item.name,
               price: item.price.current.value,
@@ -57,7 +58,6 @@ export const Women = () => {
               picture: item.imageUrl
             }
             actions.add_to_wishlist(newItem)
-            console.log(wishlist)
           }
          
           } className="btn btn-secondary">
