@@ -16,16 +16,24 @@ import { Register } from './Components/Login-Register/Register';
 import { Mens} from './Components/Mens/Mens';
 
 function App() {
-  // get_women_bestsellers()
-   const [currentForm, setCurrentForm] = useState('login');
+   const [currentForm, setCurrentForm] = useState ('login');
 
+   const toggleForm = (formName) => {
+    setCurrentForm(formName);
+   }
+    
   return (
     <>
+     <div>
+      {currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>}
+     </div>
+    
+
     <Router>
         <Routes>
           <Route path ="/" element = {<><Template/><Footer/></>}/>
-          <Route path ="/login" element= {<><Nav/><Login/><Footer/></>}/> 
-          {/* <Route path ="/login" element= {<><Login/> <h1>test</h1></>}/>  */}
+          <Route path ="/login" element={<><Nav/><Login/><Footer/></>} />
+          <Route path = "/register" element={<><Nav/><Register/><Footer/></>}/>
           <Route path ="/landing" element = {<><Template/><Bestsellers /><Collections/><Shirts /><Shoes /><Footer/></>}/>
           <Route path ="/men" element = {<><Template/><Bestsellers /><Collections/><Shirts /><Shoes /><Footer/></>}/> 
           <Route path ="/women" element = {<><Template/><Women /><Footer/></>}/>
@@ -33,8 +41,6 @@ function App() {
           <Route path ="/accessories" element = {<><Template/><Bestsellers /><Footer/></>}/>
           <Route path ="*" element = {<h1>Error</h1>}/><Route/>
         </Routes>
-      
-
     </Router>
     </>
   );

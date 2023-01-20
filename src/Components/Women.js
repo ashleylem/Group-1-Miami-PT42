@@ -26,7 +26,7 @@ export const Women = () => {
           <p className="card-text">
             {item.price.current.text}
           </p>
-          <a href="#" className="btn btn-primary">
+          <a href="/" className="btn btn-primary">
             Go somewhere
           </a>
         </div>
