@@ -11,9 +11,15 @@ import Template from './Components/Template';
 import { Women } from './Components/Women';
 import { get_product_list, get_women_bestsellers } from './asosApi';
 import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
+
+import { Signin } from './Components/Signin';
+import { Signup } from './Components/Signup';
+import injectContext from './Store/appContext';
+
 import { Login } from './Components/Login-Register/Login';
 import { Register } from './Components/Login-Register/Register';
 import { Mens} from './Components/Mens/Mens';
+
 
 function App() {
    const [currentForm, setCurrentForm] = useState ('login');
@@ -31,6 +37,7 @@ function App() {
 
     <Router>
         <Routes>
+
           <Route path ="/" element = {<><Template/><Footer/></>}/>
           <Route path ="/login" element={<><Nav/><Login/><Footer/></>} />
           <Route path = "/register" element={<><Nav/><Register/><Footer/></>}/>
@@ -40,6 +47,7 @@ function App() {
           <Route path ="/kids" element = {<><Template/><Shoes /><Footer/></>}/>
           <Route path ="/accessories" element = {<><Template/><Bestsellers /><Footer/></>}/>
           <Route path ="*" element = {<h1>Error</h1>}/><Route/>
+
         </Routes>
     </Router>
     </>
@@ -47,4 +55,4 @@ function App() {
   
 }
 
-export default App;
+export default injectContext(App);
