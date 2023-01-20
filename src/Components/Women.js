@@ -42,6 +42,7 @@ export const Women = () => {
           <p className="card-text">
             {item.price.current.text}
           </p>
+
           <button onClick={()=>{
             // let newWishlist= [...wishlist]
             // if (newWishlist.includes(item.id)){
@@ -62,6 +63,11 @@ export const Women = () => {
           } className="btn btn-secondary">
             Add to wishlist
           </button>
+
+          <a href="/" className="btn btn-primary">
+            Go somewhere
+          </a>
+
         </div>
       </div>)
         })}</div>

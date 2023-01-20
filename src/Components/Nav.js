@@ -15,7 +15,8 @@ function Nav() {
                     <input type="text" class="search-box" placeholder="search brand, product"/>
                     <button class="search-btn">Search</button>
                 </div>
-                <Link to="/signin"><img src={user}/></Link>
+
+                <a href="/login"><img src={user}/></a>
                 <a href="public/js/cart.html"><img src={cart}/></a>
             </div>
         </div>
