@@ -30,23 +30,24 @@ function App() {
     
   return (
     <>
-     <div>
+     {/* <div>
       {currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>}
-     </div>
+     </div> */}
     
 
     <Router>
         <Routes>
 
-          <Route path ="/" element = {<><Template/><Footer/></>}/>
-          <Route path ="/login" element={<><Nav/><Login/><Footer/></>} />
-          <Route path = "/register" element={<><Nav/><Register/><Footer/></>}/>
-          <Route path ="/landing" element = {<><Template/><Bestsellers /><Collections/><Shirts /><Shoes /><Footer/></>}/>
-          <Route path ="/men" element = {<><Template/><Bestsellers /><Collections/><Shirts /><Shoes /><Footer/></>}/> 
-          <Route path ="/women" element = {<><Template/><Women /><Footer/></>}/>
-          <Route path ="/kids" element = {<><Template/><Shoes /><Footer/></>}/>
-          <Route path ="/accessories" element = {<><Template/><Bestsellers /><Footer/></>}/>
-          <Route path ="*" element = {<h1>Error</h1>}/><Route/>
+        <Route path ="/" element = {<Template />}>
+            <Route path ="login" element={<><Login/></>} />
+            <Route path ="register" element={<><Register /></>}/>
+            <Route path ="landing" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/>
+            <Route path ="men" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/> 
+            <Route path ="women" element = {<><Women /></>}/>
+            <Route path ="kids" element = {<><Shoes /></>}/>
+            <Route path ="accessories" element = {<><Bestsellers /></>}/>
+            <Route path ="*" element = {<h1>Error</h1>}/><Route/>
+          </Route>
 
         </Routes>
     </Router>
