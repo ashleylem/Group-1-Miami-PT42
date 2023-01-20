@@ -1,4 +1,4 @@
-import Hero from './Hero';
+import Hero from './Hero/Hero';
 import Nav from './Nav';
 import Footer from './Footer/Footer';
 import {Outlet} from 'react-router-dom';
