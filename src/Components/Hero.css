@@ -1,5 +1,5 @@
 @import './Nav.css';
-@import './Footer.css';
+@import './Footer/Footer.css';
 
 .hero-section{
     width: 100%;
