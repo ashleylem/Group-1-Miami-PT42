@@ -1,14 +1,14 @@
 import React from "react";
-import "./Hero.css";
-import arrow from "../Images/arrow.png";
-import greenDress from "../Images/greenDress1.webp";
-import product1 from "../Images/product1.png";
-import card3 from "../Images/card3.png";
-import card4 from "../Images/card4.png";
-import card5 from "../Images/card5.png";
-import card6 from "../Images/card6.png";
-import card7 from "../Images/card7.png";
-import card8 from "../Images/card8.png";
+import "../Hero.css";
+import arrow from "../../Images/arrow.png";
+import greenDress from "../../Images/greenDress1.webp";
+import product1 from "../../Images/product1.png";
+import card3 from "../../Images/card3.png";
+import card4 from "../../Images/card4.png";
+import card5 from "../../Images/card5.png";
+import card6 from "../../Images/card6.png";
+import card7 from "../../Images/card7.png";
+import card8 from "../../Images/card8.png";
 import { useRef } from "react";
 
 function Bestsellers() {
