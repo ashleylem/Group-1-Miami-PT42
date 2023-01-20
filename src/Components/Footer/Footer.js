@@ -1,7 +1,7 @@
 import React from 'react'
-import alex from '../Images/alex.png' 
-import ashley from '../Images/ashley.png'
-import minerva from '../Images/minerva.png'  
+import alex from '../../Images/alex.png' 
+import ashley from '../../Images/ashley.png'
+import minerva from '../../Images/minerva.png'  
 import './Footer.css'
 
 function Footer() {
