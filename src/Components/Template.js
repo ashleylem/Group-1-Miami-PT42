@@ -1,5 +1,5 @@
 import Hero from './Hero/Hero';
-import Nav from './Nav';
+import Nav from './Nav/Nav';
 import Footer from './Footer/Footer';
 import {Outlet} from 'react-router-dom';
 import React from 'react'

@@ -6,7 +6,7 @@ import Shirts from './Components/Shirts';
 import Shoes from './Components/Shoes';
 import Collections from './Components/Collections/Collections';
 import Template from './Components/Template';
-import { Women } from './Components/Women';
+import { Women } from './Components/Women/Women';
 import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
 
 

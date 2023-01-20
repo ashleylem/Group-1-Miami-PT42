@@ -1,8 +1,8 @@
 import React from 'react'
 import './Nav.css'
-import logoLight from '../Images/logoLight.png'  
-import user from '../Images/user.png'
-import cart from '../Images/cart.png'
+import logoLight from '../../Images/logoLight.png'  
+import user from '../../Images/user.png'
+import cart from '../../Images/cart.png'
 import {Link} from 'react-router-dom';
 
 function Nav() {
