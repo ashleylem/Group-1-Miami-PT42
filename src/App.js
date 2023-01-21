@@ -10,6 +10,7 @@ import {Women} from './Components/Women/Women';
 import Wishlist from './Components/Wishlist/Wishlist';
 import Cart from './Components/Cart/Cart';
 import Checkout from './Components/Checkout/Checkout';
+import Fulfilment from './Components/Fulfilment';
 import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
 
 
