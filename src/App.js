@@ -16,6 +16,8 @@ import injectContext from './Store/appContext';
 
 import { Login } from './Components/Login-Register/Login';
 import { Register } from './Components/Login-Register/Register';
+import { Signin } from './Components/Signin';
+import { Wishlist } from './Components/WishlistTrial/WishlistTrial';
 
 
 

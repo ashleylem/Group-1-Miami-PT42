@@ -20,6 +20,10 @@ const injectContext = PassedComponent => {
 					})
 			})
 		);
+		
+		// useEffect(()=>{
+		// 	state.actions.delete_item()
+		// },[state.actions])
 
 		useEffect(() => {
 			/**
@@ -28,9 +32,11 @@ const injectContext = PassedComponent => {
 			 * you should do your ajax requests or fetch api requests here. Do not use setState() to save data in the
 			 * store, instead use actions, like this:
 			 **/
-			state.actions.sign_up(); // <---- calling this function from the flux.js actions
-			state.actions.login();
-			state.actions.add_to_wishlist();
+			// state.actions.sign_up(); // <---- calling this function from the flux.js actions
+			// state.actions.login();
+			// state.actions.add_to_wishlist();
+			state.actions.get_user_wishlist();
+			
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

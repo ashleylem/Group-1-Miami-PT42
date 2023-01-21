@@ -1,8 +1,6 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
-import { get_women_bestsellers } from "../../asosApi";
-import { get_wishlist } from "../../customApi";
-import { Context } from "../../Store/appContext";
+import { Context } from "../Store/appContext";
 
 export const Women = () => {
   const {store, actions}=useContext(Context)
@@ -19,12 +17,7 @@ export const Women = () => {
     settingInfo();
   }, []);
 
-  useEffect( ()=>{
-    async function settingWishlist(){
-    let apiWishlist= await get_wishlist();
-    setWishlist(apiWishlist);}
-    settingWishlist()
-  },[])
+  
   
   // useEffect(()=>{
   //   let lastItem= wishlist[wishlist.length-1]
