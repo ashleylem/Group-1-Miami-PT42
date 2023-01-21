@@ -9,6 +9,7 @@ import Template from './Components/Template';
 import {Women} from './Components/Women/Women';
 import Wishlist from './Components/Wishlist/Wishlist';
 import Cart from './Components/Cart/Cart';
+import Checkout from './Components/Checkout/Checkout';
 import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
 
 
@@ -16,8 +17,6 @@ import injectContext from './Store/appContext';
 
 import { Login } from './Components/Login-Register/Login';
 import { Register } from './Components/Login-Register/Register';
-import { Signin } from './Components/Signin';
-import { Wishlist } from './Components/WishlistTrial/WishlistTrial';
 
 
 
@@ -47,7 +46,9 @@ function App() {
             <Route path ="kids" element = {<><Shoes /></>}/>
             <Route path ="accessories" element = {<><Bestsellers /></>}/>
             <Route path ="wishlist" element = {<><Wishlist /></>}/>
-            <Route path ="cart" element = {<><Cart /></>}/>
+            <Route path ="cart" element = {<Cart />}/>
+            <Route path ="checkout" element = {<Checkout />}/>
+            <Route path ="fulfilment" element = {<Fulfilment />}/>
             <Route path ="*" element = {<h1>Error</h1>}/><Route/>
           </Route>
 
