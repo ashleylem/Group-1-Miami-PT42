@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
-import { get_women_bestsellers } from "../asosApi";
 import { Context } from "../Store/appContext";
 
 export const Women = () => {
