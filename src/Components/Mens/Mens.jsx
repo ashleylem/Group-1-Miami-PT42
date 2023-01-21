@@ -1,5 +1,5 @@
 import React from "react";
-import "../Hero.css";
+import "../Hero/Hero.css";
 // import arrow from "../Images/arrow.png";
 // import greenDress from "../Images/greenDress1.webp";
 // import product1 from "../Images/product1.png";
