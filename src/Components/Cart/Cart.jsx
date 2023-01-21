@@ -4,6 +4,7 @@ import "../Wishlist/Wishlist.css";
 import greenDress from "../../Images/greenDress1.webp";
 import shirt1 from "../../Images/shirt1.webp";
 import Shoe from "../../Images/shoe7.webp";
+import {Link} from 'react-router-dom';
 /**
  * This function displays Carts in a table.
  * @param {} none No input parameters 
@@ -73,6 +74,9 @@ function Cart() {
 					        		<td width="15%" className="price">$110.00</td>
 					        		<td width="10%" className="text-center"><a href="#" className="trash-icon"><i className="far fa-trash-alt"></i></a></td>
 					        	</tr>
+								<tr>
+								<td width="15%"><button className="round-black-btn small-btn"><Link to = "/checkout">Checkout</Link></button></td>
+								</tr>
 				        	</tbody>
 				        </table>
 				    </div>
