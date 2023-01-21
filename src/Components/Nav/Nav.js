@@ -3,6 +3,7 @@ import './Nav.css'
 import logoLight from '../../Images/logoLight.png'  
 import user from '../../Images/user.png'
 import cart from '../../Images/cart.png'
+import wishlist from '../../Images/wishlist-icon.png'
 import {Link} from 'react-router-dom';
 
 function Nav() {
@@ -16,8 +17,9 @@ function Nav() {
                     <button class="search-btn">Search</button>
                 </div>
 
-                <a href="/login"><img src={user}/></a>
-                <a href="public/js/cart.html"><img src={cart}/></a>
+                <Link to="/login"><img src={user}/></Link>
+                <Link to="/Cart"><img src={cart}/></Link>
+                <Link to="/Wishlist"><img src={wishlist}/></Link>
             </div>
         </div>
         <ul class="links-container">

@@ -6,7 +6,9 @@ import Shirts from './Components/Shirts';
 import Shoes from './Components/Shoes';
 import Collections from './Components/Collections/Collections';
 import Template from './Components/Template';
-import { Women } from './Components/Women/Women';
+import {Women} from './Components/Women/Women';
+import Wishlist from './Components/Wishlist/Wishlist';
+import Cart from './Components/Cart/Cart';
 import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
 
 
@@ -42,6 +44,8 @@ function App() {
             <Route path ="women" element = {<><Women /></>}/>
             <Route path ="kids" element = {<><Shoes /></>}/>
             <Route path ="accessories" element = {<><Bestsellers /></>}/>
+            <Route path ="wishlist" element = {<><Wishlist /></>}/>
+            <Route path ="cart" element = {<><Cart /></>}/>
             <Route path ="*" element = {<h1>Error</h1>}/><Route/>
           </Route>
 

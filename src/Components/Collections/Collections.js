@@ -3,7 +3,12 @@ import '../Hero/Hero.css'
 import womenCollection from '../../Images/women-collection.png'
 import menCollection from '../../Images/men-collection.png'
 import accessoriesCollection from '../../Images/accessories-collection.png'
-
+/**
+ * This function displays Square cards for product segments right below the Bestsellers section.
+ * It displays static image cards for 3 products segments
+ * @param {} none No input parameters 
+ * @returns {HTML} HTML for best sellers
+ */
 function Collections() {
   return (
     <>

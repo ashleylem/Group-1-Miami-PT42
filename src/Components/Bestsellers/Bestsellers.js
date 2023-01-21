@@ -11,6 +11,14 @@ import card7 from "../../Images/card7.png";
 import card8 from "../../Images/card8.png";
 import { useRef } from "react";
 
+/**
+ * This function displays Bestsellers right below the hero section.
+ * It displays static image cards for 8 products
+ * Use state enables dynamic arrow carousel
+ * @param {} none No input parameters 
+ * @returns {HTML} HTML for best sellers
+ */
+
 function Bestsellers() {
   let scrl = useRef(null);
 
