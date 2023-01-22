@@ -13,11 +13,12 @@ import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
 
 
 import injectContext from './Store/appContext';
+import { ProductDetail } from './Components/ProductDetail/ProductDetail';
 
 import { Login } from './Components/Login-Register/Login';
 import { Register } from './Components/Login-Register/Register';
 import { Signin } from './Components/Signin';
-import { Wishlist } from './Components/WishlistTrial/WishlistTrial';
+
 
 
 
@@ -49,6 +50,8 @@ function App() {
             <Route path ="wishlist" element = {<><Wishlist /></>}/>
             <Route path ="cart" element = {<><Cart /></>}/>
             <Route path ="*" element = {<h1>Error</h1>}/><Route/>
+            <Route path ="signin" element = {<><Signin /></>}/>
+            <Route path="details/:id" element ={<><ProductDetail/></>}></Route>
           </Route>
 
         </Routes>
