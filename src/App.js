@@ -13,7 +13,6 @@ import Checkout from './Components/Checkout/Checkout';
 import Fulfilment from './Components/Fulfilment';
 import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
 
-
 import injectContext from './Store/appContext';
 
 import { Login } from './Components/Login-Register/Login';
