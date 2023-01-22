@@ -27,22 +27,22 @@ export const Women = () => {
             {item.price.current.text}
           </p>
 
-          <button onClick={()=>{
-            // let newWishlist= [...wishlist]
-            // if (newWishlist.includes(item.id)){
-            //   return "Already added"
-            // }
-            // else
-            let newItem= {
-              userId: localStorage.getItem('user-id'),
-              id: item.id,
-              name: item.name,
-              price: item.price.current.value,
-              description:item.name,
-              picture: item.imageUrl
-            }
-            actions.add_to_wishlist(newItem)
-          }
+//           <button onClick={()=>{
+//             // let newWishlist= [...wishlist]
+//             // if (newWishlist.includes(item.id)){
+//             //   return "Already added"
+//             // }
+//             // else
+//             let newItem= {
+//               userId: localStorage.getItem('user-id'),
+//               id: item.id,
+//               name: item.name,
+//               price: item.price.current.value,
+//               description:item.name,
+//               picture: item.imageUrl
+//             }
+//             actions.add_to_wishlist(newItem)
+//           }
          
           } className="btn btn-secondary">
             Add to wishlist
@@ -50,9 +50,9 @@ export const Women = () => {
           <Link to={'details/'+item.id }>More Details</Link>
           
 
-        </div>
-      </div>)
-        })}</div>
-    </div>
-  );
-};
+//         </div>
+//       </div>)
+//         })}</div>
+//     </div>
+//   );
+// };
