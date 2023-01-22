@@ -1,28 +1,19 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
-import { Context } from "../Store/appContext";
+import { Link } from "react-router-dom";
+import { Context } from "../../Store/appContext";
+import { get_women_bestsellers } from "../../asosApi";
 
 export const Women = () => {
-  const {store, actions}=useContext(Context)
+  const {actions}=useContext(Context)
   const [info, setInfo] = useState([]);
-  const [wishlist, setWishlist]= useState([]);
- 
-
-  useEffect(() => {
-    async function settingInfo() {
-      let productInfo = await get_women_bestsellers();
-      setInfo(productInfo);
-      // console.log(productInfo);
+  useEffect(()=>{
+    async function settingInfo(){
+      let newInfo = await get_women_bestsellers()
+      setInfo(newInfo)
     }
-    settingInfo();
-  }, []);
-
-  
-  
-  // useEffect(()=>{
-  //   let lastItem= wishlist[wishlist.length-1]
-  //   add_to_wishlist(lastItem)
-  // },[wishlist])
+    settingInfo()
+  },[])
 
   return (
     <div className="women-container container">
@@ -36,34 +27,32 @@ export const Women = () => {
             {item.price.current.text}
           </p>
 
-          <button onClick={()=>{
-            // let newWishlist= [...wishlist]
-            // if (newWishlist.includes(item.id)){
-            //   return "Already added"
-            // }
-            // else
-            let newItem= {
-              userId: localStorage.getItem('user-id'),
-              id: item.id,
-              name: item.name,
-              price: item.price.current.value,
-              description:item.name,
-              picture: item.imageUrl
-            }
-            actions.add_to_wishlist(newItem)
-          }
+//           <button onClick={()=>{
+//             // let newWishlist= [...wishlist]
+//             // if (newWishlist.includes(item.id)){
+//             //   return "Already added"
+//             // }
+//             // else
+//             let newItem= {
+//               userId: localStorage.getItem('user-id'),
+//               id: item.id,
+//               name: item.name,
+//               price: item.price.current.value,
+//               description:item.name,
+//               picture: item.imageUrl
+//             }
+//             actions.add_to_wishlist(newItem)
+//           }
          
           } className="btn btn-secondary">
             Add to wishlist
           </button>
+          <Link to={'details/'+item.id }>More Details</Link>
+          
 
-          <a href="/" className="btn btn-primary">
-            Go somewhere
-          </a>
-
-        </div>
-      </div>)
-        })}</div>
-    </div>
-  );
-};
+//         </div>
+//       </div>)
+//         })}</div>
+//     </div>
+//   );
+// };
