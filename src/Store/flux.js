@@ -1,6 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store:{
+      isAuthenticated: "false",
       wishlist:[]
     },
     actions: {
@@ -59,9 +60,7 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         );
         const data = await resp.json();
-        setStore({
-          wishlist: data,
-        });
+        setStore({isAuthenticated: true})
         return data;
       },
       get_user_wishlist: async () => {
@@ -81,6 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
         const data = await response.json();
         console.log(data);
+        
         return data;
       },
       delete_item:  (product_id) => {

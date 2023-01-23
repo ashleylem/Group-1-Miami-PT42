@@ -14,7 +14,7 @@ export const ProductDetail = () => {
     }
     settingInfo();
     
-  }),[];
+  },[]);
   console.log(info)
   return (
     <div>
