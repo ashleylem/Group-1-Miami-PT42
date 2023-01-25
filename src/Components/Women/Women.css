@@ -1,0 +1,42 @@
+.detailButton {
+text-decoration: none;
+color: black;
+margin-top:2px;
+}
+
+.button-container{
+    border: none;
+    background-color: none;
+    color: none;
+
+}
+.btn{
+    padding-bottom: none;
+}
+.btn:hover{
+  border: 1px solid;
+  box-shadow: 1px 1px 15px 2px;
+}
+.card{
+    border: none;
+    border-radius:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.wishlistbtn{
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin-top:15px;
+    margin-right:5px;
+}
+.wishlist-text{
+    margin-top: 5px;
+}
+.card-title{
+    text-align: center;
+    font-size: medium;
+}
+.card-img-top{
+    border-radius: 25px;
+    padding-top: 10px;
+}

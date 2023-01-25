@@ -1,13 +1,11 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
-    store: {
-      isAuthenticated: false,
-      wishlist: [],
-      
+    store:{
+      isAuthenticated: "false",
+      wishlist:[]
     },
     actions: {
       sign_up: async (name, email, password, username) => {
-        const store = getStore();
         fetch(
           "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io/signup",
           {
@@ -23,7 +21,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         );
       },
       login: async (username, password) => {
-        const store = getStore();
         const resp = await fetch(
           `https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io/login`,
           {
@@ -33,26 +30,24 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         );
 
-        if (!resp.ok) throw Error("There was a problem in the login request");
+        // if (!resp.ok) {throw Error("There was a problem in the login request")};
 
         if (resp.status === 401) {
-          throw "Invalid credentials";
+          throw Error("Invalid credentials");
         } else if (resp.status === 400) {
-          throw "Invalid email or password format";
+          throw Error("Invalid email or password format");
         }
         const data = await resp.json();
         // save your token in the localStorage
         //also you should set your user into the store using the setStore function
         localStorage.setItem("jwt-token", data.token);
         localStorage.setItem("user-id", data.userId);
-        setStore({isAuthenticated: true})
-        
+        setStore({ isAuthenticated: true });
+
         return data;
       },
       add_to_wishlist: async (a) => {
-        const token = localStorage.getItem('jwt-token')
-       
-        const store = getStore();
+        const token = localStorage.getItem("jwt-token");
         const resp = await fetch(
           "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io/wishlist",
           {
@@ -60,20 +55,60 @@ const getState = ({ getStore, getActions, setStore }) => {
             body: JSON.stringify(a),
             headers: {
               "Content-Type": "application/json",
-              "Authorization": 'Bearer'+ ' ' + token
+              Authorization: "Bearer " + token,
             },
           }
         );
         const data = await resp.json();
-        setStore(
-          {
-          wishlist: data,
-        })
-        console.log(store)
+        setStore({isAuthenticated: true})
         return data;
       },
+      get_user_wishlist: async () => {
+        const token = localStorage.getItem("jwt-token");
+        const userId = localStorage.getItem("user-id");
+        const response = await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io/wishlist/" +
+            userId,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        );
+        const data = await response.json();
+        console.log(data);
+        
+        return data;
+      },
+      delete_item:  (product_id) => {
+        const token = localStorage.getItem("jwt-token");
+        const userId = localStorage.getItem("user-id");
+        const store= getStore()
+        const response =  fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io/wishlist/" +
+            userId +
+            "/" +
+             product_id ,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
+        );
+        const deleteItem = store.wishlist.filter((item)=>item.product_id !== product_id);
+        setStore({wishlist: deleteItem})
+        console.log("click")
+        window.location.reload()
+        return response
+
+      },
     },
-    
   };
 };
 
