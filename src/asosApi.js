@@ -1,4 +1,6 @@
 import { json } from "react-router-dom";
+import axios from "axios";
+
 
 const options = {
   method: "GET",
@@ -9,21 +11,18 @@ const options = {
   },
 };
 
-async function get_product_list() {
+async function get_women_categories() {
   const res = await fetch(
     "https://asos2.p.rapidapi.com/categories/list?country=US&lang=en-US",
     options
   );
   const data = await res.json();
 
-  return data;
+  return data.navigation[1].children[4].children[3].children[1].children;
 }
 
-async function get_women_bestsellers() {
- const res=await fetch('https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=16661&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US', options)
-const data= await res.json()
-return data.products
-}
+
+
 async function get_product_details(id) {
   const res = await fetch(
     "https://asos2.p.rapidapi.com/products/v3/detail?id=" +
@@ -32,8 +31,11 @@ async function get_product_details(id) {
     options
   )
   const data = await res.json();
-  console.log(data);
+  // console.log(data);
   return data;
 }
 
-export { get_product_list, get_women_bestsellers, get_product_details };
+
+
+
+export { get_women_categories, get_product_details,  };

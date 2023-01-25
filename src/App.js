@@ -6,7 +6,7 @@ import Shirts from './Components/Shirts';
 import Shoes from './Components/Shoes';
 import Collections from './Components/Collections/Collections';
 import Template from './Components/Template';
-import {Women} from './Components/Women/Women';
+import {ProductDisplay} from './Components/ProductDisplay/ProductDisplay';
 import Wishlist from './Components/Wishlist/Wishlist';
 import Cart from './Components/Cart/Cart';
 import Checkout from './Components/Checkout/Checkout';
@@ -19,7 +19,10 @@ import { ProductDetail } from './Components/ProductDetail/ProductDetail';
 import { Login } from './Components/Login-Register/Login';
 import { Register } from './Components/Login-Register/Register';
 import { Signin } from './Components/Signin';
-
+import { get_product_details } from './asosApi';
+import { sort_items } from './asosApi';
+import { Women } from './Components/Womens/Womens';
+import { Profile } from './Components/Profile/Profile';
 
 
 
@@ -35,7 +38,6 @@ function App() {
      {/* <div>
       {currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>}
      </div> */}
-    
 
     <Router>
         <Routes>
@@ -45,16 +47,18 @@ function App() {
             <Route path ="register" element={<><Register /></>}/>
             <Route path ="landing" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/>
             <Route path ="men" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/> 
-            <Route path ="women" element = {<><Women /></>}/>
+            <Route path ="display/:id" element = {<><ProductDisplay /></>}/>
             <Route path ="kids" element = {<><Shoes /></>}/>
             <Route path ="accessories" element = {<><Bestsellers /></>}/>
             <Route path ="wishlist" element = {<><Wishlist /></>}/>
             <Route path ="cart" element = {<Cart />}/>
             <Route path ="checkout" element = {<Checkout />}/>
+            <Route path ="women" element = {<Women />}/>
             <Route path ="fulfilment" element = {<Fulfilment />}/>
             <Route path ="*" element = {<h1>Error</h1>}/><Route/>
             <Route path ="signin" element = {<><Signin /></>}/>
-            <Route path="details/:id" element ={<><ProductDetail/></>}></Route>
+            <Route path="/details/:id" element = {<><ProductDetail/></>}/>
+            <Route path="profile" element={<Profile />}/>
           </Route>
 
         </Routes>
