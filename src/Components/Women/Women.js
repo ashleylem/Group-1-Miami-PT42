@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Context } from "../../Store/appContext";
 import { get_women_bestsellers } from "../../asosApi";
-import "/workspace/Group-1-Miami-PT42/src/Components/Women/Women.css";
+import "./Women.css"
 import wishlist from "../../Images/wishlist-icon.png";
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+// import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 
 export const Women = () => {
   const { store, actions } = useContext(Context);
@@ -60,10 +60,10 @@ export const Women = () => {
                     }}
                     className=" col btn button-container"
                   >
-                    <FontAwesomeIcon
+                    {/* <FontAwesomeIcon
                       className="wishlistbtn"
                       icon={faBookmark}
-                    />
+                    /> */}
                     <p className="wishlist-text">Add to wishlist</p>
                   </button>
                   <Link

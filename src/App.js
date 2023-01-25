@@ -16,9 +16,12 @@ import {BrowserRouter as Router, Route, Routes,Link} from 'react-router-dom';
 import injectContext from './Store/appContext';
 import { ProductDetail } from './Components/ProductDetail/ProductDetail';
 
-import { Login } from './Components/Login-Register/Login';
-import { Register } from './Components/Login-Register/Register';
-import { Signin } from './Components/Signin';
+// import { Login } from './Components/Login-Register/Login';
+// import { Register } from './Components/Login-Register/Register';
+import { Signin } from './Components/Login-Register/Signin';
+import { Signup } from './Components/Login-Register/Signup'
+import { Video } from './Components/VideoPage/video';
+import Nav from './Components/Nav/Nav'
 
 
 
@@ -41,8 +44,6 @@ function App() {
         <Routes>
 
         <Route path ="/" element = {<Template />}>
-            <Route path ="login" element={<><Login/></>} />
-            <Route path ="register" element={<><Register /></>}/>
             <Route path ="landing" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/>
             <Route path ="men" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/> 
             <Route path ="women" element = {<><Women /></>}/>
@@ -53,9 +54,12 @@ function App() {
             <Route path ="checkout" element = {<Checkout />}/>
             <Route path ="fulfilment" element = {<Fulfilment />}/>
             <Route path ="*" element = {<h1>Error</h1>}/><Route/>
-            <Route path ="signin" element = {<><Signin /></>}/>
+            
+            <Route path ="video" element = {<><Video/></>}/>
             <Route path="details/:id" element ={<><ProductDetail/></>}></Route>
           </Route>
+          <Route path ="/signin" element = {<><Nav/><Signin /></>}/>
+          <Route path ="/signup" element = {<><Nav/><Signup /></>}/>
 
         </Routes>
     </Router>
