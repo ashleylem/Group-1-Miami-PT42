@@ -28,6 +28,7 @@ function Nav() {
             <li class="link-item"><Link to="/men" class="link">men</Link></li>
             <li class="link-item"><Link to="/kids" class="link">kids</Link></li>
             <li class="link-item"><Link to="/accessories" class="link">accessories</Link></li>
+            <li class="link-item"><Link to="/video" class="link">Video Review</Link> </li>
          </ul>
 
          {/* added react router based links here */}
