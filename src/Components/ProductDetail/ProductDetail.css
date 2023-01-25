@@ -1,0 +1,45 @@
+div.description{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: black;
+    text-emphasis-style: none;
+}
+.carousel{
+    border: none;
+    border-radius: 5%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 70vh;
+    margin-right: 3rem;
+    margin-top:3rem ;
+}
+#detail-card{
+    width:55vw;
+    margin: auto;
+    margin-top:3rem;
+    margin-bottom: 3rem;
+}
+.carousel-img{
+    display: block;
+      padding:1rem 0.25rem 0.25rem;
+      border-radius: 5%;
+      width: 100%;
+      height:100%;
+}
+div.button-container button:hover{
+    border: 1px solid;
+    box-shadow: 1px 1px 15px 2px;
+
+}
+
+button.btn> p {
+    text-align: center;
+}
+.wishlist-i, .cart-i{
+    float: left;
+    font-size: 1.5rem;
+    margin: auto;
+    padding-top: 0.5rem;
+    padding-left: 2rem;
+
+}
