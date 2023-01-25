@@ -17,7 +17,7 @@ function Nav() {
                     <button class="search-btn">Search</button>
                 </div>
 
-                <Link to="/login"><img src={user}/></Link>
+                <Link to="./signin"><img src={user}/></Link>
                 <Link to="/Cart"><img src={cart}/></Link>
                 <Link to="/Wishlist"><img src={wishlist}/></Link>
             </div>
