@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import "./register.css"
+import {Link} from "react-router-dom"
 
 export const Register = (props) =>{
     const [email, setEmail] = useState('');
@@ -32,7 +33,10 @@ export const Register = (props) =>{
                             <input placeholder = " *********"></input>
                         </div>
                         <button className="signUpButton2"> Sign Up</button>
-                        <button onClick={() => props.onFormSwitch('login')} className="logInButton2">Already have an account? Login here!</button>
+                        {/* <button onClick={() => props.onFormSwitch('login')} className="logInButton2">Already have an account? Login here!</button> */}
+                        <Link to="/Login">
+                             <button className="logInButton2"> Already have an account? Login here! </button>
+                         </Link>
                     </form>
                 </div>
             </div> 
