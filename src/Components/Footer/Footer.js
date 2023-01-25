@@ -61,7 +61,7 @@ function Footer() {
           </a>
           <div className="media-body">
             <h4 className="media-heading">Web Design</h4>
-            <p>Front End & Back End with JavaScript, React, Python</p>
+            <p>Front End & Back End with JavaScript, React, Python, Postman, Trello, </p>
           </div>
         </div>
         

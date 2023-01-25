@@ -1,7 +1,7 @@
 import React from "react";
 import "../Hero/Hero.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./Wishlist.css";
 import greenDress from "../../Images/greenDress1.webp";
 import shirt1 from "../../Images/shirt1.webp";
@@ -69,8 +69,8 @@ function Wishlist() {
                         <td width="10%" className="text-center">
                           <button
                             onClick={() => actions.delete_item(item.product_id)}
-                            className="trash-icon"
-                          ><FontAwesomeIcon icon={faTrash} />
+                            className="trash-icon">
+                          {/* <FontAwesomeIcon icon={faTrash} /> */}
                           </button>
                         </td>
                       </tr>
