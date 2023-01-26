@@ -99,3 +99,20 @@
 .link:hover{
     opacity: 1;
 }
+.login, .cart, .bookmark{
+    padding:10px 5px;
+    margin-top: 10px;
+}
+.login, .cart, .bookmark{
+    color:black;
+    width: 25px;
+height: 25px;
+}
+.login:hover, .cart:hover, .bookmark:hover{
+    border: none;
+    border-radius: 25%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.dropdown-menu{
+   width: 75vh;
+}

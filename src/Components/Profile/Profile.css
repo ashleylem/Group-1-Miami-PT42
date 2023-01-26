@@ -1,0 +1,9 @@
+.previews-container{
+    height: 25rem;
+    padding: 1rem
+}
+.modal-img-button{
+    height: 100%;
+    width: 40%;
+    padding: 1rem;
+}

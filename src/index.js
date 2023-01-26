@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import "bootstrap/dist/js/bootstrap.bundle.min"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // --------------------this is how bootstrap is added---------------------
 
 import './index.css';

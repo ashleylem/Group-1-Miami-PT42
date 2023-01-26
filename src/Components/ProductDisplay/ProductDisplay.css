@@ -10,9 +10,7 @@ margin-top:2px;
     color: none;
 
 }
-.btn{
-    padding-bottom: none;
-}
+
 .btn:hover{
   border: 1px solid;
   box-shadow: 1px 1px 15px 2px;
@@ -25,9 +23,9 @@ margin-top:2px;
 .wishlistbtn{
     float: left;
     width: 25px;
-    height: 25px;
+    height: 30px;
     margin-top:15px;
-    margin-right:5px;
+    margin-right:0.25rem;
 }
 .wishlist-text{
     margin-top: 5px;
@@ -37,6 +35,30 @@ margin-top:2px;
     font-size: medium;
 }
 .card-img-top{
-    border-radius: 25px;
+    border-radius: 15px;
     padding-top: 10px;
+}
+.filter{
+    height: 100px;
+}
+div.row-contents button{
+    border: none;
+    background-color: none;
+}
+.cart-icon{
+    float:left;
+margin:10px;
+height: 25px;
+width: 25px;
+}
+.card-text{
+    margin-top: 20px;
+    font-size: medium;
+}
+.filters-container{
+    border: none;
+    border-radius:5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   position: sticky;
+   top:3rem;
 }
