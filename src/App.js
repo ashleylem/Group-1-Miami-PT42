@@ -43,26 +43,21 @@ function App() {
       {currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>}
      </div> */}
 
-    <Router>
-
-
       <Router>
         <Routes>
-
-        <Route path ="/" element = {<Template />}>
-            <Route path ="landing" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/>
-            <Route path ="men" element = {<><Bestsellers /><Collections/><Shirts /><Shoes /></>}/> 
-            <Route path ="display/:id" element = {<><ProductDisplay /></>}/>
-            <Route path ="kids" element = {<><Shoes /></>}/>
-            <Route path ="accessories" element = {<><Bestsellers /></>}/>
-            <Route path ="wishlist" element = {<><Wishlist /></>}/>
-            <Route path ="cart" element = {<Cart />}/>
-            <Route path ="checkout" element = {<Checkout />}/>
-            <Route path ="women" element = {<Women />}/>
-            <Route path ="fulfilment" element = {<Fulfilment />}/>
-            <Route path ="*" element = {<h1>Error</h1>}/><Route/>
-            <Route path ="signin" element = {<><Signin /></>}/>
-            <Route path="details/:id" element ={<><ProductDetail/></>}></Route>
+          <Route path="/" element={<Template />}>
+            <Route path="landing" element={<><Bestsellers /><Collections /><Shirts /><Shoes /></>} />
+            <Route path="men" element={<><Bestsellers /><Collections /><Shirts /><Shoes /></>} />
+            <Route path="women" element={<Women />} />
+            <Route path="kids" element={<><Shoes /></>} />
+            <Route path="accessories" element={<><Bestsellers /></>} />
+            <Route path="wishlist" element={<><Wishlist /></>} />
+            <Route path="cart" element={<Cart />} />
+            <Route path="checkout" element={<Checkout />} />
+            <Route path="*" element={<h1>Error</h1>} /><Route />
+            <Route path="fulfilment" element={<Fulfilment />} />
+            <Route path="display/:id" element={<><ProductDisplay /></>} />
+            <Route path="details/:id" element={<><ProductDetail /></>}></Route>
           </Route>
           <Route path="/signin" element={<><Nav /><Signin /><Footer /></>} />
           <Route path="/signup" element={<><Nav /><Signup /><Footer /></>} />
