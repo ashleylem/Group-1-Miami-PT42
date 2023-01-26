@@ -57,10 +57,11 @@ function App() {
             <Route path ="women" element = {<Women />}/>
             <Route path ="fulfilment" element = {<Fulfilment />}/>
             <Route path ="*" element = {<h1>Error</h1>}/><Route/>
-            <Route path ="signin" element = {<><Signin /></>}/>
+            <Route path="profile" element= {<Profile/>}/>
+            
             <Route path="details/:id" element ={<><ProductDetail/></>}></Route>
           </Route>
-          <Route path ="/signin" element = {<><Nav/><Signin /></>}/>
+          <Route path ="/login" element = {<><Nav/><Login /></>}/>
           <Route path ="/signup" element = {<><Nav/><Signup /></>}/>
 
         </Routes>
