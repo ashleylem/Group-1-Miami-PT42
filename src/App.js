@@ -58,10 +58,11 @@ function App() {
             <Route path="fulfilment" element={<Fulfilment />} />
             <Route path="display/:id" element={<><ProductDisplay /></>} />
             <Route path="details/:id" element={<><ProductDetail /></>}></Route>
+            <Route path='profile' element={<Profile/>}/>
           </Route>
-          <Route path="/signin" element={<><Nav /><Signin /><Footer /></>} />
-          <Route path="/signup" element={<><Nav /><Signup /><Footer /></>} />
-          <Route path="video" element={<><Nav /><Video /><Footer /></>} />
+          <Route path ="/signin" element = {<><Nav/><Signin /></>}/>
+          <Route path ="/signup" element = {<><Nav/><Signup /></>}/>
+
         </Routes>
       </Router>
     </>

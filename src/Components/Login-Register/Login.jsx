@@ -10,14 +10,14 @@
 // //     const{actions}=useContext(Context)
 // //       const [username, setUsername]=useState()
 // //       const [password, setPassword]=useState()
-  
+
 // //       const onSubmitClick=()=>{
 // //         actions.login(username, password)
 // //       }
 // //           const handleSubmit = (e) => {
 // //         e.preventDefault();
 // //         console.log(email);}
-  
+
 // export const Login=(props)=> {
 //     const [email, setEmail] = useState('');
 //     const [pass, setPass] = useState('');
@@ -36,7 +36,7 @@
 //                         </div>
 //                         <div className="container-username">
 //                             <label htmlFor="username" type="username" value={username} onChange={(e) => setUsername(e.target.value)} className='username'> Username :</label>
-//                         <input className= 'usernamePlaceHolder'placeholder=" Your Username"></input>
+//                         <input className= 'usernamePlaceHolder' placeholder=" Your Username"></input>
 //                         </div>
 //                         <div className="container-password">
 //                             <label htmlFor="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="password"> Password :</label>
@@ -46,14 +46,12 @@
 //             setPassword(event.target.value)
 //           }} onClick={onSubmitClick} className="logInButton"> Log In</button>
 //                         {/* <button onClick={() => props.onFormSwitch('register')} className="signUpButton">Don't have an account? Sign up here!</button> */}
-                        
-                            
+
 //                          <Link to="/Register">
 //                              <button className="signUpButton"> Don't have an account? Sign up here! </button>
 //                          </Link>
 //                     </form>
 //                 </div>
-//             </div> 
+//             </div>
 //    </>)
 // }
-

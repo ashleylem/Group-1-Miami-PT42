@@ -1,6 +1,8 @@
 import React from 'react'
 import "./Checkout.css";
 import {Link} from 'react-router-dom';
+import { useEffect, useState, useContext } from 'react';
+import { Context } from '../../Store/appContext';
 
 /**
  * This function displays Square cards for product segments right below the Bestsellers section.
@@ -10,6 +12,18 @@ import {Link} from 'react-router-dom';
  */
 
 function Checkout() {
+  const {actions}=useContext(Context)
+//   const [cart, setCart]=useState()
+
+// useEffect(()=>{
+// async function settingCart(){
+//   let newCart= await actions.get_user_cart()
+//   setCart(newCart)
+// }
+// settingCart()
+// },[cart])
+
+
     return (
     <>
     <div className="align-center1">
@@ -63,7 +77,14 @@ function Checkout() {
       <input id="cvc" type="text" size="5" placeholder="123" required/>
       </div>
         
-      <button className="buy-button"> <Link to = "/fulfilment">Complete Purchase</Link></button>
+      <button 
+      onClick={async()=>{
+        let newCart= await actions.get_user_cart()
+        console.log(newCart)
+        actions.add_to_purchases(newCart)
+        actions.clear_cart() 
+      }}
+      className="buy-button"> <Link to = "/fulfilment">Complete Purchase</Link></button>
       </div>
     </form>
     

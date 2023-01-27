@@ -26,16 +26,14 @@ export const Signin = () => {
         <div className="sub-main">
           <form className="form" onSubmit={handleSubmit}>
             <div className="container-username">
-              <label htmlFor="username" type="username" value={username} onChange={(e) => setUsername(e.target.value)} className='username'> Username :</label>
-              <input className='usernamePlaceHolder' placeholder=" Your Username"></input>
+              <label htmlFor="username" type="username" value={username}  className='username'> Username :</label>
+              <input onChange={(e) => setUsername(e.target.value)} type="text" className='usernamePlaceHolder' placeholder=" Your Username"></input>
             </div>
             <div className="container-password">
-              <label htmlFor="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="password"> Password :</label>
-              <input placeholder=" *********"></input>
+              <label htmlFor="password" type="password" value={password}  className="password"> Password :</label>
+              <input onChange={(e) => setPassword(e.target.value)} type="text" placeholder=" *********"></input>
             </div>
-            <button type="submit" onChange={(event) => {
-              setPassword(event.target.value)
-            }} className="logInButton" onClick={onSubmitClick} >Login</button>
+            <button type="submit" className="logInButton" onClick={onSubmitClick} >Login</button>
             <Link to="/Signup">
               <button className="signUpButton"> Don't have an account? Sign up here! </button>
             </Link>
