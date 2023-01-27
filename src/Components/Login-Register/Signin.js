@@ -2,23 +2,20 @@ import React from "react";
 import { useState, useContext } from "react";
 import { Context } from "../../Store/appContext";
 import { Link } from "react-router-dom";
-import "./login.css"
+import "./login.css";
 
 export const Signin = () => {
-  const { actions } = useContext(Context)
-  const [username, setUsername] = useState()
-  const [password, setPassword] = useState()
+  const { actions } = useContext(Context);
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
 
   const onSubmitClick = () => {
-    actions.login(username, password)
-
-  }
+    actions.login(username, password);
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(username);
-  }
-
-
+  };
 
   return (
     <div>
@@ -26,20 +23,53 @@ export const Signin = () => {
         <div className="sub-main">
           <form className="form" onSubmit={handleSubmit}>
             <div className="container-username">
-              <label htmlFor="username" type="username" value={username}  className='username'> Username :</label>
-              <input onChange={(e) => setUsername(e.target.value)} type="text" className='usernamePlaceHolder' placeholder=" Your Username"></input>
+              <label
+                className="username"
+              >
+                {" "}
+                Username :
+              </label>
+              <div className="input-container">
+                <input 
+                value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  type="text"
+                  className="usernamePlaceHolder"
+                  placeholder=" Your Username"
+                ></input>
+              </div>
             </div>
             <div className="container-password">
-              <label htmlFor="password" type="password" value={password}  className="password"> Password :</label>
-              <input onChange={(e) => setPassword(e.target.value)} type="text" placeholder=" *********"></input>
+              <label
+                className="password"
+              >
+                {" "}
+                Password :
+              </label>
+              <div className="input-container">
+                <input value={password}
+                type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder=" *********"
+                ></input>
+              </div>
             </div>
-            <button type="submit" className="logInButton" onClick={onSubmitClick} >Login</button>
+            <button
+              type="submit"
+              className="logInButton"
+              onClick={onSubmitClick}
+            >
+              Login
+            </button>
             <Link to="/Signup">
-              <button className="signUpButton"> Don't have an account? Sign up here! </button>
+              <button className="signUpButton">
+                {" "}
+                Don't have an account? Sign up here!{" "}
+              </button>
             </Link>
           </form>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 };

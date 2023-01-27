@@ -81,8 +81,13 @@ function Checkout() {
       onClick={async()=>{
         let newCart= await actions.get_user_cart()
         console.log(newCart)
-        actions.add_to_purchases(newCart)
+        newCart.map((item)=>{
+        actions.add_to_purchases(item)
+        console.log("added successfully")
+        })
+      
         actions.clear_cart() 
+        console.log("clear")
       }}
       className="buy-button"> <Link to = "/fulfilment">Complete Purchase</Link></button>
       </div>
