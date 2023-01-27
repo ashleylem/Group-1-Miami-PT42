@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { Context } from "../../Store/appContext";
 export const ProductDetail = () => {
   const { id } = useParams();
-  const{actions, state}=useParams(Context)
+  const{actions, store}=useParams(Context)
   const [info, setInfo] = useState();
 
   useEffect(() => {

@@ -24,7 +24,7 @@ function Nav() {
   return (
     <>
       <div className="nav">
-        <Link to="landing"><img src={logo} className="brand-logo" alt="" /></Link>
+        <Link to="/landing"><img src={logo} className="brand-logo" alt="" /></Link>
         
         <div className="nav-items">
           <div className="search">
@@ -36,7 +36,7 @@ function Nav() {
             <button className="search-btn">Search</button>
           </div>
 
-          <Link to="/login">
+          <Link to="/signin">
             <FontAwesomeIcon className="login" icon={faUserCircle} />
           </Link>
           <Link to="/Cart">

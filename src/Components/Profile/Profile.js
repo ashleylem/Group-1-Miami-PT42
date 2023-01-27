@@ -9,6 +9,7 @@ export const Profile = () => {
   const [purchases, setPurchases] = useState();
   const [productId, setProductId] = useState();
   const { actions } = useContext(Context);
+  const [form, setForm]=useState()
 
   useEffect(() => {
     async function settingPurchases() {
@@ -19,14 +20,12 @@ export const Profile = () => {
     settingPurchases();
   }, []);
 
-  const settingFormData = () => {
+   useEffect (() => {
     const data = new FormData(formRef);
     data.append("user_id", localStorage.getItem("user-id"));
     data.append("product_id", productId);
-  };
-  useEffect(() => {
-    actions.add_review(FormData);
-  }, [settingFormData]);
+    // actions.add_review(FormData)
+  }, [form])
 
   const formRef = useRef();
   return (
@@ -59,7 +58,7 @@ export const Profile = () => {
                 <div className="modal-header">
                   <h5 className="modal-title">Upload a New Review</h5>
                   <div className="modal-body">
-                    <form id="uploadVideo" ref={formRef}>
+                    <form encType="multipart/form-data" id="uploadVideo" ref={formRef}>
                       <label>
                         Choose item:
                         <select
@@ -70,7 +69,7 @@ export const Profile = () => {
                             setProductId(e.target.value);
                           }}
                         >
-                          <option value={productId}>Select:</option>
+                          
                           {purchases?.map((item, index) => {
                             return (
                               <option value={item.product_id}>
@@ -91,7 +90,7 @@ export const Profile = () => {
                       <input
                         className="form-control"
                         id="video"
-                        name="file"
+                        name="filename"
                         type="file"
                         placeholder="Upload file"
                         required
@@ -105,7 +104,7 @@ export const Profile = () => {
                         required
                       />
                       <button
-                        onSubmit={settingFormData}
+                        onClick={()=> setForm("sent")}
                         className="btn btn-primary"
                       >
                         Submit
