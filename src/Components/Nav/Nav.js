@@ -94,6 +94,7 @@ function Nav() {
             accessories
           </Link>
         </li>
+            <li class="link-item"><Link to="/video" class="link">Video Review</Link> </li>
       </ul>
 
       {/* added react router based links here */}
