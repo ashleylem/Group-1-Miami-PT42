@@ -9,7 +9,6 @@ export const Profile = () => {
   const [purchases, setPurchases] = useState();
   const [productId, setProductId] = useState();
   const { actions } = useContext(Context);
-  const [form, setForm]=useState()
 
   useEffect(() => {
     async function settingPurchases() {
@@ -20,13 +19,18 @@ export const Profile = () => {
     settingPurchases();
   }, []);
 
-   useEffect (() => {
-    const data = new FormData(formRef);
-    data.append("user_id", localStorage.getItem("user-id"));
-    data.append("product_id", productId);
-    // actions.add_review(FormData)
-  }, [form])
 
+  
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(formRef.current);
+    console.log("form")
+    // data.append("productId", productId)
+    data.append("userId", localStorage.getItem("user-id"))
+    console.log(data.get('userId'))
+    actions.add_review(data)
+  };
   const formRef = useRef();
   return (
     <div className="profile-container d-flex flex-row container-fluid">
@@ -58,18 +62,23 @@ export const Profile = () => {
                 <div className="modal-header">
                   <h5 className="modal-title">Upload a New Review</h5>
                   <div className="modal-body">
-                    <form encType="multipart/form-data" id="uploadVideo" ref={formRef}>
+                    <form
+                      onSubmit={handleSubmit}
+                      ref={formRef}
+                      >
+                    
                       <label>
                         Choose item:
                         <select
                           className="form-select"
                           name="product_id"
-                          value={productId}
-                          onChange={(e) => {
-                            setProductId(e.target.value);
-                          }}
+                          id="product_id"
+            
+                          // value={productId}
+                          // onChange={(e) => {
+                          //   setProductId( e.target.value);
+                          // }}
                         >
-                          
                           {purchases?.map((item, index) => {
                             return (
                               <option value={item.product_id}>
@@ -89,8 +98,8 @@ export const Profile = () => {
                       />
                       <input
                         className="form-control"
-                        id="video"
-                        name="filename"
+                        id="file"
+                        name="file"
                         type="file"
                         placeholder="Upload file"
                         required
@@ -103,12 +112,8 @@ export const Profile = () => {
                         placeholder="Add a description"
                         required
                       />
-                      <button
-                        onClick={()=> setForm("sent")}
-                        className="btn btn-primary"
-                      >
-                        Submit
-                      </button>
+                      <input type="submit" value="Submit" />
+                      Submit
                     </form>
                   </div>
                 </div>
