@@ -49,7 +49,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       add_to_wishlist: async (a) => {
         const token = localStorage.getItem("jwt-token");
         const resp = await fetch(
-          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io/wishlist",
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us84.gitpod.io/wishlist",
           {
             method: "POST",
             body: JSON.stringify(a),
@@ -185,21 +185,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         return response;
       },
       add_review: async (form) => {
-        const response = await fetch(
+        await fetch(
           "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us84.gitpod.io/uploads/videos",
           {
             method: "POST",
             body: form,
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
+            
           }
         );
 
-        const data = await response.json();
-        console.log(data);
-
-        return data;
       },
       add_to_purchases: async (a) => {
         const token = localStorage.getItem("jwt-token");
