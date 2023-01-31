@@ -25,8 +25,8 @@
 .sub-main-signin {
     display: flex;
     justify-content: center;
-    height: 550px;
-    width: 35%;
+    height: 75%;
+    width: 30h;
     box-shadow: 11px 12px 13px 12px;
     border-radius: 50px;
     padding-top: 30px;
@@ -34,23 +34,25 @@
     animation: gradient 5s ease infinite;
     background-size: 200% 200%;
 }
-.container-username {
 
-    width: 300px;
-    height: 70px;
+.form{
+    width:100%;
+}
+
+
+/* ::placeholder{
+    color: faefe2;
+} */
+.input-container {
+    width: 75%;
+    height: 2.5rem;
     border-radius: 30px;
     box-shadow: inset 0px 0px 5px 0px;
     border: none;
+    margin: auto;
+    padding: 0.25rem;
     outline: none;
-    margin: auto;
-}
-
-.container-password {
-    width: 300px;
-    height: 70px;
-    border-radius: 30px;
-    box-shadow: inset 0px 0px 5px 0px;
-    margin: auto;
+    
 }
 
 .usernamePlaceHolder {
@@ -62,23 +64,33 @@
 .usernamePlaceHolder {
     border: none;
     outline: none;
-    padding-top: 12px;
-    margin: auto;
+width: 90%;
+margin:0;
+border-color: transparent
+
+
+
+}
+
+input:focus{
+    color: black;
 }
 
 .logInButton {
-    width: 300px;
-    height: 30px;
+    width: 60%;
+    height: 2rem;
     border-radius: 20px;
     background: linear-gradient(-45deg, #ee7752, #ffffff, #faefe2, #ee7752);
     animation: gradient 10s ease infinite;
     background-size: 400% 400%;
     margin: auto;
     border: none;
+    margin-top: 0.75rem;
+    padding: 0.25rem;
 }
 
 .signUpButton {
-    width: 300px;
+    width: 100%;
     padding-top: 10px;
     border-radius: 20px;
     background-color: #ffffff;
@@ -87,4 +99,6 @@
     font-size: 15px;
 
 }
-
+.container-username{
+    padding-bottom:0.5rem;
+}

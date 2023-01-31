@@ -61,6 +61,7 @@ function App() {
             <Route path="display/:id" element={<><ProductDisplay /></>} />
             <Route path="details/:id" element={<><ProductDetail /></>}></Route>
             <Route path='profile' element={<Profile/>}/>
+            <Route path='signin' element={<Signin/>}/>
           </Route>
           <Route path ="/signin" element = {<><Nav/><Signin /></>}/>
           <Route path ="/signup" element = {<><Nav/><Signup /></>}/>
