@@ -1,3 +1,5 @@
+import { redirect } from "react-router-dom";
+
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -43,13 +45,14 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.setItem("jwt-token", data.token);
         localStorage.setItem("user-id", data.userId);
         setStore({ isAuthenticated: true });
+        
 
         return data;
       },
       add_to_wishlist: async (a) => {
         const token = localStorage.getItem("jwt-token");
         const resp = await fetch(
-          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us83.gitpod.io/wishlist",
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us84.gitpod.io/wishlist",
           {
             method: "POST",
             body: JSON.stringify(a),
@@ -185,21 +188,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         return response;
       },
       add_review: async (form) => {
-        const response = await fetch(
+        await fetch(
           "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us84.gitpod.io/uploads/videos",
           {
             method: "POST",
             body: form,
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
+            
           }
         );
 
-        const data = await response.json();
-        console.log(data);
-
-        return data;
       },
       add_to_purchases: async (a) => {
         const token = localStorage.getItem("jwt-token");
@@ -232,6 +229,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         return data;
       },
+      get_user_videoInfo: async ()=>{
+        const userId= localStorage.getItem("user-id")
+        const response = await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us84.gitpod.io/uploads/videosInfo/"+userId,
+          {
+            method: "GET",
+          }
+        );
+
+        const data = await response.json();
+        return data;
+      },
+      get_user_video: async (videoId)=>{
+        const response = await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us84.gitpod.io/uploads/videos/"+videoId,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "video/mp4",
+            },
+          }
+        );
+        // const videoBlob = await response.blob();
+        // const videoUrl = URL.createObjectURL(videoBlob);
+        // console.log(videoUrl)
+
+
+        return response.url;
+      }
     },
   };
 };
