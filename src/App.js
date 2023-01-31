@@ -27,6 +27,7 @@ import { get_product_details } from './asosApi';
 import { sort_items } from './asosApi';
 import { Women } from './Components/Womens/Womens';
 import { Profile } from './Components/Profile/Profile';
+import {Men} from './Components/Mens/Mens';
 
 
 
@@ -47,13 +48,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Template />}>
             <Route path="landing" element={<><Bestsellers /><Collections /><Shirts /><Shoes /></>} />
-            <Route path="men" element={<><Bestsellers /><Collections /><Shirts /><Shoes /></>} />
+            <Route path="men" element={<><Men /></>} />
             <Route path="women" element={<Women />} />
             <Route path="kids" element={<><Shoes /></>} />
             <Route path="accessories" element={<><Bestsellers /></>} />
             <Route path="wishlist" element={<><Wishlist /></>} />
             <Route path="cart" element={<Cart />} />
             <Route path="checkout" element={<Checkout />} />
+            <Route path="video" element={<Video />} />
             <Route path="*" element={<h1>Error</h1>} /><Route />
             <Route path="fulfilment" element={<Fulfilment />} />
             <Route path="display/:id" element={<><ProductDisplay /></>} />

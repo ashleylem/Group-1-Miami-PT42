@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { get_product_details } from "../../asosApi";
-import "/workspace/Group-1-Miami-PT42/src/Components/ProductDetail/ProductDetail.css";
+import "C:/Users/anhnt/OneDrive/Desktop/Coding/Group-1-Miami-PT42-1/src/Components/ProductDetail/ProductDetail.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/fontawesome-free-regular";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { Context } from "../../Store/appContext";
 export const ProductDetail = () => {
   const { id } = useParams();
-  const{actions, state}=useParams(Context)
+  const{actions, store}=useParams(Context)
   const [info, setInfo] = useState();
 
   useEffect(() => {
@@ -191,7 +191,7 @@ export const ProductDetail = () => {
           </div>
           <div className="button-container row">
           <button
-                    onClick={() => {
+                    onClick={(item) => {
                       // let newWishlist= [...wishlist]
                       // if (newWishlist.includes(item.id)){
                       //   return "Already added"

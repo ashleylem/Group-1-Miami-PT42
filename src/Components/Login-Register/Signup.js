@@ -20,8 +20,8 @@ export const Signup = () => {
   }
 
   return (
-    <div className="main">
-      <div className="sub-main">
+    <div className="main-signup">
+      <div className="sub-main-signup">
         <form className="form" onSubmit={handleSubmit}>
           <div className="container-name">
             <label htmlFor="name" value={name} onChange={(event) => setName(event.target.value)} className='name'> Name :</label>
