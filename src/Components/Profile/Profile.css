@@ -1,9 +1,14 @@
-.previews-container{
-    height: 50vh;
-    padding: 1rem
+
+.videoDisplay{
+    height: 35rem;
+
 }
-.modal-img-button{
-    height: 100%;
-    width: 40%;
-    padding: 1rem;
+.previews-container{
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100vw;
+}
+.previewImg{
+    padding:0.25rem;
 }

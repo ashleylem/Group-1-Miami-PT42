@@ -7,8 +7,13 @@ import "/workspace/Group-1-Miami-PT42/src/Components/Profile/Profile.css";
 
 export const Profile = () => {
   const [purchases, setPurchases] = useState();
-  const [productId, setProductId] = useState();
+  const [videoUrl, setVideoUrl] = useState();
+  const [userVideos, setUserVideos] = useState();
+  const [videoId, setVideoId] = useState();
+  const [productImg, setProductImg]=useState()
   const { actions } = useContext(Context);
+
+  const userId = localStorage.getItem("user-id");
 
   useEffect(() => {
     async function settingPurchases() {
@@ -19,17 +24,34 @@ export const Profile = () => {
     settingPurchases();
   }, []);
 
+  // actions.get_user_video()
+  useEffect(() => {
+    async function settingVideo() {
+      const newInfo = await actions.get_user_videoInfo();
+      setUserVideos(newInfo);
+    }
+    settingVideo();
+  }, []);
 
-  
+  useEffect(() => {
+    async function settingUrl() {
+      const url = await actions.get_user_video(videoId);
+      setVideoUrl(url);
+    }
+    settingUrl();
+  }, [videoId]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(formRef.current);
-    console.log("form")
-    // data.append("productId", productId)
-    data.append("userId", localStorage.getItem("user-id"))
-    console.log(data.get('userId'))
-    actions.add_review(data)
+    data.append("userId", localStorage.getItem("user-id"));
+    purchases.map((item)=>{
+      if (item.product_id==data.get("product_id")){
+        return data.append("picture", item.picture)
+      }
+    })
+    console.log(data.get("picture"));
+    actions.add_review(data);
   };
   const formRef = useRef();
   return (
@@ -62,22 +84,13 @@ export const Profile = () => {
                 <div className="modal-header">
                   <h5 className="modal-title">Upload a New Review</h5>
                   <div className="modal-body">
-                    <form
-                      onSubmit={handleSubmit}
-                      ref={formRef}
-                      >
-                    
+                    <form onSubmit={handleSubmit} ref={formRef}>
                       <label>
                         Choose item:
                         <select
                           className="form-select"
                           name="product_id"
                           id="product_id"
-            
-                          // value={productId}
-                          // onChange={(e) => {
-                          //   setProductId( e.target.value);
-                          // }}
                         >
                           {purchases?.map((item, index) => {
                             return (
@@ -121,40 +134,45 @@ export const Profile = () => {
             </div>
           </div>
           <div className="previews-container">
-            <img
-              className="btn modal-img-button p-0 rounded"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#reviewModal"
-              src="https://images.asos-media.com/products/asos-design-bare-shoulder-prom-midi-dress-in-forest-green/23458757-4?$n_640w$&wid=513&fit=constrain"
-              alt="..."
-            />
-          </div>
-          <div
-            className="modal fade"
-            id="reviewModal"
-            tabIndex="-1"
-            aria-labelledby="reviewModalLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-dialog-scrollable">
-              <div className="modal-content">
-                <img
-                  src="..."
-                  className="card-img-top product-img"
-                  alt="product-img"
-                />
-                <div className="modal-header">
-                  <h5 className="modal-title">Review for: </h5>
-                  <div className="modal-body">
-                    <p className="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
+            {userVideos?.map((item,index) => {return (
+              <>
+              <div className="previewImg">
+              <img
+                className="btn modal-img-button p-0 rounded"
+                onClick={()=>{setVideoId(item?.video_id)
+                console.log(videoId)}}
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target={"#"+item?.name}
+                src={"https://"+item.picture}
+                alt="..."
+              />
+            </div>
+            <div
+              className="modal fade"
+              id={item?.name}
+              tabIndex="-1"
+              aria-labelledby="reviewModalLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-lg modal-dialog-scrollable">
+                <div className="modal-content">
+                  {videoUrl ? (
+                    <video className="videoDisplay"  type="video/mp4"  src={videoUrl} controls />
+                  ) : (
+                    <p>Loading video...</p>
+                  )}
+                  <div className="modal-header">
+                    <h5 className="modal-title">Review for:{item?.name} </h5>
+                    <div className="modal-body">
+                      <p className="card-text">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div></>)})}
           </div>
         </div>
         <div className="Wishlist">
