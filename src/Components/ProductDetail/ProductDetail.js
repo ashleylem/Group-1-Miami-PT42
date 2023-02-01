@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { get_product_details } from "../../asosApi";
-import "C:/Users/anhnt/OneDrive/Desktop/Coding/Group-1-Miami-PT42-1/src/Components/ProductDetail/ProductDetail.css";
+import "../../Components/ProductDetail/ProductDetail.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/fontawesome-free-regular";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
