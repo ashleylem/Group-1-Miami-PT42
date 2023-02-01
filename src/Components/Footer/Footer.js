@@ -34,7 +34,7 @@ function Footer() {
       </div>
       
       <div className="col-lg-4 col-md-6">
-        <h3>latest Articles</h3>
+        <h3>Latest Articles</h3>
         <div className="media">
           <a href="#" className="pull-left">
             <img src="http://placehold.it/64x64" alt="" className="media-object" />
@@ -61,7 +61,7 @@ function Footer() {
           </a>
           <div className="media-body">
             <h4 className="media-heading">Web Design</h4>
-            <p>Front End & Back End with JavaScript, React, Python, Postman, Trello, </p>
+            <p>Front End & Back End with JavaScript, React, Python, Jest, Postman, Trello </p>
           </div>
         </div>
         

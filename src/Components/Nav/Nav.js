@@ -4,8 +4,7 @@ import logoLight from "../../Images/logoLight.png";
 import user from "../../Images/user.png";
 import cart from "../../Images/cart.png";
 import wishlist from "../../Images/wishlist-icon.png";
-import logo from "/workspace/Group-1-Miami-PT42/src/Images/logo.png";
-
+import logo from "../../Images/logo.png";
 import { Link } from "react-router-dom";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -35,16 +34,14 @@ function Nav() {
   return (
     <>
       <div className="nav">
-        <Link to="/landing">
-          <img src={logo} className="brand-logo" alt="" />
-        </Link>
-
+        <Link to="/landing"><img src={logo} className="brand-logo" alt="" /></Link>
+        
         <div className="nav-items">
           <div className="search">
             <input
               type="text"
               className="search-box"
-              placeholder="search brand, product"
+              placeholder="search brand, product, ect."
             />
             <button className="search-btn">Search</button>
           </div>
