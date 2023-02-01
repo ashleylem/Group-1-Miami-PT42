@@ -1,4 +1,10 @@
-
+.main-signup{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 90px 0;
+    height: 100vh;
+}
 @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -10,9 +16,20 @@
         background-position: 0% 50%;
     }
 }
-.input-container {
-    width: 75%;
-    height: 2.5rem;
+.sub-main-signup{
+    display: flex;
+    justify-content: center;
+    height: 550px;
+    width: 35%;
+    box-shadow: 11px 12px 13px 12px ;
+    border-radius: 50px;
+    padding-top: 30px;
+    background-color: rgb(255, 255, 255);
+}
+.container-name{
+    
+    width: 300px;
+    height: 70px;
     border-radius: 30px;
     box-shadow: inset 0px 0px 5px 0px;
     border: none;
@@ -28,8 +45,14 @@
 .container-email{
     padding-bottom:0.5rem;
 }
-
-
+.emailPlaceHolder{
+    background-color: none;
+}
+/* input{
+    border: none;
+    outline: none;
+    padding-top: 12px;
+} */
 .logInButton2{
     width: 100%;
     height: 30px;
@@ -41,8 +64,10 @@
     width: 60%;
     height: 2rem;
     border-radius: 20px;
-    background-color: #faefe2;
-    margin: 0;
+    background: linear-gradient(-45deg, #ee7752, #ffffff, #faefe2, #ee7752);
+    animation: gradient 10s ease infinite;
+    background-size: 400% 400%;
+    margin: auto;
     border: none;
     margin-top: 0.75rem;
     padding: 0.25rem;

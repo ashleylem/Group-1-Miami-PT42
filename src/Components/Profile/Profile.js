@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useState, useContext } from "react";
 import { useRef } from "react";
 import { Context } from "../../Store/appContext";
-import "/workspace/Group-1-Miami-PT42/src/Components/Profile/Profile.css";
+import "../../Components/Profile/Profile.css";
 
 export const Profile = () => {
   const [purchases, setPurchases] = useState();
