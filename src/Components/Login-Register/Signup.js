@@ -27,36 +27,36 @@ export const Signup = () => {
             <label htmlFor="name" value={name} onChange={(event) => setName(event.target.value)} className='name'> Name :</label>
             <div className="input-container">
 
-            
-            <input className='namePlaceHolder' placeholder=" Your Name"></input>
-          </div></div>
+
+              <input className="inputPlaceHolder" placeholder=" Your Name"></input>
+            </div></div>
           <div className="container-email">
-<label htmlFor="email" value={email} onChange={(event) => setEmail(event.target.value)} className='email'> Email :</label>
-<div className="input-container">            
-<input className='emailPlaceHolder' placeholder=" Your Email"></input>
-          </div></div>
+            <label htmlFor="email" value={email} onChange={(event) => setEmail(event.target.value)} className='email'> Email :</label>
+            <div className="input-container">
+              <input className="inputPlaceHolder" placeholder=" Your Email"></input>
+            </div></div>
           <div className="container-username">
-            <label htmlFor='username' value={username}>
+            <label className="inputPlaceHolder" htmlFor='username' value={username}>
               Username :
             </label>
             <div className="input-container">
 
 
-            <input className='usernamePlaceHolder' placeholder="Your Username"
-              onChange={(event) => {
-                setusername(event.target.value)
-              }}></input>
-          </div></div>
+              <input className="inputPlaceHolder" placeholder="Your Username"
+                onChange={(event) => {
+                  setusername(event.target.value)
+                }}></input>
+            </div></div>
           <div className="container-password">
             <label htmlFor="password" value={password} onChange={(event) => setPassword(event.target.value)} className="password"> Password :</label>
             <div className="input-container">
 
-           
-            <input placeholder=" *********"
-              onChange={(event) => {
-                setPassword(event.target.value)
-              }}></input>
-          </div></div>
+
+              <input className="inputPlaceHolder"placeholder=" *********" type="password" value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value)
+                }}></input>
+            </div></div>
           <button type="submit" className="signUpButton2" onClick={onSubmitClick} >Sign Up</button>
           <Link to="/Signin">
             <button className="logInButton2"> Already have an account? Login here! </button>

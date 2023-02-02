@@ -257,8 +257,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
         return response.url;
+      },
+      get_all_video: async() =>{
+          const response = await fetch(
+            ""
+          )
+
+
       }
-    },
+    }, 
   };
 };
 
