@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Context } from "../../Store/appContext";
 
-import "/workspace/Group-1-Miami-PT42/src/Components/ProductDisplay/ProductDisplay.css";
+import "../../Components/ProductDisplay/ProductDisplay.css";
 import wishlist from "../../Images/wishlist-icon.png";
 import { faBookmark } from "@fortawesome/fontawesome-free-regular";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";

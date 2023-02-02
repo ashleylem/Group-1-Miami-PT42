@@ -34,16 +34,14 @@ function Nav() {
   return (
     <>
       <div className="nav">
-        <Link to="/landing">
-          <img src={logo} className="brand-logo" alt="" />
-        </Link>
-
+        <Link to="/landing"><img src={logo} className="brand-logo" alt="" /></Link>
+        
         <div className="nav-items">
           <div className="search">
             <input
               type="text"
               className="search-box"
-              placeholder="search brand, product"
+              placeholder="search brand, product, ect."
             />
             <button className="search-btn">Search</button>
           </div>

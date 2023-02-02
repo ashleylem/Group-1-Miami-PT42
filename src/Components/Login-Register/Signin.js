@@ -19,8 +19,8 @@ export const Signin = () => {
 
   return (
     <div>
-      <div className="main">
-        <div className="sub-main">
+      <div className="main-signin">
+        <div className="sub-main-signin">
           <form className="form" onSubmit={handleSubmit}>
             <div className="container-username">
               <label
