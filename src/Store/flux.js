@@ -257,7 +257,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 
         return response.url;
-      }
+      },
+      add_product: async (form) => {
+        await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us84.gitpod.io/products",
+          {
+            method: "POST",
+            body: form,
+            
+          }
+        )
+
+    }
     },
   };
 };

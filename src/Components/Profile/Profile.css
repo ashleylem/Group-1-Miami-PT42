@@ -7,7 +7,7 @@
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    width: 100vw;
+    width: 100%;
 }
 .previewImg{
     padding:0.25rem;
