@@ -25,7 +25,7 @@ export const ProductDetail = () => {
     <div className="container d-flex flex-row">
       <div
         id="carouselExampleCaptions"
-        className="carousel col-4 carousel-dark slide"
+        className="carousel product-display col-4 carousel-dark slide"
       >
         <div className="carousel-indicators">
           {info?.media?.images?.map((item, index) => {
