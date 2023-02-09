@@ -10,6 +10,14 @@ const options = {
     "access-control-allow-origin": "*",
   },
 };
+const optionsMen = {
+  method: 'GET',
+  url: 'https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/regions/list',
+  headers: {
+    'X-RapidAPI-Key': '3ad8851207msh432075411cda5cbp133f7bjsn042807104bdb',
+    'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
+  }
+};
 
 async function get_women_categories() {
   const res = await fetch(
@@ -24,7 +32,7 @@ async function get_women_categories() {
 async function get_men_categories() {
   const res = await fetch(
     "https://asos2.p.rapidapi.com/categories/list?country=US&lang=en-US",
-    options
+    optionsMen
   );
   const data = await res.json();
 

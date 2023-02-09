@@ -7,7 +7,7 @@ import "./register.css"
 export const Signup = () => {
   const { actions } = useContext(Context)
   const [name, setName] = useState()
-  const [username, setusername] = useState()
+  const [username, setUsername] = useState()
   const [password, setPassword] = useState()
   const [email, setEmail] = useState()
 
@@ -24,16 +24,16 @@ export const Signup = () => {
       <div className="sub-main-signup">
         <form className="form" onSubmit={handleSubmit}>
           <div className="container-name">
-            <label htmlFor="name" value={name} onChange={(event) => setName(event.target.value)} className='name'> Name :</label>
+            <label htmlFor="name" value={name}  className='name'> Name :</label>
             <div className="input-container">
 
 
-              <input className="inputPlaceHolder" placeholder=" Your Name"></input>
+              <input onChange={(event) => setName(event.target.value)} className="inputPlaceHolder" placeholder=" Your Name"></input>
             </div></div>
           <div className="container-email">
-            <label htmlFor="email" value={email} onChange={(event) => setEmail(event.target.value)} className='email'> Email :</label>
+            <label htmlFor="email" value={email}  className='email'> Email :</label>
             <div className="input-container">
-              <input className="inputPlaceHolder" placeholder=" Your Email"></input>
+              <input onChange={(event) => setEmail(event.target.value)} className="inputPlaceHolder" placeholder=" Your Email"></input>
             </div></div>
           <div className="container-username">
             <label className="inputPlaceHolder" htmlFor='username' value={username}>
@@ -44,7 +44,7 @@ export const Signup = () => {
 
               <input className="inputPlaceHolder" placeholder="Your Username"
                 onChange={(event) => {
-                  setusername(event.target.value)
+                  setUsername(event.target.value)
                 }}></input>
             </div></div>
           <div className="container-password">
