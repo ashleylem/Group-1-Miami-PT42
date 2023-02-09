@@ -2,13 +2,13 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { get_women_categories } from "../../asosApi";
+import { get_men_categories } from "../../asosApi";
 
 export const Men=()=>{
 const [categories, setCategories]=useState([])
 useEffect(()=>{
     async function settingCategory(){
-        let newcategories= await get_women_categories()
+        let newcategories= await get_men_categories()
         setCategories(newcategories)
     }
     settingCategory()

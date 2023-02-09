@@ -11,15 +11,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/fontawesome-free-regular";
 import { faBookmark } from "@fortawesome/fontawesome-free-regular";
 import { get_women_categories } from "../../asosApi";
+import { get_men_categories } from "../../asosApi";
 import { useState, useEffect } from "react";
 import { Context } from "../../Store/appContext";
 function Nav() {
   const [womenCategories, setWomenCategories] = useState([]);
+  const [menCategories, setMenCategories] = useState([]);
   const { store } = useContext(Context);
   useEffect(() => {
     async function settingCategory() {
       let newcategories = await get_women_categories();
       setWomenCategories(newcategories);
+    }
+    settingCategory();
+  }, []);
+  useEffect(() => {
+    async function settingCategory() {
+      let newcategories = await get_men_categories();
+      setMenCategories(newcategories);
     }
     settingCategory();
   }, []);
@@ -65,7 +74,13 @@ function Nav() {
       <ul className="links-container">
         <li className="link-item">
           <Link to="/landing" className="link">
-            home
+          <button
+              class="btn"
+              type="button"
+              aria-expanded="false"
+            >
+              Home
+            </button>
           </Link>
         </li>
         <li className="link-item">
@@ -95,23 +110,63 @@ function Nav() {
           </div>
         </li>
         <li className="link-item">
-          <Link to="/men" className="link">
-            men
-          </Link>
+          <div class="dropdown">
+            <button
+              class="btn"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Men
+            </button>
+            <ul class="row dropdown-menu">
+              {menCategories.map((item, index) => {
+                return (
+                  <li>
+                    <Link
+                      class="dropdown-item col"
+                      to={"/display/" + item.link.categoryId}
+                    >
+                      {item.content.title}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </li>
         <li className="link-item">
+        
           <Link to="/kids" className="link">
-            kids
+          <button
+              class="btn"
+              type="button"
+              aria-expanded="false"
+            >
+              Kids
+            </button>
           </Link>
         </li>
         <li className="link-item">
           <Link to="/accessories" className="link">
-            accessories
+          <button
+              class="btn"
+              type="button"
+              aria-expanded="false"
+            >
+              Accessories
+            </button>
           </Link>
         </li>
         <li class="link-item">
           <Link to="/video" class="link">
-            Video Review
+          <button
+              class="btn"
+              type="button"
+              aria-expanded="false"
+            >
+              Video
+            </button>
           </Link>{" "}
         </li>
       </ul>
