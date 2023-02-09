@@ -1,4 +1,3 @@
-import { redirect } from "react-router-dom";
 
 const getState = ({ getStore, getActions, setStore }) => {
   return {
@@ -82,8 +81,6 @@ const getState = ({ getStore, getActions, setStore }) => {
           }
         );
         const data = await response.json();
-        console.log(data);
-
         return data;
       },
       delete_item: (product_id) => {
@@ -275,7 +272,23 @@ const getState = ({ getStore, getActions, setStore }) => {
           )
 
 
-    }
+    },
+    get_user_products: async () => {
+      const userId= localStorage.getItem("user-id")
+      const response=await fetch(
+        "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us85.gitpod.io/products/"+userId,
+        {
+          method: "GET",   
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      const data = await response.json()
+      console.log(data)
+      return data.products
+
+  }
     }, 
   };
 };
