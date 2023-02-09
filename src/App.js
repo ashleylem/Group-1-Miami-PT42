@@ -1,5 +1,8 @@
 import './App.css';
 import React, { useState } from 'react'
+import "@fontsource/playfair-display"
+import "@fontsource/abril-fatface"
+import "@fontsource/open-sans"
 
 import Bestsellers from './Components/Bestsellers/Bestsellers';
 import Shirts from './Components/Shirts';
