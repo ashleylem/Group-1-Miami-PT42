@@ -34,7 +34,7 @@ export const Signin = () => {
                 value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   type="text"
-                  className="usernamePlaceHolder"
+                  className="PlaceHolder"
                   placeholder=" Your Username"
                 ></input>
               </div>
@@ -47,7 +47,7 @@ export const Signin = () => {
                 Password :
               </label>
               <div className="input-container">
-                <input value={password}
+                <input className="PlaceHolder" value={password}
                 type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder=" *********"
