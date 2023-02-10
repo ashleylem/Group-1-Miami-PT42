@@ -1,4 +1,3 @@
-
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
@@ -8,7 +7,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     actions: {
       sign_up: async (name, email, password, username) => {
         fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/signup",
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/signup",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -23,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       login: async (username, password) => {
         const resp = await fetch(
-          `https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io//login`,
+          `https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/login`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -44,14 +43,54 @@ const getState = ({ getStore, getActions, setStore }) => {
         localStorage.setItem("jwt-token", data.token);
         localStorage.setItem("user-id", data.userId);
         setStore({ isAuthenticated: true });
-        
 
         return data;
+      },
+      get_user_info: async () => {
+        const userId = localStorage.getItem("user-id");
+        const response = await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/" +
+            userId,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        // console.log(data)
+        return data;
+      },
+      add_user_picture: async (form) => {
+        const userId = localStorage.getItem("user-id");
+        await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/" +
+            userId +
+            "/picture",
+          {
+            method: "POST",
+            body: form,
+          }
+        );
+        window.location.reload();
+      },
+      edit_user_picture: async (form)=>{
+        const userId = localStorage.getItem("user-id");
+        await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/profile/picture/replace/" +userId ,
+          {
+            method: "POST",
+            body: form,
+          }
+        );
+        window.location.reload();
+
       },
       add_to_wishlist: async (a) => {
         const token = localStorage.getItem("jwt-token");
         const resp = await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/wishlist",
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/wishlist",
           {
             method: "POST",
             body: JSON.stringify(a),
@@ -69,7 +108,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const token = localStorage.getItem("jwt-token");
         const userId = localStorage.getItem("user-id");
         const response = await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/wishlist/" +
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/wishlist/" +
             userId,
           {
             method: "GET",
@@ -88,7 +127,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const userId = localStorage.getItem("user-id");
         const store = getStore();
         const response = fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/wishlist/" +
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/wishlist/" +
             userId +
             "/" +
             product_id,
@@ -112,7 +151,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       add_to_cart: async (a) => {
         const token = localStorage.getItem("jwt-token");
         const resp = await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/Cart",
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/Cart",
           {
             method: "POST",
             body: JSON.stringify(a),
@@ -130,7 +169,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const token = localStorage.getItem("jwt-token");
         const userId = localStorage.getItem("user-id");
         const response = await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/Cart/" +
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/Cart/" +
             userId,
           {
             method: "GET",
@@ -149,7 +188,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         const userId = localStorage.getItem("user-id");
         const store = getStore();
         const response = fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/Cart/" +
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/Cart/" +
             userId +
             "/" +
             product_id,
@@ -171,34 +210,35 @@ const getState = ({ getStore, getActions, setStore }) => {
         const userId = localStorage.getItem("user-id");
         const store = getStore();
         const response = fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/Cart/" +
-            userId + '/delete' ,
-            {
-              method: "DELETE",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: "Bearer " + token,
-                "Access-Control-Allow-Origin": "*",
-              },
-            }
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/Cart/" +
+            userId +
+            "/delete",
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Bearer " + token,
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
         );
         return response;
       },
       add_review: async (form) => {
-        await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/uploads/videos",
+        let response = await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/uploads/videos",
           {
             method: "POST",
             body: form,
             
           }
         );
-
+       
       },
       add_to_purchases: async (a) => {
         const token = localStorage.getItem("jwt-token");
         const resp = await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/purchased",
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/purchased",
           {
             method: "POST",
             body: JSON.stringify(a),
@@ -213,7 +253,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_purchases: async () => {
         const response = await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/purchased",
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/purchased",
           {
             method: "GET",
             headers: {
@@ -226,10 +266,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         return data;
       },
-      get_user_videoInfo: async ()=>{
-        const userId= localStorage.getItem("user-id")
+      get_user_videoInfo: async () => {
+        const userId = localStorage.getItem("user-id");
         const response = await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/uploads/videosInfo/"+userId,
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/uploads/videosInfo/" +
+            userId,
           {
             method: "GET",
           }
@@ -238,9 +279,10 @@ const getState = ({ getStore, getActions, setStore }) => {
         const data = await response.json();
         return data;
       },
-      get_user_video: async (videoId)=>{
+      get_user_video: async (videoId) => {
         const response = await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/uploads/videos/"+videoId,
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/uploads/videos/" +
+            videoId,
           {
             method: "GET",
             headers: {
@@ -252,44 +294,35 @@ const getState = ({ getStore, getActions, setStore }) => {
         // const videoUrl = URL.createObjectURL(videoBlob);
         // console.log(videoUrl)
 
-
         return response.url;
       },
       add_product: async (form) => {
         await fetch(
-          "https://3000-ashleylem-group1miamipt-jh72ckaz2d4.ws-us86.gitpod.io/products",
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/products",
           {
             method: "POST",
             body: form,
-            
           }
-        )
-
+        );
+        window.location.reload();
       },
-      get_all_video: async() =>{
-          const response = await fetch(
-            ""
-          )
-
-
+      get_user_products: async () => {
+        const userId = localStorage.getItem("user-id");
+        const response = await fetch(
+          "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/products/" +
+            userId,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        // console.log(data)
+        return data.products;
+      },
     },
-    get_user_products: async () => {
-      const userId= localStorage.getItem("user-id")
-      const response=await fetch(
-        "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us85.gitpod.io/products/"+userId,
-        {
-          method: "GET",   
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      const data = await response.json()
-      console.log(data)
-      return data.products
-
-  }
-    }, 
   };
 };
 
