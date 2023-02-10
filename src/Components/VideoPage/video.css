@@ -1,6 +1,4 @@
-.main-video {
-    
-}
+
 
 .sub-main-video {
     display: flex;
@@ -67,9 +65,7 @@ body {
     width: 100%;
 }
 
-.video-container.theater {
-    max-height: 90vh;
-}
+
 
 .video-container.full-screen {
     max-height: 100vh;
@@ -131,29 +127,23 @@ body {
     opacity: 1;
 }
 
-.video-container.paused .pause-icon {
-    display: none;
-}
-
-.video-container:not(.paused) .play-icon {
-    display: none;
-}
-
 .video-container.theater .tall {
     display: none;
 }
 
-.video-container:not(.theater) .wide {
+.video-container.theater .wide {
     display: none;
+    height: 90vh;
+
 }
 
-.video-container.full-screen .open {
+/* .video-container.full-screen .open {
     display: none;
 }
 
 .video-container:not(.full-screen) .close {
     display: none;
-}
+} */
 
 .volume-high-icon,
 .volume-low-icon,
