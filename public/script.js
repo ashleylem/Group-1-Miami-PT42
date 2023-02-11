@@ -75,10 +75,10 @@ function togglePlay() {
     video.paused ? video.play() : video.pause()
 }
 
-video.addEventListener("play", () => {
-    videoContainer.classList.remove("paused")
-})
+// video.addEventListener("play", () => {
+//     videoContainer.classList.remove("paused")
+// })
 
-video.addEventListener("pause", () => {
-    videoContainer.classList.add("paused")
-})
+// video.addEventListener("pause", () => {
+//     videoContainer.classList.add("paused")
+// })
