@@ -1,20 +1,21 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Context } from "../../Store/appContext";
-import { Link, redirect } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import "./login.css";
 
 export const Signin = () => {
   const { actions } = useContext(Context);
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const navigate = useNavigate()
 
   const onSubmitClick = () => {
     actions.login(username, password);
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(username);
+    navigate('/profile');
   };
 
   return (

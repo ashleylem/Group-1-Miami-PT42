@@ -1,13 +1,11 @@
-.main-video {
-    
-}
+
 
 .sub-main-video {
-    display: flex;
-    justify-content: space-around;
+   
+
     background-color: rgb(255, 255, 255);
-    flex-wrap: nowrap;
-    margin-inline: auto;
+    /* flex-wrap: nowrap;
+    margin-inline: auto; */
 }
 
 .recently-added {
@@ -23,22 +21,21 @@
 
 }
 
-.item-picture {
-    display: flex;
-    justify-content: center;
-    margin: auto;
+ .item-picture {
     border-radius: 20px;
-    background-color: aliceblue;
     height: 20rem;
     width: 20rem;
-    margin: 10rem;
-    flex-wrap: nowrap;
-}
+    margin: 4rem;
+    display: flex;
+    align-items: center;
+    margin-left: 15%;
 
+}
+/*
 .item-picture-whishlist {
     display: flex;
     margin: none;
-}
+} */
 
 *,
 *::before,
@@ -52,31 +49,18 @@ body {
 
 .video-container {
     position: relative;
-    width: 90%;
-    max-width: 1000px;
-    display: flex;
+    width: 100%;
+    height: 20rem;
     justify-content: center;
     margin-inline: auto;
     background-color: black;
+    margin: 4rem;
 }
 
-
-.video-container.theater,
-.video-container.full-screen {
-    max-width: initial;
-    width: 100%;
-}
-
-.video-container.theater {
-    max-height: 90vh;
-}
-
-.video-container.full-screen {
-    max-height: 100vh;
-}
 
 .video {
     width: 100%;
+    height: 100%;
 }
 
 .video-controls-container {
@@ -89,6 +73,7 @@ body {
     opacity: 0;
     transition: opacity 150ms ease-in-out;
 }
+
 
 .video-controls-container::before {
     content: "";
@@ -131,35 +116,17 @@ body {
     opacity: 1;
 }
 
-.video-container.paused .pause-icon {
-    display: none;
-}
 
-.video-container:not(.paused) .play-icon {
-    display: none;
-}
 
-.video-container.theater .tall {
-    display: none;
-}
 
-.video-container:not(.theater) .wide {
-    display: none;
-}
 
-.video-container.full-screen .open {
+/* .video-container.full-screen .open {
     display: none;
 }
 
 .video-container:not(.full-screen) .close {
     display: none;
-}
-
-.volume-high-icon,
-.volume-low-icon,
-.volume-muted-icon {
-  /* display: none; */
-}
+} */
 
 .video-container[data-volume-level="high"] .volume-high-icon {
   display: block;

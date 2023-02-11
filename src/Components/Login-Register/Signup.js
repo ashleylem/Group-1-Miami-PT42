@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../Store/appContext";
 import "./register.css"
 
@@ -10,13 +10,14 @@ export const Signup = () => {
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
   const [email, setEmail] = useState()
+  const navigate = useNavigate()
 
   const onSubmitClick = () => {
     actions.sign_up(name, email, password, username)
   }
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(email);
+    navigate('/signin');
   }
 
   return (

@@ -1,14 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;900&display=swap');
+
+
 
 .videoDisplay{
     height: 35rem;
-
 }
+
 .previews-container{
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    width: 100%;
+    max-height: 410px;
+    
+}
+.previews-container::-webkit-scrollbar{
+    display: none;
+}
+div.row p{
+    margin-right: 0.25rem;
 }
 .previewImg{
     padding:0.25rem;
+   
+}
+.modalProductImg{
+    max-width: 30%;
+    margin:0.40rem;
+
+}
+.profile-header{
+    border: none;
+    border-radius:10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 1rem;
+    display: inline-block;
+    width: 80%;
+
+}
+
+.profile-header h1{
+    padding-top: 1rem;
+    font-family:"Playfair Display", serif;
+
+}
+div.content h6{
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+}
+.profile-pic-upload{
+    display:none;
+    width:10rem;
+    height:10rem;
+    border-radius: 100%;
+
+}
+
+div.modal-body h5{
+    font-family: "Open Sans", sans-serif;
+    font-weight: bold;
+}
+div.content p{
+    font-family: "Open Sans", sans-serif;
+    margin-top: 0.25rem;
+}
+.pictureLabel{
+    text-align: center;
+    border-radius: 100%;
+    /* border: 1px solid black; */
+    width:10rem;
+    height:10rem;
+    margin: auto;
+
+}
+.profile-pic-img{
+    display: flex;
+border-radius: 100%;
+margin: auto;
+justify-content: center;
+width:10rem;
+    height:10rem;
+}
+
+div.pictureLabel label{
+    padding-top:35%;
+    display:flex;
+    padding-bottom:35%;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin:auto;
+    border-radius:100%;
+    border: 1px solid black; 
+}
+div.pictureLabel label:hover{
+  box-shadow: 1px 1px 15px 2px;
+
+}
+.profile-pic-replace{
+    display:none;
+}
+.edit-label{
+    text-align: right;
+    margin-right: 30%;
+}
+div.profile-header h1{
+    text-align: center;
+    margin-top: 0.25rem;
+    font-family:"Playfair Display", serif;
+
+}
+div.profile-header img {
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+    border: 0;
+}
+
+.following, .followers{
+   text-align: center;
+  
+   margin-top: 1rem;
+   font-family: "Open Sans", sans-serif;
+}
+.user-icon-f{
+    margin-right: 0.25rem;
+}
+.linksContainer{
+    margin:2rem;
+
+}
+.linksContainer div{
+    height: 10%;
+
+}
+.profileLinks{
+    display: inline-block;
+    font-family: "Open Sans", sans-serif;
+
+
+    padding: 0.35em 1.2em;
+    /* border: 0.1em solid black; */
+    margin: 0 0.3em 0.3em 0;
+    border-radius: 0.12em;
+    box-sizing: border-box;
+    text-decoration: none;
+    /* font-family: 'Roboto', sans-serif; */
+    font-weight: 300;
+    color: black;
+    background-color: white;
+    text-align: center;
+    transition: all 0.2s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(150, 195, 225, 0.637) 0px 1px 3px -1px;    width: 100%;
+}
+
+.uploads h1{
+    border: none;
+    border-radius:10px;
+    font-family:"Playfair Display", serif;
+}
+.reviewSubmit{
+    background: #72b889;
+	color: white;
+	border-style: outset;
+	border-color: #72b889;
+	height: 40px;
+	width: 100px;
+    border-radius: 5%;
+	font: bold15px arial,sans-serif;
+	text-shadow: none;
+    margin-left: 40%;
+    margin-bottom: 2rem;
+}
+.reviewSubmit:hover{
+    box-shadow: 5px 7px 14px -3px rgba(0,0,0,0.5);
+}
+.progress-container{
+    width: 50%;
+    margin-left: 25%;
+    border: 1px solid  #72b889 ;
+    height: 20px;
+  border-radius: 50px;
+
+
+}
+.progress-bar{
+    height: 20px;
+  background-color: #72b889;
+  box-shadow: 2px 14px 15px -7px rgba(134, 243, 148, 0.36);
+  border-radius: 50px;
+  transition: all 0.5s;
+}
+.Wishlist h1{
+    font-family:"Playfair Display", serif;
+
+}
+.user-products h1{
+    font-family:"Playfair Display", serif;
+
+}
+.modal-header h5, .modal-body form, .modal-body label{
+    font-family: "Open Sans", sans-serif;
+
+
+}
+div.previewImg img{
+    height:100%;
+}
+.modal-body h5{
+    text-align: center;
+}
+.uploadForm label{
+    margin: 1.5rem;
+}
+.productForm label{
+    margin: 1rem;
+}
+.Wishlist{
+    border: none;
+    border-radius:10px;
+}
+.user-products{
+    border: none;
+    border-radius:10px;
+
+}
+.product-modal{
+    height:75vh;
+}
+.product-carousel{
+    width:50%;
+}
+.carousel-product-img{
+    display: block;
+    width: 100%;
+    height:100%;
 }

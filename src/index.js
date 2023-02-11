@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import "bootstrap/dist/js/bootstrap.bundle.min"
+import "@fontsource/playfair-display"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // --------------------this is how bootstrap is added---------------------
 
-import './index.css';
+import '/workspace/Group-1-Miami-PT42/src/index.js';
 import App from './App';
 
 
