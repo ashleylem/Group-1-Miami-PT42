@@ -1,0 +1,24 @@
+.product-img-button{
+    height: 50vh;
+    width: 25vw;
+    margin: 1rem
+}
+.productContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+div.productContainer h4{
+    text-align: center;
+    font-family:"Playfair Display", serif;
+
+}
+div.productHeader h1{
+    text-align: center;
+    font-family:"Playfair Display", serif;
+
+}
+.productUploadBtn{
+    margin-left: 5rem;
+}

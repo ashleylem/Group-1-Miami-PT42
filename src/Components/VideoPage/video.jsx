@@ -15,7 +15,7 @@ const VideoControls = ({ videoData }) => {
 
   const videoContainer = useRef();
   const apiImgUrl =
-  "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/videos/";
+  "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/videos/";
   function togglePlayPause() {
     setIsPlaying(!isPlaying);
     if (isPlaying) {
