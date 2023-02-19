@@ -1,0 +1,32 @@
+.container-videos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.review-container{
+    width: 60vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin:1rem;
+    border-radius: 5%;
+    display: inline-block;
+}
+.review-content-container{
+    display: flex;
+}
+.review-product-picture{
+    height:35%;
+    width: 35%
+}
+div.review-content-container video{
+    border-radius:5%;
+    max-height:30rem;
+    background-color: black;
+    flex: 1 1 0;
+    margin-right: 1rem;
+}
+.review-header{
+    flex: 1 1 0;
+}
+.review-title{
+   text-align: center;
+}

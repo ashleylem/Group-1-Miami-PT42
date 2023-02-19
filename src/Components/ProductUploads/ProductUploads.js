@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRef } from "react";
 import { Context } from "../../Store/appContext";
+
+/**
+ * This function displays the form for users to upload new products to list for sale. 
+ * @param {} none No input parameters 
+ * @returns {HTML} HTML for product listing form
+ */
+
 export const ProductUpload = () => {
   const [progress, setProgress] = useState(0);
   const productForm = useRef();
@@ -60,8 +67,8 @@ export const ProductUpload = () => {
           Choose Sub-Category:
           <select
             className="form-select"
-            name="subcategory_id"
-            id="subcategory_id"
+            name="subcategory_name"
+            id="subcategory_name"
           >
             <option value="Tops">Tops</option>
             <option value="Jackets">Jackets</option>
@@ -74,8 +81,8 @@ export const ProductUpload = () => {
           Choose Sub-Category:
           <select
             className="form-select"
-            name="subcategory_id"
-            id="subcategory_id"
+            name="subcategory_name"
+            id="subcategory_name"
           >
             <option value="Jewelry">Jewelry</option>
             <option value="Bags">Bags</option>
@@ -88,8 +95,8 @@ export const ProductUpload = () => {
           Choose Sub-Category:
           <select
             className="form-select"
-            name="subcategory_id"
-            id="subcategory_id"
+            name="subcategory_name"
+            id="subcategory_name"
           >
             <option value="Furniture">Furniture</option>
             <option value="Home-Decor">Home Decor</option>

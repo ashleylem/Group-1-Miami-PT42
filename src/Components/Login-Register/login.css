@@ -2,11 +2,6 @@
     display: flex;
     text-align: center;
     justify-content: center;
-    padding: 90px 0;
-    height: 60vh;
-    width: 100vw;
-    background-size: contain;
-    background-position: center;
     align-items: center;
 }
 
@@ -24,69 +19,18 @@
     }
 }
 
-.sub-main-signin {
-    display: flex;
-    justify-content: center;
-    height: 20rem;
-    width: 35%;
-    box-shadow: 11px 12px 13px 12px ;
-    border-radius: 50px;
-    align-items: center;
-    outline: solid red .1rem;
-    background: linear-gradient(-45deg, #7c7c7c, #ffffff, #faefe2, #faefe2);
-    animation: gradient 7s ease infinite;
-    background-size: 200% 200%;
-}
-
-.form {
-    width: 100%;
+.signin-logo{
+    height:25%;
+    width:25%;
 }
 
 
-/* ::placeholder{
-    color: faefe2;
-} */
-.input-container {
-    width: 75%;
-    height: 2.5rem;
-    border-radius: 30px;
-    box-shadow: inset 0px 0px 5px 0px;
-    border: none;
-    margin: auto;
-    padding: 0.25rem;
-    outline: none;
-    border-color: transparent;
-    background-color: transparent;
-}
 
-/* .usernamePlaceHolder {
-    background-color: none;
-} */
 
-/* ::placeholder{
-    color: faefe2;
-} */
-.PlaceHolder, .PlaceHolder:focus {
-    border: none;
-    outline: none;
-    width: 90%;
-    margin: 0;
-    border-color: transparent;
-    background-color: transparent;
-}
-/* .container-password{
-    border-color: transparent;
-    background-color: transparent;
-} */
-input:focus {
-    color: black;
-}
 
 .logInButton {
-    width: 60%;
-    height: 2rem;
-    border-radius: 20px;
-    background: linear-gradient(-45deg, #4e4e4e, #ffffff, #4e4e4e, #ffffff);
+    width:80%;
+    background: linear-gradient(-45deg, #023790, #d3def6, #023790, #d3def6);
     animation: gradient 7s ease infinite;
     background-size: 400% 400%;
     margin: auto;

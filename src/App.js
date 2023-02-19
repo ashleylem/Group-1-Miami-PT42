@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import "@fontsource/playfair-display"
 import "@fontsource/abril-fatface"
 import "@fontsource/open-sans"
-
+import { Accessories } from './Components/Accessories/Accessories';
 import Bestsellers from './Components/Bestsellers/Bestsellers';
 import Shirts from './Components/Shirts';
 import Shoes from './Components/Shoes';
@@ -15,6 +15,8 @@ import Cart from './Components/Cart/Cart';
 import Checkout from './Components/Checkout/Checkout';
 import Fulfilment from './Components/Fulfilment';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { UserProducts } from './Components/UserProducts/UserProducts';
+import { UserVideos } from './Components/UserVideos/UserVideos';
 
 import injectContext from './Store/appContext';
 import { ProductDetail } from './Components/ProductDetail/ProductDetail';
@@ -55,7 +57,7 @@ function App() {
             <Route path="men" element={<><Men /></>} />
             <Route path="women" element={<Women />} />
             <Route path="kids" element={<><Shoes /></>} />
-            <Route path="accessories" element={<><Bestsellers /></>} />
+            <Route path="accessories" element={<><Accessories /></>} />
             <Route path="wishlist" element={<><Wishlist /></>} />
             <Route path="cart" element={<Cart />} />
             <Route path="checkout" element={<Checkout />} />
@@ -65,6 +67,9 @@ function App() {
             <Route path="display/:id" element={<><ProductDisplay /></>} />
             <Route path="details/:id" element={<><ProductDetail /></>}></Route>
             <Route path='profile' element={<Profile/>}/>
+            <Route path='products' element={<UserProducts/>}/>
+            <Route path='userVideos' element={<UserVideos/>}/>
+
           </Route>
           <Route path ="/signin" element = {<><Nav/><Signin /></>}/>
           <Route path ="/signup" element = {<><Nav/><Signup /></>}/>

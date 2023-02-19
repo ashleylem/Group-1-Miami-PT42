@@ -2,6 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { useRef } from "react";
 import { Context } from "../../Store/appContext";
 
+/**
+ * This function displays the form for users to upload new reviews for their purchases. 
+ * @param {} none No input parameters 
+ * @returns {HTML} HTML for review form
+ */
+
 export const ReviewUpload=()=>{
   const [progress, setProgress] = useState(0);
   const [purchases, setPurchases] = useState();
@@ -44,7 +50,9 @@ export const ReviewUpload=()=>{
     xhr.send(data);
   };
   
-    return(<form
+    return(
+      
+      <form
         className="uploadForm"
         onSubmit={handleSubmit}
         ref={formRef}
