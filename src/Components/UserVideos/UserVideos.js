@@ -9,8 +9,8 @@ export const UserVideos = () => {
   const { actions } = useContext(Context);
 
   const apiImgUrl =
-    "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/videos/";
-const productImgUrl= "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/product/images/";
+    "https://ashleylem.pythonanywhere.com/videos/";
+const productImgUrl= "https://ashleylem.pythonanywhere.com/product/images/";
 
     async function settingVideo() {
       const newInfo = await actions.get_user_videoInfo();

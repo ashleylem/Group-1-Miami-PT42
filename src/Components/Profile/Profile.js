@@ -23,6 +23,7 @@ export const Profile = () => {
   const [productImg, setProductImg] = useState();
   const [pictureUpload, setPictureUpload] = useState();
   const [isIntroOpen, setIsIntroOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
   const { actions } = useContext(Context);
   const steps = [
     {
@@ -50,23 +51,30 @@ export const Profile = () => {
       localStorage.setItem("showIntro", false);
     }
   }, []);
+
   useEffect(() => {
     async function settingUserInfo() {
-      let newInfo = await actions.get_user_info();
-      console.log(newInfo);
-      setUserInfo(newInfo);
+      try {
+        let newInfo = await actions.get_user_info();
+        setUserInfo(newInfo);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading(false);
+      }
     }
     settingUserInfo();
   }, []);
 
   const profilePic =
-    "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/profile/picture/";
+    "https://ashleylem.pythonanywhere.com/profile/picture/";
   const apiImgUrl =
-    "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/images/";
+    "https://ashleylem.pythonanywhere.com/images/";
   const productImgUrl =
-    "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/product/images/";
+    "https://ashleylem.pythonanywhere.com/product/images/";
   const apiVideoUrl =
-    "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/videos/";
+    "https://ashleylem.pythonanywhere.com/videos/";
+
   useEffect(() => {
     async function settingProducts() {
       let newUserProducts = await actions.get_user_products();
@@ -75,7 +83,6 @@ export const Profile = () => {
     settingProducts();
   }, []);
 
-  // actions.get_user_video()
   useEffect(() => {
     async function settingVideo() {
       const newInfo = await actions.get_user_videoInfo();
@@ -122,6 +129,11 @@ export const Profile = () => {
     actions.edit_user_picture(data);
     console.log("added");
   };
+  
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
 
   return (
     <div className="profile-container py-5 px-4">
@@ -354,15 +366,17 @@ export const Profile = () => {
                     return (
                       <>
                       
-                        <div className="previews-container col-lg-6 mb-2 pr-lg-1">
+                        <div className="previews-container rounded col-lg-6 mb-2 pr-lg-1">
                           <img
-                            className="btn modal-img-button p-0 img-fluid rounded"
+                            className=" modal-img-button p-0 img-fluid rounded"
                             type="button"
                             data-bs-toggle="modal"
                             data-bs-target={"#modal" + item?.id}
                             src={productImgUrl + item?.filename[0]}
                             alt="..."
                           />
+                          <h5 className="mt-2">{item.name}</h5>
+                          <p className="fw-bold fs-4">{"$"+item.price}</p>
                         </div>
                         <div
                           className="modal fade"
