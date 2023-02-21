@@ -2,6 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import { useRef } from "react";
 import { Context } from "../../Store/appContext";
 
+/**
+ * This function displays the form for users to upload new reviews for their purchases. 
+ * @param {} none No input parameters 
+ * @returns {HTML} HTML for review form
+ */
+
 export const ReviewUpload=()=>{
   const [progress, setProgress] = useState(0);
   const [purchases, setPurchases] = useState();
@@ -31,7 +37,7 @@ export const ReviewUpload=()=>{
 
     xhr.open(
       "POST",
-      "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us86.gitpod.io/uploads/videos"
+      "https://ashleylem.pythonanywhere.com/uploads/videos"
     );
     xhr.upload.addEventListener("progress", (event) => {
       if (event.lengthComputable) {
@@ -44,28 +50,30 @@ export const ReviewUpload=()=>{
     xhr.send(data);
   };
   
-    return(<form
+    return(
+      
+      <form
         className="uploadForm"
         onSubmit={handleSubmit}
         ref={formRef}
       >
-        <label>
-          Choose item:
+        
           <select
-            className="form-select"
+            className="form-select "
             name="product_id"
             id="product_id"
           >
+          <option>Choose Item</option>
             {purchases?.map((item, index) => {
               return (
                 <option value={item.product_id}>{item.name}</option>
               );
             })}
           </select>
-        </label>
-        <label>
+       
+        <label className="form-label mt-3 mb-2">
           {" "}
-          Name your Review
+          Name your Review</label>
           <input
             className="form-control"
             id="name"
@@ -73,10 +81,10 @@ export const ReviewUpload=()=>{
             type="text"
             required
           />
-        </label>
-        <label>
+        
+        <label class="form-label mt-3 mb-2">
           {" "}
-          Upload your review
+          Upload your review</label>
           <input
             className="form-control"
             id="file"
@@ -84,10 +92,10 @@ export const ReviewUpload=()=>{
             type="file"
             required
           />
-        </label>
-        <label>
+        
+        <label className="form-label mt-3 mb-2">
           {" "}
-          Add a description for your review
+          Add a description for your review</label >
           <textarea
             className="form-control description-input"
             id="description"
@@ -96,9 +104,9 @@ export const ReviewUpload=()=>{
             rows={5}
             required
           />
-        </label>
+        
         <input
-          className="reviewSubmit"
+          className="reviewSubmit mt-3"
           type="submit"
           value="Submit"
         />

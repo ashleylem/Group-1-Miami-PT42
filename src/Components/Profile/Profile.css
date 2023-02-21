@@ -6,29 +6,39 @@
     height: 35rem;
 }
 
-.previews-container{
-    display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    max-height: 410px;
-    
+.review-thumbnail{
+    max-width: 100%;
+    max-height:20rem;
+    object-fit: contain;
+    margin:auto;
 }
-.previews-container::-webkit-scrollbar{
-    display: none;
+.faCheckCircle{
+    color: rgb(100, 121, 162);
+}
+.review-img{
+    border-radius: 100%;
+    height:5rem;
+    width:5rem;
+}
+.react-video-thumbnail-image{
+    display: flex;
+    background-color: black;
+    border-radius: 5%;
+    margin-top: 1rem;
 }
 div.row p{
     margin-right: 0.25rem;
 }
 .previewImg{
-    padding:0.25rem;
+    border-radius: 5%;
    
 }
-.modalProductImg{
-    max-width: 30%;
-    margin:0.40rem;
+.previewImg:hover{
+  box-shadow: 1px 1px 15px 2px;
+  
 
 }
-.profile-header{
+/* .profile-header{
     border: none;
     border-radius:10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -36,21 +46,22 @@ div.row p{
     display: inline-block;
     width: 80%;
 
-}
+} */
 
-.profile-header h1{
+
+/* .profile-header h1{
     padding-top: 1rem;
     font-family:"Playfair Display", serif;
 
-}
+} */
 div.content h6{
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
 }
 .profile-pic-upload{
     display:none;
-    width:10rem;
-    height:10rem;
+    width:12rem;
+    height:12rem;
     border-radius: 100%;
 
 }
@@ -67,18 +78,18 @@ div.content p{
     text-align: center;
     border-radius: 100%;
     /* border: 1px solid black; */
-    width:10rem;
-    height:10rem;
+    width:12rem;
+    height:12rem;
     margin: auto;
 
 }
 .profile-pic-img{
     display: flex;
 border-radius: 100%;
-margin: auto;
 justify-content: center;
-width:10rem;
-    height:10rem;
+width:12rem;
+margin: auto;
+    height:12rem;
 }
 
 div.pictureLabel label{
@@ -101,6 +112,11 @@ div.pictureLabel label:hover{
 .edit-label{
     text-align: right;
     margin-right: 30%;
+    float: right;
+}
+.linksContainer{
+    background-color: rgb(229 231 235);
+    
 }
 div.profile-header h1{
     text-align: center;
@@ -113,6 +129,9 @@ div.profile-header img {
     vertical-align: middle;
     border: 0;
 }
+.follows-row{
+    justify-content:center;
+}
 
 .following, .followers{
    text-align: center;
@@ -123,32 +142,28 @@ div.profile-header img {
 .user-icon-f{
     margin-right: 0.25rem;
 }
-.linksContainer{
-    margin:2rem;
 
-}
-.linksContainer div{
-    height: 10%;
 
-}
 .profileLinks{
     display: inline-block;
     font-family: "Open Sans", sans-serif;
 
 
     padding: 0.35em 1.2em;
-    /* border: 0.1em solid black; */
+
     margin: 0 0.3em 0.3em 0;
-    border-radius: 0.12em;
-    box-sizing: border-box;
+  
+ 
     text-decoration: none;
     /* font-family: 'Roboto', sans-serif; */
     font-weight: 300;
     color: black;
-    background-color: white;
+   
     text-align: center;
-    transition: all 0.2s;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(150, 195, 225, 0.637) 0px 1px 3px -1px;    width: 100%;
+  
+}
+.profileLinks:hover{
+    color:white
 }
 
 .uploads h1{
@@ -201,18 +216,12 @@ div.profile-header img {
 
 
 }
-div.previewImg img{
-    height:100%;
-}
+
 .modal-body h5{
     text-align: center;
 }
-.uploadForm label{
-    margin: 1.5rem;
-}
-.productForm label{
-    margin: 1rem;
-}
+
+
 .Wishlist{
     border: none;
     border-radius:10px;
@@ -221,6 +230,19 @@ div.previewImg img{
     border: none;
     border-radius:10px;
 
+    
+}
+
+
+.modal-img-button{
+    max-height: 22rem;
+    object-fit: contain;
+    width: 100%;
+ 
+
+}
+.previews-container:hover{
+    box-shadow: 1px 1px 15px 2px;
 }
 .product-modal{
     height:75vh;
@@ -232,4 +254,7 @@ div.previewImg img{
     display: block;
     width: 100%;
     height:100%;
+}
+.all-products-link{
+    margin-left: 2rem;
 }

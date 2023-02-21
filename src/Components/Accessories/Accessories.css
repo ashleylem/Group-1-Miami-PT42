@@ -1,0 +1,21 @@
+.accessories-container h1{
+font-family: 'Playfair Display', serif;
+text-align: center;
+}
+.seller-name{
+    text-align: center;
+    font-size: small;
+    font-family: "Open Sans", sans-serif;
+   
+
+}
+.product-name{
+    font-size: medium;
+    text-align: center;
+    font-family: "Open Sans", sans-serif;
+
+}
+.products{
+    display: flex;
+    flex-wrap: wrap
+}

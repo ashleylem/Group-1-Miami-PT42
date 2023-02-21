@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useRef } from "react";
 import { Context } from "../../Store/appContext";
+
+/**
+ * This function displays the form for users to upload new products to list for sale. 
+ * @param {} none No input parameters 
+ * @returns {HTML} HTML for product listing form
+ */
+
 export const ProductUpload = () => {
   const [progress, setProgress] = useState(0);
   const productForm = useRef();
@@ -24,14 +31,14 @@ export const ProductUpload = () => {
       onSubmit={handleProductSubmit}
       ref={productForm}
     >
-      <label>
-        Choose Category:
+    
         <select
           onChange={handleFirstSelect}
-          className="form-select"
+          className="form-select mt-3 mb-2"
           name="category_name"
           id="category_name"
         >
+        <option>Choose Product Category</option>
           <option value="Women">Women's Clothing</option>
           <option value="Men">Men's Clothing</option>
           <option value="Accessories">Accessories</option>
@@ -39,68 +46,71 @@ export const ProductUpload = () => {
           <option value="Home-Products">Home Products</option>
           <option value="Other">Other</option>
         </select>
-      </label>
+      
 
       {selectedOption === "Women" && (
-        <label>
-          Choose Sub-Category:
+       
           <select
-            className="form-select"
+            className="form-select mt-3 mb-2"
             name="subcategory_name"
             id="subcategory_name"
           >
+          <option>Choose Sub-Category</option>
             <option value="Tops">Tops</option>
             <option value="Dresses">Dresses</option>
             <option value="Bottoms">Bottoms</option>
           </select>
-        </label>
+      
       )}
       {selectedOption === "Men" && (
-        <label>
-          Choose Sub-Category:
+        
           <select
-            className="form-select"
-            name="subcategory_id"
-            id="subcategory_id"
+            className="form-select mt-3 mb-2"
+            name="subcategory_name"
+            id="subcategory_name"
           >
+          <option>Choose Sub-Category</option>
+
             <option value="Tops">Tops</option>
             <option value="Jackets">Jackets</option>
             <option value="Bottoms">Bottoms</option>
           </select>
-        </label>
+      
       )}
       {selectedOption === "Accessories" && (
-        <label>
-          Choose Sub-Category:
+        
           <select
-            className="form-select"
-            name="subcategory_id"
-            id="subcategory_id"
+            className="form-select mt-3 mb-2"
+            name="subcategory_name"
+            id="subcategory_name"
           >
+          <option>Choose Sub-Category</option>
+
             <option value="Jewelry">Jewelry</option>
             <option value="Bags">Bags</option>
             <option value="Sunglasses">Sunglasses</option>
           </select>
-        </label>
+       
       )}
       {selectedOption === "Home-Products" && (
-        <label>
-          Choose Sub-Category:
+        
           <select
-            className="form-select"
-            name="subcategory_id"
-            id="subcategory_id"
+            className="form-select mt-3 mb-2"
+            name="subcategory_name"
+            id="subcategory_name"
           >
+          <option>Choose Sub-Category</option>
+
             <option value="Furniture">Furniture</option>
             <option value="Home-Decor">Home Decor</option>
             <option value="Kitchen">Kitchen</option>
           </select>
-        </label>
+     
       )}
 
-      <label>
+      <label className="form-label mt-3 mb-2" >
         {" "}
-        Name Your Product
+        Name Your Product</label >
         <input
           className="form-control"
           id="name"
@@ -108,9 +118,9 @@ export const ProductUpload = () => {
           type="text"
           required
         />{" "}
-      </label>
-      <label>
-        Price:
+      
+      <label className="form-label mt-3 mb-2" >
+        Price:</label >
         <input
           className="form-control"
           id="price"
@@ -119,15 +129,16 @@ export const ProductUpload = () => {
           placeholder="Choose a price"
           required
         />
-      </label>
+      
       {(selectedOption === "Women" || selectedOption === "Men") && (
-        <label>
-          Add Sizes
+        <>
+        <label className="form-label mt-3 mb-2" >
+          Add Sizes</label >
           <input className="form-control" type="text" name="sizes" id="sizes" placeholder="Add sizes separated by a coma"/>
-        </label>
+        </>
       )}
-      <label>
-        Upload pictures of your product
+      <label className="form-label mt-3 mb-2" >
+        Upload pictures of your product</label >
         <input
           className="form-control product-files"
           id="file"
@@ -136,9 +147,9 @@ export const ProductUpload = () => {
           required
           multiple
         />
-      </label>
-      <label>
-        Add a product description
+      
+      <label className="form-label mt-3 mb-2" >
+        Add a product description</label >
         <textarea
           className="form-control"
           id="description"
@@ -147,9 +158,9 @@ export const ProductUpload = () => {
           required
           rows={5}
         />
-      </label>
-      <label>
-        Add extra details about your product
+      
+      <label className="form-label mt-3 mb-2" >
+        Add extra details about your product</label >
         <textarea
           className="form-control"
           id="product_details"
@@ -158,9 +169,9 @@ export const ProductUpload = () => {
           placeholder="This can be things like what material was used, how to care for it, or anything extra you may want to add"
           rows={3}
         />
-      </label>
-      <label>
-        Add Shipping Information
+      
+      <label className="form-label mt-3 mb-2" >
+        Add Shipping Information</label >
         <textarea
           className="form-control"
           id="shipping"
@@ -170,7 +181,7 @@ export const ProductUpload = () => {
           required
           rows={3}
         />
-      </label>
+      
       <input type="submit" value="Submit" />
       <div>
       <p>Upload progress: {progress}%</p>
