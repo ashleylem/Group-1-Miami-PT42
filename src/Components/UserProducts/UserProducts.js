@@ -8,7 +8,7 @@ export const UserProducts = () => {
   const { actions } = useContext(Context);
 
   const apiImgUrl =
-    "https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/images/";
+    "https://ashleylem.pythonanywhere.com/images/";
 
   useEffect(() => {
     async function settingUserInfo() {

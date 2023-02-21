@@ -220,12 +220,8 @@ div.profile-header img {
 .modal-body h5{
     text-align: center;
 }
-.uploadForm label{
-    margin: 1.5rem;
-}
-.productForm label{
-    margin: 1rem;
-}
+
+
 .Wishlist{
     border: none;
     border-radius:10px;
@@ -236,6 +232,8 @@ div.profile-header img {
 
     
 }
+
+
 .modal-img-button{
     max-height: 22rem;
     object-fit: contain;
@@ -243,7 +241,7 @@ div.profile-header img {
  
 
 }
-.modal-img-button:hover{
+.previews-container:hover{
     box-shadow: 1px 1px 15px 2px;
 }
 .product-modal{
