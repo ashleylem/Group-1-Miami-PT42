@@ -43,19 +43,18 @@ function Checkout() {
     }));
   };
 const handlesubmit=()=>{
-const data= new FormData()
-data.append("buyer_name", buyerInfo[first_name]+" "+ buyerInfo[last_name])
-data.append("buyer_shipping", addressInfo[address]+ ", " +addressInfo[city] + ", " + addressInfo[state] + ", " + addressInfo[zip] )
-data.append("fullfillment_status", false)
-
 cart.map((item)=>{
-  actions.add_to_purchases(item)
+const data= new FormData()
+data.append("buyer_name", buyerInfo.first_name +" "+ buyerInfo.last_name)
+data.append("buyer_shipping", addressInfo.address+ ", " +addressInfo.city + ", " + addressInfo.state + ", " + addressInfo.zip)
+data.append("fullfillment_status", false)
+data.append("product_id", item.product_id)
+data.append("seller_id", item.seller_id)
+actions.add_to_sales(data)
+actions.add_to_purchases(item)
 
 })
-
 actions.clear_cart()
-
-
 }
 
   useEffect(()=>{
@@ -64,7 +63,7 @@ actions.clear_cart()
     setCart(newCart)
   }
   settingCart()
-  })
+  },[])
 
 
   return (
@@ -270,7 +269,7 @@ actions.clear_cart()
                   </div>
                 </div>
 
-                <button className="checkout-button w-100 rounded  hover:bg-blue-600">
+                <button onClick={handlesubmit} className="checkout-button w-100 rounded  hover:bg-blue-600">
                   Check Out
                 </button>
               </div>

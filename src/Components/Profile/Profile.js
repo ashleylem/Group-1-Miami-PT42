@@ -12,7 +12,7 @@ import { ReviewUpload } from "../ReviewUpload/ReviewUpload";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { faPen } from "@fortawesome/free-solid-svg-icons";
 import ReactJoyride from "react-joyride";
-import VideoImageThumbnail from 'react-video-thumbnail-image';
+import VideoImageThumbnail from "react-video-thumbnail-image";
 
 import VideoThumbnail from "../VideoThumbnail";
 
@@ -22,6 +22,7 @@ export const Profile = () => {
   const [userInfo, setUserInfo] = useState();
   const [productImg, setProductImg] = useState();
   const [pictureUpload, setPictureUpload] = useState();
+  const [salesInfo, setSalesInfo] = useState();
   const [isIntroOpen, setIsIntroOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const { actions } = useContext(Context);
@@ -52,6 +53,30 @@ export const Profile = () => {
     }
   }, []);
 
+  async function settingSales() {
+    const userId = localStorage.getItem("user-id");
+    const newInfo = await actions.get_sales(userId);
+    const itemDetails = await Promise.all(
+      newInfo.map(async (item) => {
+        const detailResponse = await actions.product_info(item.product_id);
+        return detailResponse;
+      })
+    );
+    return newInfo.map((item, index) => ({
+      ...item,
+      product: itemDetails[index],
+    }));
+  }
+
+  useEffect(() => {
+    async function settingSalesInfo() {
+      settingSales()
+        .then((data) => setSalesInfo(data))
+        .catch((error) => console.log(error));
+    }
+    settingSalesInfo();
+  });
+  console.log(salesInfo);
   useEffect(() => {
     async function settingUserInfo() {
       try {
@@ -66,14 +91,10 @@ export const Profile = () => {
     settingUserInfo();
   }, []);
 
-  const profilePic =
-    "https://ashleylem.pythonanywhere.com/profile/picture/";
-  const apiImgUrl =
-    "https://ashleylem.pythonanywhere.com/images/";
-  const productImgUrl =
-    "https://ashleylem.pythonanywhere.com/product/images/";
-  const apiVideoUrl =
-    "https://ashleylem.pythonanywhere.com/videos/";
+  const profilePic = "https://ashleylem.pythonanywhere.com/profile/picture/";
+  const apiImgUrl = "https://ashleylem.pythonanywhere.com/images/";
+  const productImgUrl = "https://ashleylem.pythonanywhere.com/product/images/";
+  const apiVideoUrl = "https://ashleylem.pythonanywhere.com/videos/";
 
   useEffect(() => {
     async function settingProducts() {
@@ -129,11 +150,10 @@ export const Profile = () => {
     actions.edit_user_picture(data);
     console.log("added");
   };
-  
+
   if (loading) {
     return <p>Loading...</p>;
   }
-
 
   return (
     <div className="profile-container py-5 px-4">
@@ -279,24 +299,35 @@ export const Profile = () => {
                   let array = imgUrl.split(",");
                   return (
                     <>
-                      <div className="previewImg  col-lg-6 mb-2 pr-lg-1"
-                      data-bs-toggle="modal"
-                      data-bs-target={"#userReview"+index }
+                      <div
+                        className="previewImg  col-lg-6 mb-2 pr-lg-1"
+                        data-bs-toggle="modal"
+                        data-bs-target={"#userReview" + index}
                       >
-                      
-                      <VideoImageThumbnail
-                      videoUrl={apiVideoUrl+item?.filename}
-                      thumbnailHandler={(thumbnail) => console.log(thumbnail)}
-                      className="review-thumbnail "
-                      alt="my test video"
-                      />
-                      <div className="d-flex">
-                      <img className="review-img" src={productImgUrl+ array[0]} ></img>
-                      <div>
-                      <h5 className="mt-4 fw-semibold">{item?.name}</h5>
-                      <p className="text-muted fs-6">Certified Review <FontAwesomeIcon icon={faCheckCircle} className="faCheckCircle"/></p></div>
-                      </div>
-                        
+                        <VideoImageThumbnail
+                          videoUrl={apiVideoUrl + item?.filename}
+                          thumbnailHandler={(thumbnail) =>
+                            console.log(thumbnail)
+                          }
+                          className="review-thumbnail "
+                          alt="my test video"
+                        />
+                        <div className="d-flex">
+                          <img
+                            className="review-img"
+                            src={productImgUrl + array[0]}
+                          ></img>
+                          <div>
+                            <h5 className="mt-4 fw-semibold">{item?.name}</h5>
+                            <p className="text-muted fs-6">
+                              Certified Review{" "}
+                              <FontAwesomeIcon
+                                icon={faCheckCircle}
+                                className="faCheckCircle"
+                              />
+                            </p>
+                          </div>
+                        </div>
                       </div>
                       <div
                         className="modal fade"
@@ -365,7 +396,6 @@ export const Profile = () => {
                   if (index <= 4) {
                     return (
                       <>
-                      
                         <div className="previews-container rounded col-lg-6 mb-2 pr-lg-1">
                           <img
                             className=" modal-img-button p-0 img-fluid rounded"
@@ -376,7 +406,7 @@ export const Profile = () => {
                             alt="..."
                           />
                           <h5 className="mt-2">{item.name}</h5>
-                          <p className="fw-bold fs-4">{"$"+item.price}</p>
+                          <p className="fw-bold fs-4">{"$" + item.price}</p>
                         </div>
                         <div
                           className="modal fade"
@@ -512,6 +542,26 @@ export const Profile = () => {
                       </>
                     );
                   }
+                })}
+              </div>
+            </div>
+            <div className="sales-container">
+              <h1>Your Sales</h1>
+              <div className="row">
+                {salesInfo?.map((item) => {
+                  let imgUrl = item.product.filename;
+                  let imgArray = imgUrl.split(",");
+                  return(<div className="previews-container rounded col-lg-6 mb-2 pr-lg-1">
+                    <img
+                      className="modal-img-button  p-0 img-fluid rounded"
+                      src={productImgUrl+imgArray[0]}
+                      alt="..."
+                    />
+                    <h5 className="mt-2">{item.product.name}</h5>
+                    <p className="">Buyer Name: {item.buyer_name}</p>
+                    <p className="">Buyer's Shipping Info: {item.buyer_shipping}</p>
+                    <p>Has this item shipped?: {item.fullfillment_status? "Yes":"No"}</p>
+                  </div>)
                 })}
               </div>
             </div>
