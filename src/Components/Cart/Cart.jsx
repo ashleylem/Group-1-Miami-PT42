@@ -25,7 +25,7 @@ function Cart() {
 	  }
 	  settingCart();
 	}, []);
-  
+  console.log(cart)
 	return (
 	  <div className="cart-wrap">
 		<div className="container">

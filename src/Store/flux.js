@@ -365,6 +365,30 @@ const getState = ({ getStore, getActions, setStore }) => {
         console.log(data)
         return data
       },
+      add_to_sales: async (form)=>{
+        const response = await fetch(
+          "https://ashleylem.pythonanywhere.com/sales",
+          {
+            method: "POST",
+            body: form,
+            
+          }
+        );
+      },
+      get_sales: async(userId)=>{
+        const response = await fetch(
+          "https://ashleylem.pythonanywhere.com/sales/"+userId,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            
+          }
+        );
+        const data = await response.json();
+        return data;
+      },
       get_accessories: async()=>{
         const response= await fetch( "https://ashleylem.pythonanywhere.com/accessories", {
           method:'GET',

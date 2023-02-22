@@ -12,6 +12,7 @@ import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Accessories } from "../Accessories/Accessories";
+import Cart from "../Cart/Cart";
 
 export const SubCatDisplay = () => {
   const { store, actions } = useContext(Context);
@@ -82,8 +83,11 @@ export const SubCatDisplay = () => {
                           price: item.price,
                           description: item.description,
                           picture: item.filename,
+                          seller_id: item.userId,
                         };
+                        console.log(newItem)
                         actions.add_to_cart(newItem);
+                        
 
                         if (store.isAuthenticated == true) {
                           alert("Sucessfully added!");
