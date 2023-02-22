@@ -51,9 +51,9 @@ export const SubCatDisplay = () => {
           id=="Women"? (<><div className="category-links"> <Link to={"/products/Women/Dresses"}>Dresses</Link>    </div>  
           <div className="category-links"> <Link to={"/products/Women/Bottoms"}>Bottoms</Link> </div>
           <div className="category-links"> <Link to={"/products/Women/Tops"}>Tops</Link></div> </> ):
-        id=="Home"?(<><div className="category-links"> <Link to={"/products/Home/Furniture"}>Furniture</Link>      </div>
-        <div className="category-links">  <Link to={"/products/Home/Home-Decor"}>Home-Decor</Link> </div>
-        <div className="category-links"> <Link to={"/products/Home/Kitchen"}>Kitchen</Link></div> </> ):
+        id=="Home-Products"?(<><div className="category-links"> <Link to={"/products/Home-Products/Furniture"}>Furniture</Link>      </div>
+        <div className="category-links">  <Link to={"/products/Home-Products/Home-Decor"}>Home-Decor</Link> </div>
+        <div className="category-links"> <Link to={"/products/Home-Products/Kitchen"}>Kitchen</Link></div> </> ):
       id=="Accessories"? (<><div className="category-links"> <Link to={"/products/Accessories/Jewelry"}>Jewelry</Link> </div>     
       <div className="category-links"> <Link to={"/products/Accessories/Bags"}>Bags</Link> </div>
       <div className="category-links"> <Link to={"/products/Accessories/Sunglasses"}>Sunglasses</Link> </div></> ): null }
