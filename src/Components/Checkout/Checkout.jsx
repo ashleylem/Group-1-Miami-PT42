@@ -42,21 +42,21 @@ function Checkout() {
       [property]: value,
     }));
   };
-const handlesubmit=()=>{
-const data= new FormData()
-data.append("buyer_name", buyerInfo[first_name]+" "+ buyerInfo[last_name])
-data.append("buyer_shipping", addressInfo[address]+ ", " +addressInfo[city] + ", " + addressInfo[state] + ", " + addressInfo[zip] )
-data.append("fullfillment_status", false)
+// const handlesubmit=()=>{
+// const data= new FormData()
+// data.append("buyer_name", buyerInfo[first_name]+" "+ buyerInfo[last_name])
+// data.append("buyer_shipping", addressInfo[address]+ ", " +addressInfo[city] + ", " + addressInfo[state] + ", " + addressInfo[zip] )
+// data.append("fullfillment_status", false)
 
-cart.map((item)=>{
-  actions.add_to_purchases(item)
+// cart.map((item)=>{
+//   actions.add_to_purchases(item)
 
-})
+// })
 
-actions.clear_cart()
+// actions.clear_cart()
 
 
-}
+// }
 
   useEffect(()=>{
   async function settingCart(){

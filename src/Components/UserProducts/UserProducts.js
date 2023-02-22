@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { Context } from "../../Store/appContext";
 import { ProductUpload } from "../ProductUploads/ProductUploads";
-import "/workspace/Group-1-Miami-PT42/src/Components/UserProducts/UserProducts.css";
+import "./UserProducts.css";
 export const UserProducts = () => {
   const [userProducts, setUserProducts] = useState();
   const [userInfo, setUserInfo] = useState();

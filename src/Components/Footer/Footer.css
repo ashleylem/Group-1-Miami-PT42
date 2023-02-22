@@ -47,12 +47,23 @@ footer {
   }
   
   footer .img-thumbnail {
-    width:8em;
-    height:8em;
+    width:6em;
+    height:6em;
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid #444;
     border-radius: 50%;
     margin-bottom: 5px;
+  }
+  footer .img-thumbnail-2 {
+    width:4em;
+    height:4em;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid #444;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    margin-right: 1px;
+    margin-left: 5px;
+
   }
   
   footer .copyright {
@@ -64,4 +75,13 @@ footer {
   
   footer .copyright span {
     color: #0894d1;
+  }
+
+  .contact-container{
+    justify-content: center;
+    display: flex;
+  }
+  h3{
+    display: flex;
+    justify-content: center;
   }

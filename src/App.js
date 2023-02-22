@@ -73,6 +73,7 @@ function App() {
           </Route>
           <Route path ="/signin" element = {<><Nav/><Signin /></>}/>
           <Route path ="/signup" element = {<><Nav/><Signup /></>}/>
+          
 
         </Routes>
       </Router>
