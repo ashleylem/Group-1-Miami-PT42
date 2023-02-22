@@ -11,32 +11,32 @@ import { faBookmark } from "@fortawesome/fontawesome-free-regular";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Accessories } from "../Accessories/Accessories";
 
-export const ProductDisplay = () => {
+export const SubCatDisplay = () => {
   const { store, actions } = useContext(Context);
   const [info, setInfo] = useState([]);
   
-  const [productType, setProductType] = useState("");
+  const [productType, setProductType] = useState();
 
-
+  const localStorageKey = "info_key";
   const productImgUrl =
   "https://ashleylem.pythonanywhere.com/product/images/";
-  const { id } = useParams();
+  const { id, subcategory } = useParams();
 
   useEffect(() => {
-
     async function settingInfo(){
-      if (productType==""){
-      const newInfo = await actions.get_category_products(id)
-      setInfo(newInfo)}
-      else{
-        const newSubInfo = await actions.get_subcategory_products(id, productType)
-      setInfo(newSubInfo)
-      }
+      const newInfo = await actions.get_subcategory_products(id, subcategory)
+      setInfo(newInfo)
     }
     settingInfo()
-  }, [id, productType]);
+  }, [subcategory]);
+  console.log(info)
 
+  // useEffect(()=>{
+  //   localStorage.setItem(localStorageKey, JSON.stringify(info));
+  //   }
+  // ,[info])
 
   return (
     <div>
@@ -44,21 +44,21 @@ export const ProductDisplay = () => {
       <div className="women-container d-flex flex-row container-fluid">
         <div className="col-3 position-relative filters-column ">
           <div className="filters-container p-2 mt-4 me-4">
-          { id=="Men" ?(<> <div className="category-links"><Link to={"/products/Men/Jackets"}>Jackets</Link>  </div>    
-          <div className="category-links"><Link to={"/products/Men/Bottoms"}>Bottoms</Link> </div> 
-          <div className="category-links"><Link to={"/products/Men/Tops"}>Tops</Link></div>  </> ) :
-         id=="Women"? (<><div className="category-links"> <Link to={"/products/Women/Dresses"}>Dresses</Link>    </div>  
-         <div className="category-links"> <Link to={"/products/Women/Bottoms"}>Bottoms</Link> </div>
-         <div className="category-links"> <Link to={"/products/Women/Tops"}>Tops</Link></div> </> ):
-       id=="Home"?(<><div className="category-links"> <Link to={"/products/Home/Furniture"}>Furniture</Link>      </div>
-       <div className="category-links">  <Link to={"/products/Home/Home-Decor"}>Home-Decor</Link> </div>
-       <div className="category-links"> <Link to={"/products/Home/Kitchen"}>Kitchen</Link></div> </> ):
-     id=="Accessories"? (<><div className="category-links"> <Link to={"/products/Accessories/Jewelry"}>Jewelry</Link> </div>     
-     <div className="category-links"> <Link to={"/products/Accessories/Bags"}>Bags</Link> </div>
-     <div className="category-links"> <Link to={"/products/Accessories/Sunglasses"}>Sunglasses</Link> </div></> ): null }
+         { id=="Men" ?(<> <div className="category-links"><Link to={"/products/Men/Jackets"}>Jackets</Link>  </div>    
+           <div className="category-links"><Link to={"/products/Men/Bottoms"}>Bottoms</Link> </div> 
+           <div className="category-links"><Link to={"/products/Men/Tops"}>Tops</Link></div>  </> ) :
+          id=="Women"? (<><div className="category-links"> <Link to={"/products/Women/Dresses"}>Dresses</Link>    </div>  
+          <div className="category-links"> <Link to={"/products/Women/Bottoms"}>Bottoms</Link> </div>
+          <div className="category-links"> <Link to={"/products/Women/Tops"}>Tops</Link></div> </> ):
+        id=="Home"?(<><div className="category-links"> <Link to={"/products/Home/Furniture"}>Furniture</Link>      </div>
+        <div className="category-links">  <Link to={"/products/Home/Home-Decor"}>Home-Decor</Link> </div>
+        <div className="category-links"> <Link to={"/products/Home/Kitchen"}>Kitchen</Link></div> </> ):
+      id=="Accessories"? (<><div className="category-links"> <Link to={"/products/Accessories/Jewelry"}>Jewelry</Link> </div>     
+      <div className="category-links"> <Link to={"/products/Accessories/Bags"}>Bags</Link> </div>
+      <div className="category-links"> <Link to={"/products/Accessories/Sunglasses"}>Sunglasses</Link> </div></> ): null }
           </div>
         </div>
-        <div className="products row">
+        <div className="products  row">
           {info?.map((item, index) => {
             let imgUrl = item.filename;
                   let array = imgUrl.split(",");

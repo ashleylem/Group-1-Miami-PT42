@@ -13,15 +13,23 @@ export const ProductUpload = () => {
   const productForm = useRef();
   const { actions } = useContext(Context);
   const [selectedOption, setSelectedOption] = useState("");
-
+const [userInfo, setUserInfo]= useState()
   const handleFirstSelect = (event) => {
     setSelectedOption(event.target.value);
   };
+useEffect(()=>{
+  async function settingInfo(){
+    const newInfo = await actions.get_user_info()
+    setUserInfo(newInfo)
+  }
+  settingInfo()
+},[])
 
   const handleProductSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(productForm.current);
     formData.append("userId", localStorage.getItem("user-id"));
+    formData.append("seller_name", userInfo.name)
     actions.add_product(formData);
   };
 
