@@ -175,7 +175,7 @@ function Nav() {
                   <li>
                     <Link
                       class="dropdown-item col"
-                      to={"/products/Home/Furniture"}
+                      to={"/products/Home-Products/Furniture"}
                     >
                       Furniture
                     </Link>
@@ -183,15 +183,15 @@ function Nav() {
                   <li>
                     <Link
                       class="dropdown-item col"
-                      to={"/products/Home/Home-Decor"}
+                      to={"/products/Home-Products/Home-Decor"}
                     >
                       Home Decor
                     </Link>
-                  </li>git push
+                  </li>
                   <li>
                   <Link
                     class="dropdown-item col"
-                    to={"/products/Home/Kitchen"}
+                    to={"/products/Home-Products/Kitchen"}
                   >
                     Kitchen
                   </Link>
