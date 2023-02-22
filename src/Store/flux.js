@@ -324,6 +324,26 @@ const getState = ({ getStore, getActions, setStore }) => {
         // console.log(data)
         return data.products;
       },
+      get_category_products: async (category)=>{
+        const response =await fetch('https://ashleylem.pythonanywhere.com/products/category/'+category,{
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        const data= await response.json()
+        return data
+      },
+      get_subcategory_products: async (category, subcategory)=>{
+        const response =await fetch('https://ashleylem.pythonanywhere.com/products/category/'+category+"/"+subcategory,{
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+        const data= await response.json()
+        return data
+      },
       get_product_info: async (product_id)=>{
         const response= await fetch('https://ashleylem.pythonanywhere.com/products/'+ product_id,{
           method: "GET",
@@ -332,6 +352,17 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
         })
         const data= await response.json()
+        return data
+      },
+      product_info: async (product_id)=>{
+        const response= await fetch('https://ashleylem.pythonanywhere.com/product/'+ product_id,{
+          method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+        })
+        const data= await response.json()
+        console.log(data)
         return data
       },
       get_accessories: async()=>{

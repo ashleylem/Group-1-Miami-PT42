@@ -10,12 +10,6 @@ margin-top:2px;
     color: none;
 
 }
-.category-links a{
-    text-decoration: none;
-    color: black;
-    text-align: center;
-    font-size: large;
-}
 
 .btn:hover{
   border: 1px solid;

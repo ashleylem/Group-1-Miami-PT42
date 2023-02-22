@@ -10,16 +10,19 @@ import { useContext } from "react";
 import { Context } from "../../Store/appContext";
 export const ProductDetail = () => {
   const { id } = useParams();
-  const{actions, store}=useParams(Context)
+  const{actions, store}=useContext(Context)
   const [info, setInfo] = useState();
-
+  const productImgUrl =
+  "https://ashleylem.pythonanywhere.com/product/images/";
   useEffect(() => {
     async function settingInfo() {
-      let products = await get_product_details(id);
+      let products = await actions.product_info(id);
       setInfo(products);
     }
     settingInfo();
   }, []);
+ 
+console.log(info)
 
   return (
     <div className="container d-flex flex-row">
@@ -28,7 +31,7 @@ export const ProductDetail = () => {
         className="carousel product-display col-4 carousel-dark slide"
       >
         <div className="carousel-indicators">
-          {info?.media?.images?.map((item, index) => {
+          {info?.filename.split(",").map((item, index) => {
             if (index == 0) {
               return (
                 <button
@@ -53,12 +56,13 @@ export const ProductDetail = () => {
           })}
         </div>
         <div className="carousel-inner">
-          {info?.media?.images?.map((item, index) => {
+          {info?.filename.split(",").map((item, index) => {
+
             if (index == 0) {
               return (
                 <div className="carousel-item object-fit-fill active">
                   <img
-                    src={"https://" + item?.url}
+                    src={productImgUrl + item}
                     className="carousel-img"
                     alt="..."
                   />
@@ -68,7 +72,7 @@ export const ProductDetail = () => {
               return (
                 <div className="carousel-item object-fit-fill">
                   <img
-                    src={"https://" + item?.url}
+                    src={productImgUrl + item}
                     className="carousel-img"
                     alt="..."
                   />
@@ -105,14 +109,17 @@ export const ProductDetail = () => {
       <div id='detail-card' className="col-4 card">
         <div className="card-body">
           <h1 className="card-title mb-2 fs-4">{info?.name}</h1>
-          <h5>{info?.price?.current?.text}</h5>
-          <h5>COLOR: {info?.variants[0]?.colour}</h5>
-          <select class="form-select mb-3 w-50" aria-label="Default select example">
-            <option selected>Select a Size</option>
-            {info?.variants?.map((item, index) => {
-              return <option value={index}>{item.displaySizeText}</option>;
+          <h5>{"$" + info?.price}</h5>
+          
+           
+            {info?.sizes ? 
+              <select class="form-select mb-3 w-50" aria-label="Default select example">
+                <option selected>Select a Size</option> 
+               { info?.sizes.split(",").map((item, index) => {
+              return <option value={index}>{item}</option>  ;
             })}
-          </select>
+            </select>: null}
+        
           <div class="accordion mb-3" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
@@ -148,7 +155,7 @@ export const ProductDetail = () => {
                   aria-expanded="false"
                   aria-controls="collapseTwo"
                 >
-                  Material
+                  Details
                 </button>
               </h2>
               <div
@@ -158,8 +165,8 @@ export const ProductDetail = () => {
                 data-bs-parent="#accordionExample"
               >
                 <div class="accordion-body">
-                  <p dangerouslySetInnerHTML={{ __html: info?.info?.aboutMe }}></p> 
-                  <p dangerouslySetInnerHTML={{ __html: info?.info?.careInfo }}></p>
+                  <p >{info?.product_details }</p> 
+        
 
                 </div>
               </div>
@@ -174,7 +181,7 @@ export const ProductDetail = () => {
                   aria-expanded="false"
                   aria-controls="collapseThree"
                 >
-                  Sizing Information
+                  Shipping Information
                 </button>
               </h2>
               <div
@@ -183,8 +190,8 @@ export const ProductDetail = () => {
                 aria-labelledby="headingThree"
                 data-bs-parent="#accordionExample"
               >
-                <div class="accordion-body" dangerouslySetInnerHTML={{ __html: info?.info?.sizeAndFit }}>
-                  
+                <div class="accordion-body" >
+                  {info?.shipping_info}
                 </div>
               </div>
             </div>

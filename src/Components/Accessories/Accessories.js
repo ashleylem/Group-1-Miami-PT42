@@ -11,7 +11,7 @@ export const Accessories=()=>{
 const {actions}=useContext(Context)
 const [accessoryInfo, setAccessoryInfo]=useState()
 const apiImgUrl =
-"https://3000-ashleylem-group1miamipt-bbwjf6rw21b.ws-us87.gitpod.io/product/images/";
+"https://ashleylem.pythonanywhere.com/product/images/";
 
 
 useEffect(()=>{
