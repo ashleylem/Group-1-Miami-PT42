@@ -9,6 +9,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import '/workspace/Group-1-Miami-PT42/src/index.js';
 import App from './App';
 
+import Kommunicate from '@kommunicate/kommunicate-chatbot-plugin';
+
+Kommunicate.init("37c3ac9e5196b755fa7e38b0e3811c21" , {"popupWidget":true,"automaticChatOpenOnNavigation":true})
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
