@@ -12,6 +12,7 @@ import Template from './Components/Template';
 import { ProductDisplay } from './Components/ProductDisplay/ProductDisplay';
 import Wishlist from './Components/Wishlist/Wishlist';
 import Cart from './Components/Cart/Cart';
+import Cart1 from './Components/Cart/Cart-1.jsx' 
 import Checkout from './Components/Checkout/Checkout';
 import Fulfilment from './Components/Fulfilment';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
@@ -59,7 +60,7 @@ function App() {
             <Route path="kids" element={<><Shoes /></>} />
             <Route path="accessories" element={<><Accessories /></>} />
             <Route path="wishlist" element={<><Wishlist /></>} />
-            <Route path="cart" element={<Cart />} />
+            <Route path="cart" element={<Cart1 />} />
             <Route path="checkout" element={<Checkout />} />
             <Route path="video" element={<Video />} />
             <Route path="*" element={<h1>Error</h1>} /><Route />

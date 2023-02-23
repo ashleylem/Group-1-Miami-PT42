@@ -151,10 +151,12 @@ const handleVolumeChange = event => {
           </div>
         </div>
       </div>
+      <video src="../VideoPage/Fuego_de_Refineria.mp4"></video>
       <video
         ref={video}
         className="video"
-        src={apiImgUrl + videoData.filename}
+        src="../VideoPage/Fuego_de_Refineria.mp4"
+        // src={apiImgUrl + videoData.filename}
         type="video/mp4"
         fullscreen={isFullscreen}
         playing={isPlaying}
