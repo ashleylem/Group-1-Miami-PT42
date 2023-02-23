@@ -16,7 +16,7 @@ async function generate_receipt(name, address) {
   );
 }
 
-const receipt = (buyerInfo, addressInfo)=> {
+const receipt = (buyerInfo, addressInfo, items)=> {
   const body= {
   StoreDetails: {
     Name: "2AM",
@@ -59,19 +59,14 @@ const receipt = (buyerInfo, addressInfo)=> {
     ],
     ItemDetails: [
       {
-        ItemCode: "",
         ItemName: "",
-        ItemHeader: "",
-        ItemQty: 1,
-        ItemUnit: "unit",
         ItemPrice: price,
-        ItemTotal: "",
+       
       },
     ],
     SubTotal: 5600,
     GrandTotal: 0,
-    RoundOff: 0.29,
-    TotalBillAmount: 5646,
+   
 
     BillingAddress: {
       AddressLine1: addressInfo.address,

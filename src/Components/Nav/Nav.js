@@ -94,18 +94,31 @@ function Nav() {
               Women
             </button>
             <ul class="row dropdown-menu">
-              {womenCategories.map((item, index) => {
-                return (
+             
                   <li>
                     <Link
                       class="dropdown-item col"
-                      to={"/display/" + item.link.categoryId}
+                      to={"/products/Women/Dresses"}
                     >
-                      {item.content.title}
+                      Dresses
                     </Link>
                   </li>
-                );
-              })}
+                  <li>
+                    <Link
+                      class="dropdown-item col"
+                      to={"/products/Women/Tops"}
+                    >
+                      Tops
+                    </Link>
+                  </li>
+                  <li>
+                  <Link
+                    class="dropdown-item col"
+                    to={"/products/Women/Bottoms"}
+                  >
+                    Bottoms
+                  </Link>
+                </li>
             </ul>
           </div>
         </li>
@@ -120,43 +133,110 @@ function Nav() {
               Men
             </button>
             <ul class="row dropdown-menu">
-              {menCategories.map((item, index) => {
-                return (
-                  <li>
-                    <Link
-                      class="dropdown-item col"
-                      to={"/display/" + item.link.categoryId}
-                    >
-                      {item.content.title}
-                    </Link>
-                  </li>
-                );
-              })}
+            <li>
+            <Link
+              class="dropdown-item col"
+              to={"/products/Men/Jackets"}
+            >
+              Jackets
+            </Link>
+          </li>
+          <li>
+            <Link
+              class="dropdown-item col"
+              to={"/products/Men/Tops"}
+            >
+              Tops
+            </Link>
+          </li>
+          <li>
+          <Link
+            class="dropdown-item col"
+            to={"/products/Men/Bottoms"}
+          >
+            Bottoms
+          </Link>
+        </li>
             </ul>
           </div>
         </li>
         <li className="link-item">
-        
-          <Link to="/kids" className="link">
-          <button
+          <div class="dropdown">
+            <button
               class="btn"
               type="button"
+              data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Kids
+              Home
             </button>
-          </Link>
+            <ul class="row dropdown-menu">
+             
+                  <li>
+                    <Link
+                      class="dropdown-item col"
+                      to={"/products/Home-Products/Furniture"}
+                    >
+                      Furniture
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      class="dropdown-item col"
+                      to={"/products/Home-Products/Home-Decor"}
+                    >
+                      Home Decor
+                    </Link>
+                  </li>
+                  <li>
+                  <Link
+                    class="dropdown-item col"
+                    to={"/products/Home-Products/Kitchen"}
+                  >
+                    Kitchen
+                  </Link>
+                </li>
+            </ul>
+          </div>
         </li>
         <li className="link-item">
-          <Link to="/accessories" className="link">
-          <button
+          <div class="dropdown">
+            <button
               class="btn"
               type="button"
+              data-bs-toggle="dropdown"
               aria-expanded="false"
             >
               Accessories
             </button>
-          </Link>
+            <ul class="row dropdown-menu">
+             
+                  <li>
+                    <Link
+                      class="dropdown-item col"
+                      to={"/products/Accessories/Jewelry"}
+                    >
+                      Jewelry
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      class="dropdown-item col"
+                      to={"/products/Accessories/Bags"}
+                    >
+                      Bags
+                    </Link>
+                  </li>
+                  <li>
+                  <Link
+                    class="dropdown-item col"
+                    to={"/products/Accessories/Sunglasses"}
+                  >
+                    Sunglasses
+                  </Link>
+                </li>
+            </ul>
+          </div>
         </li>
         <li class="link-item">
           <Link to="/video" class="link">

@@ -17,6 +17,7 @@ import Checkout from './Components/Checkout/Checkout';
 import Fulfilment from './Components/Fulfilment';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { UserProducts } from './Components/UserProducts/UserProducts';
+import { SubCatDisplay } from './Components/ProductDisplaySub/ProductDisplaySub';
 import { UserVideos } from './Components/UserVideos/UserVideos';
 
 import injectContext from './Store/appContext';
@@ -50,6 +51,7 @@ function App() {
       {/* <div>
       {currentForm === "login" ? <Login onFormSwitch={toggleForm}/> : <Register onFormSwitch={toggleForm}/>}
      </div> */}
+     
 
       <Router>
         <Routes>
@@ -65,7 +67,8 @@ function App() {
             <Route path="video" element={<Video />} />
             <Route path="*" element={<h1>Error</h1>} /><Route />
             <Route path="fulfilment" element={<Fulfilment />} />
-            <Route path="display/:id" element={<><ProductDisplay /></>} />
+            <Route path="products/:id" element={<><ProductDisplay /></>} />
+            <Route path="products/:id/:subcategory" element={<><SubCatDisplay/></>} />
             <Route path="details/:id" element={<><ProductDetail /></>}></Route>
             <Route path='profile' element={<Profile/>}/>
             <Route path='products' element={<UserProducts/>}/>
