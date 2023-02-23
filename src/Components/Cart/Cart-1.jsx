@@ -28,6 +28,15 @@ function Cart1() {
         settingCart();
     }, []);
 
+    const [quantities, setQuantities] = useState({});
+    const calculateItemTotal = (price, quantity) => {
+        return price * quantity;
+    }
+
+    const handleQuantityChange = (productId, event) => {
+        const value = event.target.value;
+        setQuantities({ ...quantities, [productId]: value });
+    };
     return (
         <div className="heading-cart">
             <div className="basket">
@@ -41,10 +50,12 @@ function Cart1() {
                         <li className="item item-heading">Item</li>
                         <li className="itemPrice">Price</li>
                         <li className="quantity">Quantity</li>
-                        <li className="subtotal">Subtotal</li>
+                        <li className="subtotal">Item Total</li>
                     </ul>
                 </div>
                 {cart.map((item, index) => {
+                    const quantity = quantities[item.product_id]  || 1;
+                    const itemTotal = calculateItemTotal(item.price, quantity);
                     return (
                         <div className="basket-productCart">
                             <div className="item">
@@ -63,16 +74,25 @@ function Cart1() {
                                 </div>
                             </div>
                             <div className="itemPrice">{item.price}</div>
-                            <div className="quantity">
-                                <input type="number" value="1" min="1" class="quantity-field" />
+                            <div className="cart-quantity">
+                                <input
+                                    className={"quantity"+ index}
+                                    type="number"
+                                    value={quantities.value}
+                                    onChange={(e) => handleQuantityChange(item.product_id, e)}
+                                    min={1}
+                                    step={1}
+                                    placeholder="1"
+                                />
                             </div>
-                            <div className="subtotal"></div>
+                            <div className="subtotal">{itemTotal.toFixed(2)}</div>
                             <div className="remove">
                                 <button
                                     onClick={() => actions.delete_cart_item(item.product_id)}
                                     className="trash-icon">
                                     {/* <FontAwesomeIcon icon={faTrash} /> */}Remove
                                 </button>
+
                             </div>
                         </div>)
                 })}
@@ -85,7 +105,11 @@ function Cart1() {
                         <div className="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
                         <div className="summary-subtotal">
                             <div className="subtotal-title">Subtotal</div>
-                            <div className="subtotal-value final-value" id="basket-subtotal">130.00</div>
+                            <div className="subtotal-value final-value" id="basket-subtotal">
+                                {cart.reduce((accumulator, item) => {
+                                    return accumulator + calculateItemTotal(item.price, quantities[item.product_id] || 1);
+                                }, 0).toFixed(2)}
+                            </div>
                             <div className="summary-promo hide">
                                 <div className="promo-title">Promotion</div>
                                 <div className="promo-value final-value" id="basket-promo"></div>
@@ -102,7 +126,12 @@ function Cart1() {
                         </div>
                         <div className="summary-total">
                             <div className="total-title">Total</div>
-                            <div className="total-value final-value" id="basket-total"></div>
+                            <div className="total-value final-value" id="basket-total">
+                                {cart.reduce((accumulator, item) => {
+                                    return accumulator + calculateItemTotal(item.price, quantities[item.product_id] || 1);
+                                }, 0).toFixed(2)}
+                                </div>
+                            
                         </div>
                         <div className="summary-checkout">
                             <button className="checkout-button-cart"><Link to="/checkout">Go to Secure Checkout</Link></button>
@@ -110,8 +139,8 @@ function Cart1() {
                     </div>
                 </aside>
             </div>
-            </div>
-            )
+        </div>
+    )
 }
 
-            export default Cart1
+export default Cart1
