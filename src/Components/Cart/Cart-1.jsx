@@ -27,7 +27,8 @@ function Cart1() {
         }
         settingCart();
     }, []);
-
+    const productImgUrl =
+  "https://ashleylem.pythonanywhere.com/product/images/";
     const [quantities, setQuantities] = useState({});
     const calculateItemTotal = (price, quantity) => {
         return price * quantity;
@@ -54,6 +55,8 @@ function Cart1() {
                     </ul>
                 </div>
                 {cart.map((item, index) => {
+                    let imgUrl = item.picture;
+                    let array = imgUrl.split(",");
                     const quantity = quantities[item.product_id]  || 1;
                     const itemTotal = calculateItemTotal(item.price, quantity);
                     return (
@@ -61,7 +64,7 @@ function Cart1() {
                             <div className="item">
                                 <div className="productCart-image">
                                     <img
-                                        src={"https://" + item.picture}
+                                        src={productImgUrl + array[0]}
                                         alt=""
                                         className="productCart-frame"
                                     />
