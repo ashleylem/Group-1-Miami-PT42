@@ -277,7 +277,7 @@ actions.clear_cart()
                 </div>
 
                 <button onClick={handlesubmit} className="checkout-button w-100 rounded  hover:bg-blue-600">
-                  Check Out
+                 <Link to="/fulfilment"> Check Out</Link>
                 </button>
               </div>
             </div>
