@@ -291,21 +291,26 @@ export const Profile = () => {
                 {userVideos?.map((item, index) => {
                   let imgUrl = item.picture;
                   let array = imgUrl.split(",");
+                  const isMP4 = item.filename.endsWith('.mp4');
                   return (
+
                     <>
                       <div
                         className="previewImg  col-lg-6 mb-2 pr-lg-1"
                         data-bs-toggle="modal"
                         data-bs-target={"#userReview" + index}
                       >
-                        <VideoImageThumbnail
+                        { isMP4? (<VideoImageThumbnail
                           videoUrl={apiVideoUrl + item.filename}
                           thumbnailHandler={(thumbnail) =>
                             console.log(thumbnail)
                           }
                           className="review-thumbnail "
                           alt="my test video"
-                        />
+                        />):
+                      <img src={productImgUrl + array[0]}>
+                      </img>
+                      }
                         <div className="d-flex">
                           <img
                             className="review-img pe-2 pt-2"
@@ -332,12 +337,16 @@ export const Profile = () => {
                       >
                         <div className="modal-dialog modal-lg modal-dialog-scrollable">
                           <div className="modal-content">
+                          {isMP4 ? 
                             <video
                               className="videoDisplay"
                               type="video/mp4"
                               src={apiVideoUrl + item.filename}
                               controls
-                            />
+                            />:
+                            <img src={apiVideoUrl+item.filename}></img>
+                          
+                          }
 
                             <div className="modal-header">
                               <h5 className="modal-title">

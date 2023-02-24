@@ -18,6 +18,7 @@ const VideoControls = ({ videoData }) => {
 
   const videoContainer = useRef();
   const apiImgUrl = "https://ashleylem.pythonanywhere.com/videos/";
+
   function togglePlayPause() {
     setIsPlaying(!isPlaying);
     if (isPlaying) {
@@ -48,6 +49,7 @@ const VideoControls = ({ videoData }) => {
   const handleVolumeChange = (event) => {
     setVolume(event.target.value);
   };
+
   return (
     <div
       ref={videoContainer}
@@ -155,12 +157,10 @@ const VideoControls = ({ videoData }) => {
           </div>
         </div>
       </div>
-      <video src="../VideoPage/Fuego_de_Refineria.mp4"></video>
       <video
         ref={video}
         className="video"
-        src="../VideoPage/Fuego_de_Refineria.mp4"
-        // src={apiImgUrl + videoData.filename}
+        src={apiImgUrl + videoData.filename}
         type="video/mp4"
         fullscreen={isFullscreen}
         playing={isPlaying}
@@ -174,6 +174,7 @@ export const Video = () => {
   const { actions } = useContext(Context);
   const [videoInfo, setVideoInfo] = useState();
   const [categoryName, setCategoryName] = useState();
+
 
   const apiImgUrl = "https://ashleylem.pythonanywhere.com/videos/";
 
@@ -239,6 +240,7 @@ export const Video = () => {
               "https://ashleylem.pythonanywhere.com/product/images/";
             let imgUrl = item.picture;
             let array = imgUrl.split(",");
+            const isMP4= item.filename.endsWith('.mp4');
             return (
               <div className=" mb-3 sub-main-video ">
                 <div
@@ -246,13 +248,16 @@ export const Video = () => {
                   data-bs-toggle="modal"
                   data-bs-target={"#userReview" + index}
                 >
-
-                  <VideoImageThumbnail
+               
+                 { isMP4? <VideoImageThumbnail
                     videoUrl={apiImgUrl + item?.filename}
                     className="review-thumbnail "
 
                     alt="my test video"
-                  />
+                  />:
+                  <div className="react-video-thumbnail-image">
+                <img className="review-thumbnail" src={productImgUrl + array[0]}></img></div>
+                }
                   <div className="d-flex">
                     <img
                       className="review-img pe-2 pt-2"
@@ -292,11 +297,14 @@ export const Video = () => {
                             ></img>
                           
                           <div className="ps-4 ">
-                            <h4></h4>
-                            <VideoControls
+                            <h4>Review for: {item.product.name}</h4>
+                            { isMP4? <VideoControls
                               key={videoInfo.product_id}
                               videoData={item}
-                            />
+                            />:
+                            <img src={apiImgUrl+item.filename }></img>
+                          
+                          }
                             <div className="rounded my-2 px-2 pb-2  review-user-info">
 
                               <p className="card-text">This is what {item.user.name} has to say!</p>
