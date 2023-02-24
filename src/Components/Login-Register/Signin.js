@@ -32,7 +32,7 @@ export const Signin = () => {
         <div className="sub-main-signin row d-flex justify-content-center align-items-center h-100">
           <div class="col col-xl-10">
             <div class="card">
-              <div class="row g-0">
+              <div class="row ">
                 <div className="col-md-6 col-lg-5 d-none d-md-block">
                   <img
                     src="https://images.pexels.com/photos/3353621/pexels-photo-3353621.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"

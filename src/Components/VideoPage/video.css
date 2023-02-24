@@ -20,17 +20,19 @@
     margin: auto;
 
 }
-
- .item-picture {
-    border-radius: 20px;
-    height: 20rem;
-    width: 20rem;
-    margin: 4rem;
-    display: flex;
-    align-items: center;
-    margin-left: 15%;
-
+.filter-buttons{
+    border:none;
+    background-color:transparent;
 }
+.review-thumbnail{
+    height:10rem
+}
+.item-picture{
+    height:30rem;
+    width:30rem;
+   
+}
+
 /*
 .item-picture-whishlist {
     display: flex;
@@ -46,7 +48,16 @@
 body {
     margin: 0;
 }
+.review-user-info{
+    border:1px solid black;
+	background-color: rgb(241 245 249);
+}
+.details-link a{
+    text-decoration: none;
+    color: black;
+    padding: 0.5rem;
 
+}
 .video-container {
     position: relative;
     width: 100%;
@@ -54,7 +65,6 @@ body {
     justify-content: center;
     margin-inline: auto;
     background-color: black;
-    margin: 4rem;
 }
 
 

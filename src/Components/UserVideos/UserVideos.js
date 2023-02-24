@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { Context } from "../../Store/appContext";
-import "/workspace/Group-1-Miami-PT42/src/Components/UserVideos/UserVideos.css";
+import "./UserVideos.css";
 
 export const UserVideos = () => {
 //   const [userVideos, setUserVideos] = useState();

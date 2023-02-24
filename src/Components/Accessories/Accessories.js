@@ -4,11 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import '/workspace/Group-1-Miami-PT42/src/Components/Accessories/Accessories.css'
+import './Accessories.css'
 import "@fontsource/open-sans"
 
 export const Accessories=()=>{
-const {actions}=useContext(Context)
+const {actions, store}=useContext(Context)
 const [accessoryInfo, setAccessoryInfo]=useState()
 const apiImgUrl =
 "https://ashleylem.pythonanywhere.com/product/images/";

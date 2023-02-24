@@ -6,7 +6,7 @@ import "@fontsource/playfair-display"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // --------------------this is how bootstrap is added---------------------
 
-import '/workspace/Group-1-Miami-PT42/src/index.js';
+// import './src/index.js';
 import App from './App';
 
 import Kommunicate from '@kommunicate/kommunicate-chatbot-plugin';

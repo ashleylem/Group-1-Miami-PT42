@@ -63,7 +63,23 @@ const getState = ({ getStore, getActions, setStore }) => {
         // console.log(data)
         return data;
       },
-      
+      get_info:async (user_id) => {
+        
+        const response = await fetch(
+          "https://ashleylem.pythonanywhere.com/profile/" +
+            user_id,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        // console.log(data)
+        return data;
+      },
+
       add_user_picture: async (form) => {
         const userId = localStorage.getItem("user-id");
         await fetch(
@@ -297,6 +313,19 @@ const getState = ({ getStore, getActions, setStore }) => {
         // console.log(videoUrl)
 
         return response.url;
+      },
+      get_all_uploads: async ()=>{
+        const response= await fetch("https://ashleylem.pythonanywhere.com/uploads/videos",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    return data;
+
       },
       add_product: async (form) => {
         await fetch(
