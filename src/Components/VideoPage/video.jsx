@@ -298,7 +298,7 @@ export const Video = () => {
                           
                           <div className="ps-4 ">
                             <h4>Review for: {item.product.name}</h4>
-                            <VideoControls
+                            { isMP4? <VideoControls
                               key={videoInfo.product_id}
                               videoData={item}
                             />:
