@@ -158,6 +158,7 @@ const VideoControls = ({ videoData }) => {
         </div>
       </div>
       <video
+        autoPlay
         ref={video}
         className="video"
         src={apiImgUrl + videoData.filename}
