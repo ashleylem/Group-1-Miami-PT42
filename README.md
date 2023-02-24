@@ -52,7 +52,10 @@ npm run test
 * GitHub: [@minervaDutta](https://github.com/minervaDutta) [@ashleylem](https://github.com/ashleylem)[@NotAlxT](https://github.com/NotAlxT)
 * LinkedIn: [@minervadutta](https://linkedin.com/in/minervadutta) [@notalxt](https://linkedin.com/in/notalxt)
 
-## Video Demo
+## ✨Demo
+
+Watch here https://youtu.be/7-2k6tyfc7Y
+
 
 
 
