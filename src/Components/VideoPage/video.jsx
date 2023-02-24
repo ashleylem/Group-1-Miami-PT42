@@ -221,15 +221,15 @@ export const Video = () => {
     <div className="main-video filters">
       <div class="container ">
         <div className="linksContainer rounded navbar d-flex justify-content-evenly shadow-sm  mt-3 ">
-                <button className="filter-buttons" onClick={() => setCategoryName("Women")}>Women</button>
-                <button className="filter-buttons" onClick={() => setCategoryName("Men")}>Men</button>
-                <button className="filter-buttons" onClick={() => setCategoryName("Accessories")}>
-                  Accessories
-                </button>
-                <button className="filter-buttons" onClick={() => setCategoryName("Shoes")}>Shoes</button>
-                <button className="filter-buttons" onClick={() => setCategoryName("Home-Decor")}>
-                  Home
-                </button>
+          <button className="filter-buttons" onClick={() => setCategoryName("Women")}>Women</button>
+          <button className="filter-buttons" onClick={() => setCategoryName("Men")}>Men</button>
+          <button className="filter-buttons" onClick={() => setCategoryName("Accessories")}>
+            Accessories
+          </button>
+          <button className="filter-buttons" onClick={() => setCategoryName("Shoes")}>Shoes</button>
+          <button className="filter-buttons" onClick={() => setCategoryName("Home-Decor")}>
+            Home
+          </button>
         </div>
       </div>
       <div className="container">
@@ -246,11 +246,11 @@ export const Video = () => {
                   data-bs-toggle="modal"
                   data-bs-target={"#userReview" + index}
                 >
-               
+
                   <VideoImageThumbnail
                     videoUrl={apiImgUrl + item?.filename}
                     className="review-thumbnail "
-                
+
                     alt="my test video"
                   />
                   <div className="d-flex">
@@ -280,23 +280,25 @@ export const Video = () => {
                   <div className="modal-dialog modal-xl modal-dialog-scrollable">
                     <div className="modal-content">
                       <div className="modal-header flex-column">
-                        <h2 className="modal-title">{item?.name}</h2>
+                        <h2 className="modal-title">{item.product.name}</h2>
                         <h5>Submitted by: {item.user.name}</h5>
                       </div>
-                      <div className="modal-body d-flex">
-                        <div className="d-flex">
-                          <img
-                            className="rounded"
-                            src={productImgUrl + array[0]}
-                          ></img>
+                      <div className="model-picture modal-body d-flex">
+                        <div className=" d-flex">
+                    
+                            <img
+                              className="rounded"
+                              src={productImgUrl + array[0]}
+                            ></img>
+                          
                           <div className="ps-4 ">
-                            <h4>Review for: {item.product.name}</h4>
+                            <h4></h4>
                             <VideoControls
                               key={videoInfo.product_id}
                               videoData={item}
                             />
                             <div className="rounded my-2 px-2 pb-2  review-user-info">
-                            
+
                               <p className="card-text">This is what {item.user.name} has to say!</p>
                               <p className="card-text">{item.description}</p>
                             </div>
