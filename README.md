@@ -15,7 +15,8 @@
 
 >  2AM is a eCommerce website that is built from the perspective of a buyer and a seller. The site allows independent sellers to upload their products and keep track of sales. The website empowers buyers to make informed purchases through verified video reviews.
 
-### 🏠 [Homepage](https://idemoprojects.com/)
+### 🏠 [Homepage](https://idemoprojects.com/) 
+#Hosted Landing page only
 
 ## Prerequisites
 
