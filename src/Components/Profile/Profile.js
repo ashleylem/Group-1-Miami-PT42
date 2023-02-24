@@ -308,8 +308,9 @@ export const Profile = () => {
                           className="review-thumbnail "
                           alt="my test video"
                         />):
-                      <img src={productImgUrl + array[0]}>
-                      </img>
+                        <div className="react-video-thumbnail-image">
+                      <img className="review-thumbnail" src={productImgUrl + array[0]}>
+                      </img></div>
                       }
                         <div className="d-flex">
                           <img
@@ -350,8 +351,9 @@ export const Profile = () => {
 
                             <div className="modal-header">
                               <h5 className="modal-title">
-                                Review for:{item.name}{" "}
+                               {item.name}{" "}
                               </h5>
+                              </div><div>
                               <div className="modal-body">
                                 <p className="card-text">{item.description}</p>
                               </div>
