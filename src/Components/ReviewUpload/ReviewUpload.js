@@ -16,12 +16,13 @@ export const ReviewUpload=()=>{
 
   useEffect(() => {
     async function settingPurchases() {
-      let newPurchase = await actions.get_purchases();
+      let newPurchase = await actions.get_user_purchases();
       // console.log(newPurchase);
       setPurchases(newPurchase);
     }
     settingPurchases();
   }, []);
+  console.log(purchases)
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -118,6 +119,5 @@ export const ReviewUpload=()=>{
             {progress}%
           </div>
         </div>
-        {console.log(progress)}
       </form>)
 }
