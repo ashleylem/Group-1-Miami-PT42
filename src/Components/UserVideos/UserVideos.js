@@ -49,7 +49,7 @@ console.log(data)
               <div className="review-container">
                 <div className="review-content-container">
                   
-                    <video
+                    <video autoPlay
                     //   className="videoDisplay"
                       type="video/mp4"
                       src={apiImgUrl + item.filename}
