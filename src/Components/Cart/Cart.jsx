@@ -27,6 +27,8 @@ function Cart() {
 		settingCart();
 	}, []);
   console.log(cart)
+
+  
 	return (
 		<div class="basket">
 			<div className="heading-cart">

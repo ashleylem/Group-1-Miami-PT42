@@ -7,6 +7,7 @@ import "@fontsource/playfair-display";
 import { ProductUpload } from "../ProductUploads/ProductUploads";
 import { faCamera } from "@fortawesome/free-solid-svg-icons";
 import "../../Components/Profile/Profile.css";
+
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { ReviewUpload } from "../ReviewUpload/ReviewUpload";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
@@ -26,6 +27,7 @@ export const Profile = () => {
   const [isIntroOpen, setIsIntroOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const { actions } = useContext(Context);
+
   const steps = [
     {
       target: ".profile-pic-upload",
@@ -293,7 +295,7 @@ export const Profile = () => {
                   </div>
                 </div>
               </div>
-              <div className="previews-container row">
+              <div className="row">
                 {userVideos?.map((item, index) => {
                   let imgUrl = item.picture;
                   let array = imgUrl.split(",");
@@ -314,7 +316,7 @@ export const Profile = () => {
                         />
                         <div className="d-flex">
                           <img
-                            className="review-img"
+                            className="review-img pe-2 pt-2"
                             src={productImgUrl + array[0]}
                           ></img>
                           <div>

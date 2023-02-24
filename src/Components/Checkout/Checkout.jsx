@@ -3,6 +3,8 @@ import "./Checkout.css";
 import { Link } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { Context } from "../../Store/appContext";
+import { receipt } from "../../receiptApi";
+import { generate_receipt } from "../../receiptApi";
 
 /**
  * This function displays Square cards for product segments right below the Bestsellers section.
@@ -28,6 +30,8 @@ function Checkout() {
     last_name:'',
     email:'',
   })
+  
+  
   const handleChange = (property) => (event) => {
     const value = event.target.value;
     setAddressInfo((prevState) => ({
@@ -55,6 +59,9 @@ actions.add_to_purchases(item)
 
 })
 actions.clear_cart()
+// const newReceipt= receipt(buyerInfo, addressInfo, cart)
+//   console.log(newReceipt)
+//   generate_receipt(newReceipt)
 }
 
   useEffect(()=>{
@@ -65,7 +72,7 @@ actions.clear_cart()
   settingCart()
   },[])
 
-
+  
   return (
     <div className="checkout-container container-fluid">
       <div className="py-5">
