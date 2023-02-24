@@ -45,18 +45,18 @@ export const Signup = () => {
       return document.querySelector(checked).value;
     }
 
-    const phoneInputDiv = document.getElementById("phone-input");
+    //const phoneInputDiv = document.getElementById("phone-input");
     const emailInputDiv = document.getElementById("email-input");
 
-    function showEmailInput() {
-      phoneInputDiv.style.display = "none";
-      emailInputDiv.style.display = "block";
-    }
+    // function showEmailInput() {
+    //   phoneInputDiv.style.display = "none";
+    //   emailInputDiv.style.display = "block";
+    // }
 
-    function showPhoneNumberInput() {
-      phoneInputDiv.style.display = "block";
-      emailInputDiv.style.display = "none";
-    }
+    // function showPhoneNumberInput() {
+    //   phoneInputDiv.style.display = "block";
+    //   emailInputDiv.style.display = "none";
+    // }
 
     const statusSpan = document.getElementById("status");
     const modalStatusSpan = document.getElementById("modal-status");
@@ -94,10 +94,10 @@ export const Signup = () => {
         channel == "call" ? "☎️ calling..." : "Sending verification code...";
       showStatus(statusMessage);
 
-      to =
-        channel == "email"
-          ? document.getElementById("email").value
-          : phoneInput.getNumber();
+      // to =
+      //   channel == "email"
+      //     ? document.getElementById("email").value
+      //     : phoneInput.getNumber();
 
       const data = new URLSearchParams();
       data.append("channel", channel);
@@ -189,16 +189,16 @@ export const Signup = () => {
           clearStatus();
           break;
         case "channel-email":
-          showEmailInput();
+          //showEmailInput();
           break;
         case "channel-sms":
-          showPhoneNumberInput();
+          //showPhoneNumberInput();
           break;
         case "channel-whatsapp":
-          showPhoneNumberInput();
+          //showPhoneNumberInput();
           break;
         case "channel-call":
-          showPhoneNumberInput();
+          //showPhoneNumberInput();
           break;
       }
     };
