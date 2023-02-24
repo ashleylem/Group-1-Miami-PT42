@@ -19,6 +19,7 @@ import { UserProducts } from './Components/UserProducts/UserProducts';
 import { SubCatDisplay } from './Components/ProductDisplaySub/ProductDisplaySub';
 import { UserVideos } from './Components/UserVideos/UserVideos';
 
+
 import injectContext from './Store/appContext';
 import { ProductDetail } from './Components/ProductDetail/ProductDetail';
 
