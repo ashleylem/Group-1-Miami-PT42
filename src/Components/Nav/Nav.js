@@ -14,6 +14,8 @@ import { get_women_categories } from "../../asosApi";
 import { get_men_categories } from "../../asosApi";
 import { useState, useEffect } from "react";
 import { Context } from "../../Store/appContext";
+import { Logout } from "../../Logout";
+
 function Nav() {
   const [womenCategories, setWomenCategories] = useState([]);
   const [menCategories, setMenCategories] = useState([]);
@@ -69,6 +71,7 @@ function Nav() {
           <Link to="/Wishlist">
             <FontAwesomeIcon className="bookmark" icon={faBookmark} />
           </Link>
+          <Logout/>
         </div>
       </div>
       <ul className="links-container">

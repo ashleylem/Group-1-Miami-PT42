@@ -49,20 +49,17 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       get_user_info: async () => {
         const userId = localStorage.getItem("user-id");
+        const timestamp = new Date().getTime(); // get current timestamp
         const response = await fetch(
-          "https://ashleylem.pythonanywhere.com/" +
-            userId,
+          `https://ashleylem.pythonanywhere.com/${userId}?timestamp=${timestamp}`, // add timestamp as query parameter
           {
             method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
           }
         );
         const data = await response.json();
-        // console.log(data)
         return data;
       },
+      
       get_info:async (user_id) => {
         
         const response = await fetch(
@@ -284,6 +281,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
         return data;
       },
+      get_user_purchases: async()=>{
+        const userId = localStorage.getItem("user-id");
+
+        const response = await fetch(
+          "https://ashleylem.pythonanywhere.com/purchased/"+userId,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const data = await response.json();
+        console.log(data);
+
+        return data;
+      },
       get_user_videoInfo: async () => {
         const userId = localStorage.getItem("user-id");
         const response = await fetch(
@@ -391,7 +405,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
         })
         const data= await response.json()
-        console.log(data)
+        // console.log(data)
         return data
       },
       add_to_sales: async (form)=>{

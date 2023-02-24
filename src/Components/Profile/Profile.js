@@ -21,8 +21,6 @@ export const Profile = () => {
   const [userVideos, setUserVideos] = useState();
   const [userProducts, setUserProducts] = useState();
   const [userInfo, setUserInfo] = useState();
-  const [productImg, setProductImg] = useState();
-  const [pictureUpload, setPictureUpload] = useState();
   const [salesInfo, setSalesInfo] = useState();
   const [isIntroOpen, setIsIntroOpen] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -30,10 +28,10 @@ export const Profile = () => {
 
   const steps = [
     {
-      target: ".profile-pic-upload",
+      target: ".profilePicLabel",
       content:
         "Add a profile picture! This picture will be displayed with all your product reviews and your product listings.",
-      placement: "top",
+      placement: "bottom",
     },
     {
       target: ".uploads",
@@ -47,6 +45,40 @@ export const Profile = () => {
       placement: "top",
     },
   ];
+  async function fetchData() {
+    try {
+      async function newUserInfo() {
+        const userId = localStorage.getItem("user-id");
+        const timestamp = new Date().getTime(); // get current timestamp
+        const response = await fetch(
+          `https://ashleylem.pythonanywhere.com/${userId}?timestamp=${timestamp}`, // add timestamp as query parameter
+          {
+            method: "GET",
+          }
+        );
+        const data = await response.json();
+        return data;
+      }
+      const getUserVideos = await actions.get_user_videoInfo();
+      const getUserProducts = await actions.get_user_products();
+      const getSalesInfo = await settingSales();
+      const getUserInfo = await newUserInfo();
+
+      setUserInfo(getUserInfo);
+      setUserVideos(getUserVideos);
+      setUserProducts(getUserProducts);
+      setSalesInfo(getSalesInfo);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   useEffect(() => {
     const shouldShowIntro = localStorage.getItem("showIntro") === "true";
     if (shouldShowIntro) {
@@ -70,49 +102,9 @@ export const Profile = () => {
     }));
   }
 
-  useEffect(() => {
-    async function settingSalesInfo() {
-      settingSales()
-        .then((data) => setSalesInfo(data))
-        .catch((error) => console.log(error));
-    }
-    settingSalesInfo();
-  });
-  console.log(salesInfo);
-  useEffect(() => {
-    async function settingUserInfo() {
-      try {
-        let newInfo = await actions.get_user_info();
-        setUserInfo(newInfo);
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-      }
-    }
-    settingUserInfo();
-  }, []);
-
   const profilePic = "https://ashleylem.pythonanywhere.com/profile/picture/";
-  const apiImgUrl = "https://ashleylem.pythonanywhere.com/images/";
   const productImgUrl = "https://ashleylem.pythonanywhere.com/product/images/";
   const apiVideoUrl = "https://ashleylem.pythonanywhere.com/videos/";
-
-  useEffect(() => {
-    async function settingProducts() {
-      let newUserProducts = await actions.get_user_products();
-      setUserProducts(newUserProducts);
-    }
-    settingProducts();
-  }, []);
-
-  useEffect(() => {
-    async function settingVideo() {
-      const newInfo = await actions.get_user_videoInfo();
-      setUserVideos(newInfo);
-    }
-    settingVideo();
-  }, []);
 
   function submit() {
     profileRef.submit();
@@ -168,7 +160,7 @@ export const Profile = () => {
       />
       <div class="col-xl-8 col-md-8 col-sm-10 mx-auto">
         <div class="bg-white shadow rounded overflow-hidden">
-          <div className="px-4 pt-0 pb-4 bg-dark">
+          <div className="px-4 pt-0 pb-4 bg-dark all-profile-container">
             <div className="media align-items-end text-white profile-header">
               {userInfo?.map((item, index) => {
                 return (
@@ -178,7 +170,7 @@ export const Profile = () => {
                       <>
                         <img
                           className="profile-pic-img"
-                          src={profilePic + item?.filename}
+                          src={profilePic + item.filename}
                         />
                         <form
                           ref={replacePic}
@@ -209,7 +201,7 @@ export const Profile = () => {
                             handleSubmitPic(e);
                           }}
                         >
-                          <label htmlFor="pictureTag">
+                          <label className="profilePicLabel" htmlFor="pictureTag">
                             <FontAwesomeIcon
                               className="cameraIcon"
                               icon={faCamera}
@@ -307,7 +299,7 @@ export const Profile = () => {
                         data-bs-target={"#userReview" + index}
                       >
                         <VideoImageThumbnail
-                          videoUrl={apiVideoUrl + item?.filename}
+                          videoUrl={apiVideoUrl + item.filename}
                           thumbnailHandler={(thumbnail) =>
                             console.log(thumbnail)
                           }
@@ -320,7 +312,7 @@ export const Profile = () => {
                             src={productImgUrl + array[0]}
                           ></img>
                           <div>
-                            <h5 className="mt-4 fw-semibold">{item?.name}</h5>
+                            <h5 className="mt-4 fw-semibold">{item.name}</h5>
                             <p className="text-muted fs-6">
                               Certified Review{" "}
                               <FontAwesomeIcon
@@ -343,13 +335,13 @@ export const Profile = () => {
                             <video
                               className="videoDisplay"
                               type="video/mp4"
-                              src={apiVideoUrl + item?.filename}
+                              src={apiVideoUrl + item.filename}
                               controls
                             />
 
                             <div className="modal-header">
                               <h5 className="modal-title">
-                                Review for:{item?.name}{" "}
+                                Review for:{item.name}{" "}
                               </h5>
                               <div className="modal-body">
                                 <p className="card-text">{item.description}</p>
@@ -403,8 +395,8 @@ export const Profile = () => {
                             className=" modal-img-button p-0 img-fluid rounded"
                             type="button"
                             data-bs-toggle="modal"
-                            data-bs-target={"#modal" + item?.id}
-                            src={productImgUrl + item?.filename[0]}
+                            data-bs-target={"#modal" + item.id}
+                            src={productImgUrl + item.filename[0]}
                             alt="..."
                           />
                           <h5 className="mt-2">{item.name}</h5>
@@ -412,7 +404,7 @@ export const Profile = () => {
                         </div>
                         <div
                           className="modal fade"
-                          id={"modal" + item?.id}
+                          id={"modal" + item.id}
                           tabIndex="-1"
                           aria-labelledby="productModalLabel"
                           aria-hidden="true"
@@ -420,18 +412,16 @@ export const Profile = () => {
                           <div className="modal-dialog modal-lg modal-dialog-scrollable">
                             <div className="modal-content product-modal flex-row">
                               <div
-                                id={"carousel" + item?.id}
+                                id={"carousel" + item.id}
                                 className="product-carousel carousel col-6 carousel-dark slide"
                               >
                                 <div className="carousel-indicators">
-                                  {item?.filename?.map((image, index) => {
+                                  {item.filename.map((image, index) => {
                                     if (index == 0) {
                                       return (
                                         <button
                                           type="button"
-                                          data-bs-target={
-                                            "#carousel" + item?.id
-                                          }
+                                          data-bs-target={"#carousel" + item.id}
                                           data-bs-slide-to={index}
                                           className="active"
                                           aria-current="true"
@@ -442,9 +432,7 @@ export const Profile = () => {
                                       return (
                                         <button
                                           type="button"
-                                          data-bs-target={
-                                            "#carousel" + item?.id
-                                          }
+                                          data-bs-target={"#carousel" + item.id}
                                           data-bs-slide-to={index}
                                           aria-label={"Slide" + index}
                                         ></button>
@@ -453,7 +441,7 @@ export const Profile = () => {
                                   })}
                                 </div>
                                 <div className="carousel-inner">
-                                  {item?.filename?.map((image, index) => {
+                                  {item.filename.map((image, index) => {
                                     if (index == 0) {
                                       console.log(image);
                                       return (
@@ -481,7 +469,7 @@ export const Profile = () => {
                                 <button
                                   className="carousel-control-prev"
                                   type="button"
-                                  data-bs-target={"#carousel" + item?.id}
+                                  data-bs-target={"#carousel" + item.id}
                                   data-bs-slide="prev"
                                 >
                                   <span
@@ -495,7 +483,7 @@ export const Profile = () => {
                                 <button
                                   className="carousel-control-next"
                                   type="button"
-                                  data-bs-target={"#carousel" + item?.id}
+                                  data-bs-target={"#carousel" + item.id}
                                   data-bs-slide="next"
                                 >
                                   <span
@@ -506,36 +494,33 @@ export const Profile = () => {
                                 </button>
                               </div>
                               <div className="modal-body">
-                                <h5 className="modal-title">{item?.name}</h5>
+                                <h5 className="modal-title">{item.name}</h5>
                                 <div className="content">
                                   <h6 className=" card-text">Category:</h6>
-                                  <p className=" card-text">
-                                    {" "}
-                                    {item?.category}
-                                  </p>
+                                  <p className=" card-text"> {item.category}</p>
 
                                   <h6 className="card-text">SubCategory:</h6>
                                   <p className="card-text">
                                     {" "}
-                                    {item?.subcategory}
+                                    {item.subcategory}
                                   </p>
 
                                   <h6 className=" card-text">Sizes:</h6>
-                                  <p className="card-text"> {item?.sizes}</p>
+                                  <p className="card-text"> {item.sizes}</p>
 
                                   <h6 className="card-text">Description:</h6>
                                   <p className="card-text">
                                     {" "}
-                                    {item?.description}
+                                    {item.description}
                                   </p>
 
                                   <h6 className="card-text">Details:</h6>
-                                  <p className="card-text"> {item?.details}</p>
+                                  <p className="card-text"> {item.details}</p>
 
                                   <h6 className="card-text">
                                     Shipping Information:
                                   </h6>
-                                  <p className="card-text"> {item?.shipping}</p>
+                                  <p className="card-text"> {item.shipping}</p>
                                 </div>
                               </div>
                             </div>
@@ -553,17 +538,24 @@ export const Profile = () => {
                 {salesInfo?.map((item) => {
                   let imgUrl = item.product.filename;
                   let imgArray = imgUrl.split(",");
-                  return(<div className="previews-container rounded col-lg-6 mb-2 pr-lg-1">
-                    <img
-                      className="modal-img-button  p-0 img-fluid rounded"
-                      src={productImgUrl+imgArray[0]}
-                      alt="..."
-                    />
-                    <h5 className="mt-2">{item.product.name}</h5>
-                    <p className="">Buyer Name: {item.buyer_name}</p>
-                    <p className="">Buyer's Shipping Info: {item.buyer_shipping}</p>
-                    <p>Has this item shipped?: {item.fullfillment_status? "Yes":"No"}</p>
-                  </div>)
+                  return (
+                    <div className="previews-container rounded col-lg-6 mb-2 pr-lg-1">
+                      <img
+                        className="modal-img-button  p-0 img-fluid rounded"
+                        src={productImgUrl + imgArray[0]}
+                        alt="..."
+                      />
+                      <h5 className="mt-2">{item.product.name}</h5>
+                      <p className="">Buyer Name: {item.buyer_name}</p>
+                      <p className="">
+                        Buyer's Shipping Info: {item.buyer_shipping}
+                      </p>
+                      <p>
+                        Has this item shipped?:{" "}
+                        {item.fullfillment_status ? "Yes" : "No"}
+                      </p>
+                    </div>
+                  );
                 })}
               </div>
             </div>

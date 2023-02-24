@@ -240,7 +240,7 @@ export const Video = () => {
             let imgUrl = item.picture;
             let array = imgUrl.split(",");
             return (
-              <div className="sub-main-video ">
+              <div className=" mb-3 sub-main-video ">
                 <div
                   className="previewImg "
                   data-bs-toggle="modal"
