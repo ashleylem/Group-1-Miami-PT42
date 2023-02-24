@@ -8,7 +8,7 @@
   <a href="https://github.com/kefranabg/readme-md-generator/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/ashleylem/Group-1-Miami-PT42/blob/main/LICENSE" target="_blank">
+  <a href="https://github.com/ashleylem/Group-1-Miami-PT42/blob/main/LICENSE.md" target="_blank">
     <img alt="License: MIT" src="https://img.shields.io/github/license/minervaDutta/2AM: A new way to shop" />
   </a>
 </p>
