@@ -19,7 +19,7 @@ function Footer() {
               
               <div className='img-ashley'>
                 <img className="img-thumbnail" src={ashley} />
-                <a href="https://www.linkedin.com/in/notalxt/" target="_blank">
+                <a href="https://www.linkedin.com/in/ashley-lemus-b1b518264/" target="_blank">
                 <img className="img-thumbnail-2" src={linkin} />
                 </a>
                 <a href="https://github.com/ashleylem" target="_blank">
