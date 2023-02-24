@@ -21,9 +21,7 @@ const injectContext = PassedComponent => {
 			})
 		);
 		
-		// useEffect(()=>{
-		// 	state.actions.delete_item()
-		// },[state.actions])
+
 
 		useEffect(() => {
 			/**
@@ -33,7 +31,7 @@ const injectContext = PassedComponent => {
 			 * store, instead use actions, like this:
 			 **/
 			// state.actions.sign_up(); // <---- calling this function from the flux.js actions
-			// state.actions.login();
+			state.actions.login();
 			// state.actions.add_to_wishlist();
 			state.actions.get_user_wishlist();
 			
