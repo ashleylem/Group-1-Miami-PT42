@@ -165,7 +165,10 @@ div.profile-header img {
 .profileLinks:hover{
     color:white
 }
+.sales-container h1{
+    font-family:"Playfair Display", serif;
 
+}
 .uploads h1{
     border: none;
     border-radius:10px;
