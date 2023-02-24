@@ -19,8 +19,12 @@ function Footer() {
               
               <div className='img-ashley'>
                 <img className="img-thumbnail" src={ashley} />
+                <a href="https://www.linkedin.com/in/notalxt/" target="_blank">
                 <img className="img-thumbnail-2" src={linkin} />
+                </a>
+                <a href="https://github.com/ashleylem" target="_blank">
               <img className="img-thumbnail-2" src={github} />
+              </a>
             </div>
             <div className='img-alex'>
               <img className="img-thumbnail" src={alex} alt="" />
@@ -36,7 +40,9 @@ function Footer() {
               <a href="https://www.linkedin.com/in/minervadutta/" target="_blank">
                 <img className="img-thumbnail-2" src={linkin} />
               </a>
+              <a href="https://github.com/minervaDutta" target="_blank">
               <img className="img-thumbnail-2" src={github} />
+              </a>
             </div>
           </div>
 

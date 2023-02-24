@@ -167,3 +167,8 @@ body {
     width: 100px;
     transform: scaleX(1);
   }
+
+  .model-picture img{
+    max-width: 70%;
+    min-width: 50%;
+  }

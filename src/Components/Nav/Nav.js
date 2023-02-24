@@ -248,7 +248,7 @@ function Nav() {
               type="button"
               aria-expanded="false"
             >
-              Video
+              Reviews
             </button>
           </Link>{" "}
         </li>
